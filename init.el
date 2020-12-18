@@ -211,16 +211,3 @@
 (load "spelling")
 
 (load-theme 'johmue t)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(dired company-prescient ivy-prescient vterm eterm-256color diminish diminisheval auto-dictionary which-key use-package undo-tree smartparens selectrum-prescient rainbow-delimiters projectile-ripgrep powerline multiple-cursors mmm-mode marginalia lsp-ui lsp-treemacs highlight-indent-guides helpful github-modern-theme flycheck evil-magit doom-modeline ctrlf consult-selectrum company-box better-scroll autothemer auto-dim-other-buffers)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
