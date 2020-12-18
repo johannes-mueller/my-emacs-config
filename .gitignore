@@ -1,0 +1,10 @@
+auto-save-list/
+elpa/
+var/
+*~
+/eshell/
+/projectile-bookmarks.eld
+/.mc-lists.el
+/transient/
+.cache
+session.*
