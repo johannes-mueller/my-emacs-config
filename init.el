@@ -210,4 +210,5 @@
 (load "look")
 (load "spelling")
 
+(use-package autothemer)
 (load-theme 'johmue t)
