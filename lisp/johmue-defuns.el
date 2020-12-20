@@ -99,14 +99,11 @@
       (pyvenv-deactivate))))
 
 
-(defun johmue/update-elpa-keyring ()
-  (interactive)
-  (setq package-check-signature nil)
-  (gnu-elpa-keyring-update)
-  (setq package-check-signature 'allow-unsigned)
-)
-
-
+(defun johmue/vterm-project-root ()
+     (interactive)
+     (setq default-directory (projectile-project-root))
+     (vterm)
+     )
 
 (provide 'johmue-defuns)
 
