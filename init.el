@@ -135,6 +135,10 @@
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
 
+(use-package forge
+  :after magit
+  )
+
 (use-package undo-tree
   :diminish
   :init (global-undo-tree-mode))
