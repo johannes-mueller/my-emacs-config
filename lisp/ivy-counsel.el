@@ -9,6 +9,11 @@
   :config
   (counsel-mode 1))
 
+(use-package counsel-projectile
+  :config
+  (counsel-projectile-mode)
+  )
+
 (use-package ivy
   :diminish
   :bind (("C-s" . swiper)
