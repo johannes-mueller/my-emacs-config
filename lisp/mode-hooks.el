@@ -16,6 +16,13 @@
 	    ))
 
 
+(use-package rustic)
+(add-hook 'rustic-mode-hook
+	  (lambda ()
+	    (cargo-minor-mode)
+	    (setq indent-tabs-mode nil)
+	    ))
+
 
 
 ;;; mode-hooks.el ends here
