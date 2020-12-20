@@ -19,6 +19,12 @@
 	    (message "Text mode initiated")
 	    ))
 
+(use-package pyvenv)
+(add-hook 'python-mode-hook
+	  (lambda ()
+	    (johmue/auto-activate-virtualenv)
+	    (lsp)
+	    ))
 
 (use-package rustic)
 (add-hook 'rustic-mode-hook
