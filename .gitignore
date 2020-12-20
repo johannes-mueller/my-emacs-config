@@ -11,3 +11,4 @@ session.*
 /.lsp-session-v1
 /eln-cache/
 /forge-database.sqlite
+/.extension/
