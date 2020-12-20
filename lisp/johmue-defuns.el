@@ -80,7 +80,7 @@
   )
 
 (defun johmue/jump-to-project ()
-  (dired ".")
+  (projectile-dired)
   (projectile-vc)
   (other-window 1)
   (setq projectile-mode-line-function '(lambda () (format " <%s>" (projectile-project-name))))

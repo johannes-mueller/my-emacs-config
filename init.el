@@ -115,15 +115,6 @@
   ([remap describe-variable] . helpful-variable)
   ([remap describe-key] . helpful-key))
 
-(use-package projectile
-  :config (projectile-mode)
-  :bind-keymap
-  ("C-c p" . projectile-command-map)
-  :init
-  (setq projectile-switch-project-action #'projectile-dired))
-
-(use-package projectile-ripgrep)
-
 (use-package prescient
   :config
   (prescient-persist-mode 1))

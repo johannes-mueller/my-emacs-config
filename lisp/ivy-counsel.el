@@ -12,7 +12,8 @@
 (use-package counsel-projectile
   :config
   (counsel-projectile-mode)
-  )
+  (setq projectile-mode-line-function '(lambda () (format " <%s>" (projectile-project-name))))
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 
 (use-package ivy
   :diminish

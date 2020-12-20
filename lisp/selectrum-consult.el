@@ -1,3 +1,13 @@
+(use-package projectile
+  :config (projectile-mode)
+  :bind-keymap
+  ("C-c p" . projectile-command-map)
+  :init
+  (setq projectile-mode-line-function '(lambda () (format " <%s>" (projectile-project-name))))
+  (setq projectile-switch-project-action #'johmue/counsel-switch-to-project))
+
+(use-package projectile-ripgrep)
+
 (use-package selectrum
   :init
   (selectrum-mode 1))
