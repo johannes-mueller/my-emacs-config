@@ -174,7 +174,7 @@
   :diminish
   :init (global-company-mode)
   :bind (:map company-active-map
-	      ("<tab>" . company-indent-or-complete-common)
+	      ("<tab>" . company-complete)
 	      ("<return>" . nil)
 	      ("RET" . nil)
 	      ("<end>" . company-complete-selection)
