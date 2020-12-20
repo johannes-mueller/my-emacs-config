@@ -1,4 +1,8 @@
 
+(use-package yasnippet
+  :hook (prog-mode . yas-minor-mode))
+(use-package yasnippet-snippets)
+
 (add-hook 'prog-mode-hook #'which-function-mode)
 (add-hook 'prog-mode-hook #'show-paren-mode)
 (add-hook 'prog-mode-hook (lambda () (setq fill-column 88)))
