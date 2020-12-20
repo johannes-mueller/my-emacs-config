@@ -72,7 +72,7 @@
 (dolist (mode '(org-mode-hook
 		dired-mode-hook
                 term-mode-hook
-		vterm-mode
+		vterm-mode-hook
 		shell-mode-hook
                 eshell-mode-hook
 		treemacs-mode-hook))
