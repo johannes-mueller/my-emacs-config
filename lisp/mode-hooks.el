@@ -24,7 +24,9 @@
 	  (lambda ()
 	    (johmue/auto-activate-virtualenv)
 	    (lsp)
-	    ))
+	    (require 'dap-python)
+	    (setq dap-python-debugger 'debugpy)
+))
 
 (use-package rustic)
 (add-hook 'rustic-mode-hook

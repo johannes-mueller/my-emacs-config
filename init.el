@@ -161,6 +161,11 @@
 (use-package lsp-treemacs
   :after lsp)
 
+(use-package dap-mode
+  :config
+  (require 'dap-node)
+  (dap-node-setup))
+
 (use-package company
   :diminish
   :init (global-company-mode)

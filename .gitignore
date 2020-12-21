@@ -12,3 +12,4 @@ session.*
 /eln-cache/
 /forge-database.sqlite
 /.extension/
+/.dap-breakpoints
