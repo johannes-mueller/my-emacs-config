@@ -149,7 +149,7 @@
   :commands (lsp lsp-deferred)
   :hook (lsp-mode . efs/lsp-mode-setup)
   :init
-  (setq lsp-keymap-prefix "C l")
+  (setq lsp-keymap-prefix "C-l")
   :config
   (lsp-enable-which-key-integration t))
 

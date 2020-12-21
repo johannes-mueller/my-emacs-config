@@ -27,6 +27,7 @@
 	    (require 'dap-python)
 	    (setq dap-python-debugger 'debugpy)
 ))
+(setq-default lsp-pyls-configuration-sources ["flake8"])
 
 (use-package rustic)
 (add-hook 'rustic-mode-hook
