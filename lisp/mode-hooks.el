@@ -34,6 +34,7 @@
 	  (lambda ()
 	    (cargo-minor-mode)
 	    (setq indent-tabs-mode nil)
+	    (lsp)
 	    ))
 
 
