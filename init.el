@@ -149,14 +149,22 @@
   :commands (lsp lsp-deferred)
   :hook (lsp-mode . efs/lsp-mode-setup)
   :init
-  (setq lsp-keymap-prefix "C-l")
+  (setq lsp-keymap-prefix "C-M-l")
   :config
+  (setq gc-cons-threshold 128000000)
+  (setq read-process-output-max (* 1024 1024)) ;; 1mb
   (lsp-enable-which-key-integration t))
 
 (use-package lsp-ui
   :hook (lsp-mode . lsp-ui-mode)
   :custom
-  (lsp-ui-doc-position 'bottom))
+  (lsp-ui-doc-position 'bottom)
+  (lsp-ui-peek-enable t)
+  (lsp-ui-imenu-enable t)
+  :bind
+  ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
+  ([remap xref-find-references] . lsp-ui-peek-find-references)
+  )
 
 (use-package lsp-treemacs
   :after lsp)
