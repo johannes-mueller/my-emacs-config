@@ -92,7 +92,11 @@
 
 (use-package smartparens
   :diminish
-  :config (smartparens-global-mode t)
+  :config
+  (sp-pair "(" ")" :unless '(sp-point-before-word-p))
+  (sp-pair "[" "]" :unless '(sp-point-before-word-p))
+  (sp-pair "{" "}" :unless '(sp-point-before-word-p))
+  (smartparens-global-mode t)
   :init
   (bind-key "M-<right>" 'sp-forward-sexp)
   (bind-key "M-<left>" 'sp-backward-sexp)
