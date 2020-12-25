@@ -1,7 +1,7 @@
 
 (use-package counsel
   :diminish
-  :bind (("C-M-j" . 'counsel-switch-buffer)
+  :bind (("C-x b" . 'counsel-switch-buffer)
          :map minibuffer-local-map
          ("C-r" . 'counsel-minibuffer-history))
   :custom
@@ -40,6 +40,7 @@
   (ivy-rich-mode 1))
 
 (use-package ivy-prescient
+  :after counsel
   :config
   (ivy-prescient-mode 1))
 

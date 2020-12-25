@@ -189,8 +189,10 @@
   )
 
 (use-package company-prescient
+  :after company
   :config
-  (company-prescient-mode 1))
+  (company-prescient-mode 1)
+  (setq company-prescient-sort-length-enable t))
 
 ;(use-package company-box
 ;  :hook (company-mode . company-box-mode))
