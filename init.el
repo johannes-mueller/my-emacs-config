@@ -222,3 +222,5 @@
 
 (use-package autothemer)
 (load-theme 'johmue t)
+
+(load "local-devel" t)
