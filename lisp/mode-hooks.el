@@ -3,6 +3,9 @@
   :hook (prog-mode . yas-minor-mode))
 (use-package yasnippet-snippets)
 
+(use-package string-inflection
+  :bind ("<f4>" . string-inflection-all-cycle))
+
 (add-hook 'prog-mode-hook #'which-function-mode)
 (add-hook 'prog-mode-hook #'show-paren-mode)
 (add-hook 'prog-mode-hook (lambda () (setq fill-column 88)))
