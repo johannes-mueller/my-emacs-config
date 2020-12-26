@@ -10,8 +10,10 @@
   (johmue-dark-red "red4")
   (johmue-magenta "magenta4")
   (johmue-green "green4")
+  (johmue-cyan "cyan4")
   (johmue-blue "blue3")
   (johmue-dark-blue "blue4")
+  (johmue-yellow "yellow4")
   (johmue-alert "red")
   (johmue-comment "rosybrown")
   (johmue-region "DeepSkyBlue")
@@ -44,6 +46,16 @@
   (rainbow-delimiters-depth-9-face (:foreground "deep pink"))
   (rainbow-delimiters-mismatched-face (:forground johmue-alert :bold t))
   (rainbow-delimiters-unmatched-face (:foreground "red"))
+
+  (vterm-color-black (:foreground "black"))
+  (vterm-color-blue (:foreground johmue-blue))
+  (vterm-color-cyan (:foreground johmue-cyan))
+  (vterm-color-green (:foreground johmue-green))
+  (vterm-color-magenta (:foreground johmue-magenta))
+  (vterm-color-red (:foreground johmue-red))
+  (vterm-color-yellow (:foreground johmue-yellow))
+  (vterm-color-white (:foreground johmue-white))
+
   ))
 
 (provide-theme 'johmue)
