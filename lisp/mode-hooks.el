@@ -9,6 +9,19 @@
 (add-hook 'prog-mode-hook #'which-function-mode)
 (add-hook 'prog-mode-hook #'show-paren-mode)
 (add-hook 'prog-mode-hook (lambda () (setq fill-column 88)))
+(add-hook 'prog-mode-hook
+	  (lambda()
+	    (whitespace-mode t)
+	    ))
+
+(use-package whitespace
+  :config
+  (setq whitespace-line-column 127)
+  (setq whitespace-style '(face trailing lines space-before-tab newline empty
+				space-after-tab space-mark tab-mark newline-mark
+				missing-newline-at-eof))
+  (set-face-attribute 'whitespace-tab nil :background "red")
+  )
 
 (dolist (mode '(text-mode-hook
 		prog-mode-hook))
@@ -17,7 +30,7 @@
 (add-hook 'text-mode-hook
 	  (lambda ()
 	    (turn-on-auto-fill)
-            (setq fill-column 79)
+	    (setq fill-column 79)
 	    (flyspell-mode 1)
 	    (message "Text mode initiated")
 	    ))
@@ -35,10 +48,15 @@
 (use-package rustic)
 (add-hook 'rustic-mode-hook
 	  (lambda ()
-	    (cargo-minor-mode)
 	    (setq indent-tabs-mode nil)
 	    (lsp)
-	    ))
+	    (setq fill-column 100)
+	    (setq-local whitespace-style (cons
+					  (car whitespace-style)
+					  (cons 'tabs (cdr whitespace-style))))
+	    (message "Rustic whitespace-style %s" whitespace-style)
+	    (whitespace-mode 1)
+	    (require 'dap-gdb-lldb)))
 
 
 
