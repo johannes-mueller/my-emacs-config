@@ -54,7 +54,6 @@
 	    (setq-local whitespace-style (cons
 					  (car whitespace-style)
 					  (cons 'tabs (cdr whitespace-style))))
-	    (message "Rustic whitespace-style %s" whitespace-style)
 	    (whitespace-mode 1)
 	    (require 'dap-gdb-lldb)))
 
