@@ -56,6 +56,16 @@
   :config
   (auto-dim-other-buffers-mode t))
 
+(use-package popwin
+  :config
+  (push '(compilation-mode :noselect t :height 0.3 :position bottom :tail t) popwin:special-display-config)
+  (push '("*Help*" :height 0.5 :position top) popwin:special-display-config)
+  (push '("*xref*" :height 0.3 :position bottom) popwin:special-display-config)
+  (push '("*grep*" :height 0.5 :position bottom) popwin:special-display-config)
+  (push '(python-pytest-mode :height 0.5 :position bottom) popwin:special-display-config)
+  (popwin-mode 1)
+)
+
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
