@@ -13,3 +13,5 @@ session.*
 /forge-database.sqlite
 /.extension/
 /.dap-breakpoints
+/projects
+/lisp/local-devel.el
