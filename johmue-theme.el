@@ -56,6 +56,7 @@
   (vterm-color-yellow (:foreground johmue-yellow))
   (vterm-color-white (:foreground johmue-white))
 
+  (highlight-indent-guides-character-face (:foreground "darkgray"))
   ))
 
 (provide-theme 'johmue)

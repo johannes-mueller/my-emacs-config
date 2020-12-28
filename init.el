@@ -72,7 +72,8 @@
 (use-package highlight-indent-guides
   :diminish
   :config
-  (setq highlight-indent-guides-method 'bitmap)
+  (setq highlight-indent-guides-method 'character)
+  (setq highlight-indent-guides-auto-enabled nil)
   :hook (prog-mode . highlight-indent-guides-mode))
 
 (column-number-mode 1)
