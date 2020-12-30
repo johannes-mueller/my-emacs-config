@@ -9,19 +9,7 @@
 (add-hook 'prog-mode-hook #'which-function-mode)
 (add-hook 'prog-mode-hook #'show-paren-mode)
 (add-hook 'prog-mode-hook (lambda () (setq fill-column 88)))
-(add-hook 'prog-mode-hook
-	  (lambda()
-	    (whitespace-mode t)
-	    ))
 
-(use-package whitespace
-  :config
-  (setq whitespace-line-column 127)
-  (setq whitespace-style '(face trailing lines space-before-tab newline empty
-				space-after-tab space-mark tab-mark newline-mark
-				missing-newline-at-eof))
-  (set-face-attribute 'whitespace-tab nil :background "red")
-  )
 
 (dolist (mode '(text-mode-hook
 		prog-mode-hook))
