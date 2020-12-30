@@ -36,6 +36,7 @@
   :config
   (diminish 'auto-revert-mode)
   (diminish 'eldoc-mode)
+  (diminish 'whitespace-mode)
 )
 
 (use-package doom-modeline
