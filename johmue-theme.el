@@ -57,6 +57,10 @@
   (vterm-color-white (:foreground johmue-white))
 
   (highlight-indent-guides-character-face (:foreground "darkgray"))
+
+  (line-number              (:foreground "dim gray" :background "white smoke"))
+  (line-number-current-line (:foreground "dim gray" :background "white"))
+  (auto-dim-other-buffers-face (:background "white smoke"))
   ))
 
 (provide-theme 'johmue)
