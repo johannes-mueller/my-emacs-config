@@ -25,8 +25,9 @@
 (tool-bar-mode -1)
 (tooltip-mode -1)
 (menu-bar-mode -1)
-(global-hl-line-mode)
 (blink-cursor-mode 0)
+
+(global-hl-line-mode)
 
 (setq visible-bell 1)
 
@@ -250,7 +251,9 @@
   :config
   (setq term-prompt-regexp "^[a-z]*@[a-z]* [^<]* <[0-9]*> %")
   (setq vterm-shell "zsh")
-  (setq vterm-max-scrollback 10000))
+  (setq vterm-max-scrollback 10000)
+  (add-hook 'vterm-mode-hook (lambda () (setq-local global-hl-line-mode nil)))
+)
 
 (load "mode-hooks")
 (load "johmue-defuns")
