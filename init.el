@@ -128,6 +128,11 @@
   :config
   (setq which-key-idle-delay 0.3))
 
+(use-package guru-mode
+  :config
+  (setq guru-warn-only t)
+  (guru-global-mode +1))
+
 (use-package helpful
   :custom
   (counsel-describe-function-function #'helpful-callable)
