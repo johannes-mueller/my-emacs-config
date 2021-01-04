@@ -115,6 +115,9 @@
   (require 'smartparens-config)
 )
 
+(use-package expand-region
+  :bind (("C-=" . er/expand-region)))
+
 (use-package which-key
   :init (which-key-mode)
   :diminish
