@@ -118,6 +118,10 @@
 (use-package expand-region
   :bind (("C-=" . er/expand-region)))
 
+(use-package move-text
+  :bind (("C-M-<up>" . move-text-up)
+	 ("C-M-<down>" . move-text-down)))
+
 (use-package which-key
   :init (which-key-mode)
   :diminish
