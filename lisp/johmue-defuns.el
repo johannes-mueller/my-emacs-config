@@ -98,13 +98,6 @@
 	(pyvenv-activate possible-env-dir)
       (pyvenv-deactivate))))
 
-
-(defun johmue/vterm-project-root ()
-     (interactive)
-     (setq default-directory (projectile-project-root))
-     (vterm)
-     )
-
 (provide 'johmue-defuns)
 
 ;;; johmue-defuns.el ends here
