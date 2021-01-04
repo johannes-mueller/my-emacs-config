@@ -123,6 +123,18 @@
   :bind (("C-M-<up>" . move-text-up)
 	 ("C-M-<down>" . move-text-down)))
 
+(use-package crux
+  :bind
+  ("C-k" . crux-smart-kill-line)
+  ("C-S-<backspace>" . crux-kill-whole-line)
+  ("C-S-<return>" . crux-smart-open-line-above)
+  ("S-<return>" . crux-smart-open-line)
+  ("C-c D" . crux-delete-file-and-buffer)
+  ("C-c w" . crux-rename-file-and-buffer)
+  ("C-c M-d" . crux-duplicate-and-comment-current-line-or-region)
+  ([remap move-beginning-of-line] . crux-move-beginning-of-line)
+  )
+
 (use-package which-key
   :init (which-key-mode)
   :diminish
