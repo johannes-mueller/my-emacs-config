@@ -36,6 +36,7 @@
 	 ("C-d" . ivy-reverse-i-search-kill))
   :config
   (setq projectile-completion-system 'ivy)
+  (setq ivy-count-format "(%d/%d) ")
   (ivy-mode 1))
 
 (use-package ivy-rich
