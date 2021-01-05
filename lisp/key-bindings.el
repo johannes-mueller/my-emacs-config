@@ -36,6 +36,8 @@
 
 (global-set-key (kbd "C-x C-2") 'delete-other-windows-vertically)
 
+(global-set-key (kbd "C-S-M-s") 'johmue/ripgrep-thing-at-point)
+
 ;(define-key global-map [f11]         'ispell-buffer)
 ;(define-key global-map [(meta f11)]  'flyspell-auto-correct-word)
 

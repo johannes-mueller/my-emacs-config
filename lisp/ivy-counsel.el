@@ -19,6 +19,7 @@
 (use-package ivy
   :diminish
   :bind (("C-s" . swiper-isearch)
+	 ("C-S-s" . swiper-isearch-thing-at-point)
 	 ("C-r" . swiper-isearch-backward)
 	 :map ivy-minibuffer-map
 	 ("TAB" . ivy-alt-done)

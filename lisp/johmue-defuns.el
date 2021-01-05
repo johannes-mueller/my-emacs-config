@@ -86,6 +86,10 @@
   (setq projectile-mode-line-function '(lambda () (format " <%s>" (projectile-project-name))))
 )
 
+(defun johmue/ripgrep-thing-at-point ()
+  (interactive)
+  (counsel-rg (ivy-thing-at-point) (projectile-project-root)))
+
 (defun johmue/auto-activate-virtualenv ()
   (interactive)
   (let
