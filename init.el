@@ -163,6 +163,12 @@
   :config
   (prescient-persist-mode 1))
 
+(use-package avy
+  :bind
+  ("C-:" . avy-goto-char-timer)
+  ("C-'" . avy-goto-char-2)
+  )
+
 ;(load "selectrum-consult")
 (load "ivy-counsel")
 
