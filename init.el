@@ -202,6 +202,24 @@
 (use-package flycheck
   :config (global-flycheck-mode))
 
+(defun johmue/org-mode-hook ()
+  (org-indent-mode)
+  )
+
+(use-package org
+  :hook ((org-mode . johmue/org-mode-hook))
+  :custom
+  (org-agenda-files '("~/OrgFiles/"))
+  (org-ellipsis " ▾")
+  )
+
+(use-package org-bullets
+  :after org
+  :hook (org-mode . org-bullets-mode)
+  :custom
+  (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●"))
+)
+
 (defun efs/lsp-mode-setup ()
   (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
   (lsp-headerline-breadcrumb-mode))
