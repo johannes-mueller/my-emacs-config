@@ -68,6 +68,9 @@
   (popwin-mode 1)
 )
 
+(setq split-width-threshold 210)
+(setq split-height-threshold 150)
+
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
