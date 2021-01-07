@@ -15,3 +15,4 @@ session.*
 /.dap-breakpoints
 /projects
 /lisp/local-devel.el
+/.cask/

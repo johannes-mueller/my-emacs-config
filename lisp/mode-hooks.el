@@ -61,5 +61,6 @@
 	    (define-key c-mode-base-map (kbd "RET") 'newline-and-indent)
 	    (lsp)))
 
+(use-package cask-mode)
 
 ;;; mode-hooks.el ends here
