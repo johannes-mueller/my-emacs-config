@@ -63,4 +63,10 @@
 
 (use-package cask-mode)
 
+(use-package sql-indent)
+
+(add-hook 'sqlind-minor-mode-hook
+	  (lambda ()
+	    (setq sqlind-basic-offset 8)
+	    (add-to-list 'sqlind-indentation-offsets-alist '(defun-start 0))))
 ;;; mode-hooks.el ends here
