@@ -4,6 +4,8 @@
 
 (setq load-path (add-to-list 'load-path "~/.emacs.d/lisp"))
 
+(load "proxy-settings" t)
+
 (require 'package)
 
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
