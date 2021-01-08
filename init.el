@@ -21,6 +21,8 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
+(setq-default custom-file null-device)
+
 (setq inhibit-startup-screen t)
 (tool-bar-mode -1)
 (tooltip-mode -1)
