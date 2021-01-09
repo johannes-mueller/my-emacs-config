@@ -12,7 +12,6 @@
 (use-package counsel-projectile
   :config
   (counsel-projectile-mode)
-  (setq counsel-projectile-preview-buffers t)
   (setq projectile-mode-line-function '(lambda () (format " <%s>" (projectile-project-name))))
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
   (define-key projectile-command-map (kbd ".") #'projectile-run-vterm))
