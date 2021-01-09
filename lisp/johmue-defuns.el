@@ -85,26 +85,6 @@
   (if (not (looking-at "[alphanum]"))
       (yas-expand)))
 
-(defun johmue/enclose-this-sexp (open close)
-  (save-excursion
-    (forward-sexp)
-    (insert close)
-    (backward-char)
-    (backward-sexp)
-    (insert open)))
-
-(defun johmue/paren-this-sexp ()
-  (interactive)
-  (johmue/enclose-this-sexp "(" ")"))
-
-(defun johmue/bracket-this-sexp ()
-  (interactive)
-  (johmue/enclose-this-sexp "[" "]"))
-
-(defun johmue/curly-this-sexp ()
-  (interactive)
-  (johmue/enclose-this-sexp "{" "}"))
-
 (defun johmue/jump-to-project ()
   (projectile-dired)
   (projectile-vc)
