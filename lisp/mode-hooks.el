@@ -1,6 +1,9 @@
 
 (use-package yasnippet
-  :hook (prog-mode . yas-minor-mode))
+  :hook (prog-mode . yas-minor-mode)
+  :bind (:map yas-minor-mode-map
+	      ("<tab>" . johmue/yas-expand-or-indent)))
+
 (use-package yasnippet-snippets)
 
 (use-package string-inflection
