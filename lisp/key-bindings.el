@@ -18,6 +18,10 @@
 (global-set-key (kbd "C-c C-;") 'johmue/comment-current-line)
 (global-set-key (kbd "C-c ;") 'johmue/uncomment-current-line)
 
+(global-set-key (kbd "C-)") 'johmue/paren-this-sexp)
+(global-set-key (kbd "C-]") 'johmue/bracket-this-sexp)
+(global-set-key (kbd "C-}") 'johmue/curly-this-sexp)
+
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
