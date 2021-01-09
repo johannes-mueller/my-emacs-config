@@ -52,3 +52,9 @@
 
 
 (use-package lsp-ivy)
+
+(use-package ivy-yasnippet)
+
+(use-package ivy-xref
+  :config
+  (setq xref-show-xrefs-function 'ivy-xref-show-xrefs))
