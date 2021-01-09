@@ -245,8 +245,8 @@
   (lsp-ui-peek-enable t)
   (lsp-ui-imenu-enable t)
   :bind
-  ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
-  ([remap xref-find-references] . lsp-ui-peek-find-references)
+  ([remap xref-find-definitions] . lsp-find-definitions)
+  ([remap xref-find-references] . lsp-find-references)
   )
 
 (use-package lsp-treemacs
