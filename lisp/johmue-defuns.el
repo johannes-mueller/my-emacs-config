@@ -79,11 +79,11 @@
   (scroll-other-window-down 1)
   )
 
-(defun johmue/yas-expand-or-indent ()
+(defun johmue/indent-and-maybe-yas-expand ()
   (interactive)
+  (indent-for-tab-command)
   (if (not (looking-at "[alphanum]"))
-      (yas-expand)
-    (indent-for-tab-command)))
+      (yas-expand)))
 
 (defun johmue/jump-to-project ()
   (projectile-dired)

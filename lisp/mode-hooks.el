@@ -1,10 +1,13 @@
 
 (use-package yasnippet
   :hook (prog-mode . yas-minor-mode)
-  :bind (:map yas-minor-mode-map
-	      ("<tab>" . johmue/yas-expand-or-indent)))
+  :bind
+  (:map yas-minor-mode-map
+	("<tab>" . johmue/indent-and-maybe-yas-expand))
+  ("C-<tab>" . yas-expand))
 
 (use-package yasnippet-snippets)
+
 
 (use-package string-inflection
   :bind ("<f4>" . string-inflection-all-cycle))
