@@ -24,6 +24,8 @@
 	 ("C-r" . swiper-isearch-backward)
 	 :map ivy-minibuffer-map
 	 ("TAB" . ivy-alt-done)
+	 ("M-<down>" . ivy-next-line-and-call)
+	 ("M-<up>" . ivy-previous-line-and-call)
 	 ("C-l" . ivy-alt-done)
 	 ("C-j" . ivy-next-line)
 	 ("C-k" . ivy-previous-line)
