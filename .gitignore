@@ -16,3 +16,4 @@ session.*
 /projects
 /lisp/local-devel.el
 /.cask/
+/request/
