@@ -292,7 +292,9 @@
   (setq vterm-shell "zsh")
   (setq vterm-max-scrollback 10000)
   (add-hook 'vterm-mode-hook (lambda () (setq-local global-hl-line-mode nil)))
-)
+  )
+
+(use-package ssh-agency)
 
 (load "mode-hooks")
 (load "johmue-defuns")
