@@ -96,6 +96,24 @@
   (interactive)
   (counsel-rg (ivy-thing-at-point) (projectile-project-root)))
 
+(defun johmue/adjust-python-shell-interpreter ()
+  (let ((invoke-python (if (executable-find "ipython")
+			   '("ipython" "--simple-prompt" "-i")
+			 '("python" "-i"))))
+  (setq python-shell-interpreter (pop invoke-python)
+	python-shell-interpreter-args (pop invoke-python))))
+
+(defun johmue/activate-python-venv (env-dir)
+  (pyvenv-activate env-dir)
+  (johmue/adjust-python-shell-interpreter)
+  (message "Switched to %s." env-dir)
+  )
+
+(defun johmue/deactivate-python-venv ()
+  (pyvenv-deactivate)
+  (johmue/adjust-python-shell-interpreter)
+  (message "Deactivated python environment."))
+
 (defun johmue/auto-activate-virtualenv ()
   (interactive)
   (let
@@ -103,10 +121,9 @@
 	(concat
 	 (file-name-as-directory
 	  (or (projectile-project-p) default-directory)) ".venv")))
-    (message "Switching to %s" possible-env-dir)
     (if (file-directory-p possible-env-dir)
-	(pyvenv-activate possible-env-dir)
-      (pyvenv-deactivate))))
+	(johmue/activate-python-venv possible-env-dir)
+      (johmue/deactivate-python-venv))))
 
 (provide 'johmue-defuns)
 

@@ -31,6 +31,11 @@
 	    ))
 
 (use-package pyvenv)
+(use-package python
+  :bind (:map inferior-python-mode-map
+	      ("C-r" . comint-history-isearch-backward))
+  )
+
 (add-hook 'python-mode-hook
 	  (lambda ()
 	    (johmue/auto-activate-virtualenv)
@@ -39,6 +44,10 @@
 	    (setq dap-python-debugger 'debugpy)
 ))
 (setq-default lsp-pyls-configuration-sources ["flake8"])
+
+(use-package ein
+  :hook (ein:ipynb-mode . (lambda ()
+			    (johmue/auto-activate-virtualenv))))
 
 (use-package rustic)
 (add-hook 'rustic-mode-hook
