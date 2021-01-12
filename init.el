@@ -272,8 +272,10 @@
   (company-prescient-mode 1)
   (setq company-prescient-sort-length-enable t))
 
-;(use-package company-box
-;  :hook (company-mode . company-box-mode))
+(use-package company-fuzzy
+  :after company
+  :config
+  (global-company-fuzzy-mode))
 
 (use-package term
   :config
