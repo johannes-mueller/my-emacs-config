@@ -72,6 +72,8 @@
   (popwin-mode 1)
 )
 
+(setq compilation-scroll-output t)
+
 (setq split-width-threshold 210)
 (setq split-height-threshold 150)
 
@@ -272,7 +274,8 @@
 (use-package company-fuzzy
   :after company
   :config
-  (global-company-fuzzy-mode))
+  (global-company-fuzzy-mode)
+  (setq company-fuzzy-prefix-on-top t))
 
 (use-package term
   :config
