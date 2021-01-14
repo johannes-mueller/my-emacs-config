@@ -263,6 +263,7 @@
   :custom
   (company-minimum-prefix-length 1)
   (company-idle-delay 0.0)
+  (company-require-match nil)
   )
 
 (use-package company-prescient
