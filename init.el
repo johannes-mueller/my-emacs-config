@@ -276,7 +276,9 @@
   :after company
   :config
   (global-company-fuzzy-mode)
-  (setq company-fuzzy-prefix-on-top t))
+  (setq company-fuzzy-prefix-on-top t)
+  (setq company-fuzzy-sorting-function 'johmue/company-fuzzy-no-dabbrev)
+)
 
 (use-package term
   :config

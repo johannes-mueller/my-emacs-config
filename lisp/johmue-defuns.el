@@ -125,6 +125,19 @@
 	(johmue/activate-python-venv possible-env-dir)
       (johmue/deactivate-python-venv))))
 
+(defvar johmue/company-fuzzy-allowed-backends '("capf"))
+
+(defun johmue/company-fuzzy-no-dabbrev (candidates)
+  (let ((preferred-candidates '()))
+    (dolist (cand candidates)
+     (let* ((backend (company-fuzzy--get-backend-by-candidate cand))
+	    (prefix (company-fuzzy--backend-prefix-candidate cand 'match)))
+       (when (or (company-fuzzy--string-prefix-p prefix cand)
+		 (member backend johmue/company-fuzzy-allowed-backends))
+	 (push cand preferred-candidates)
+	 (setq candidates (remove cand candidates)))))
+    (append preferred-candidates candidates)))
+
 (provide 'johmue-defuns)
 
 ;;; johmue-defuns.el ends here
