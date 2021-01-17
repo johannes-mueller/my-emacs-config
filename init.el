@@ -301,6 +301,10 @@
 
 (use-package ssh-agency)
 
+(use-package tramp
+  :config
+  (setq tramp-default-method "ssh"))
+
 (load "mode-hooks")
 (load "johmue-defuns")
 (load "key-bindings")
