@@ -82,7 +82,7 @@
 (defun johmue/indent-and-maybe-yas-expand ()
   (interactive)
   (indent-for-tab-command)
-  (if (not (looking-at "[alphanum]"))
+  (if (not (looking-at "[[:alnum:]]"))
       (yas-expand)))
 
 (defun johmue/jump-to-project ()
