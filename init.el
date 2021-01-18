@@ -176,7 +176,7 @@
 
 (use-package magit
   :custom
-  (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
+  (magit-display-buffer-function #'magit-display-buffer-traditional))
 
 
 (use-package gitignore-mode)
