@@ -258,7 +258,6 @@
 	      ("<tab>" . company-complete)
 	      ("<return>" . nil)
 	      ("RET" . nil)
-	      ("<end>" . company-complete-selection)
 	      ("C-<return>" . company-complete-selection))
   :custom
   (company-minimum-prefix-length 1)
