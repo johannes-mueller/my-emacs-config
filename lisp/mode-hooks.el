@@ -24,11 +24,16 @@
 
 (add-hook 'text-mode-hook
 	  (lambda ()
-	    (turn-on-auto-fill)
-	    (setq fill-column 79)
 	    (flyspell-mode 1)
-	    (message "Text mode initiated")
+	    (visual-line-mode 1)
 	    ))
+
+(use-package wc-mode
+  :hook (text-mode . (lambda () (wc-mode 1))))
+
+(use-package visual-fill-column
+  :diminish
+  :hook (text-mode . visual-fill-column-mode))
 
 (use-package pyvenv)
 (use-package python

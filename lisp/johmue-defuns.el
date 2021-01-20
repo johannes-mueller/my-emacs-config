@@ -138,6 +138,11 @@
 	 (setq candidates (remove cand candidates)))))
     (append preferred-candidates candidates)))
 
+(defun johmue/unfill-paragraph (&optional region)
+      (interactive)
+      (let ((fill-column (point-max)))
+        (fill-paragraph nil region)))
+
 (provide 'johmue-defuns)
 
 ;;; johmue-defuns.el ends here
