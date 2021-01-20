@@ -15,8 +15,12 @@
 (add-hook 'prog-mode-hook #'which-function-mode)
 (add-hook 'prog-mode-hook #'show-paren-mode)
 (add-hook 'prog-mode-hook #'flyspell-prog-mode)
-(add-hook 'prog-mode-hook (lambda () (setq fill-column 88)))
-
+(add-hook 'prog-mode-hook (lambda ()
+			    (setq fill-column 88)
+		            (setq company-backends '(company-bbdb company-semantic company-capf company-clang company-files
+					(company-dabbrev-code company-gtags company-etags company-keywords)
+					company-oddmuse company-dabbrev))
+			    (company-fuzzy-mode 1)))
 
 (dolist (mode '(text-mode-hook
 		prog-mode-hook))
@@ -26,6 +30,8 @@
 	  (lambda ()
 	    (flyspell-mode 1)
 	    (visual-line-mode 1)
+	    (setq company-backends '(company-dabbrev company-ispell))
+	    (company-fuzzy-mode 0)
 	    ))
 
 (use-package wc-mode

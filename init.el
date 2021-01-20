@@ -263,6 +263,8 @@
   (company-minimum-prefix-length 1)
   (company-idle-delay 0.0)
   (company-require-match nil)
+  :config
+  (setq company-ispell-dictionary (file-truename "~/.emacs.d/dicts/en.txt"))
   )
 
 (use-package company-prescient
@@ -274,7 +276,6 @@
 (use-package company-fuzzy
   :after company
   :config
-  (global-company-fuzzy-mode)
   (setq company-fuzzy-prefix-on-top t)
   (setq company-fuzzy-sorting-function 'johmue/company-fuzzy-no-dabbrev)
 )
