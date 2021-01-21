@@ -176,7 +176,8 @@
 
 (use-package magit
   :custom
-  (magit-display-buffer-function #'magit-display-buffer-traditional))
+  (magit-display-buffer-function #'magit-display-buffer-traditional)
+  (magit-diff-refine-hunk (quote all)))
 
 
 (use-package gitignore-mode)
