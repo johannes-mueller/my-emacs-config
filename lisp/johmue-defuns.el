@@ -149,6 +149,12 @@
   (let ((fill-column 79))
     (fill-paragraph)))
 
+(defun johmue/toggle-soft-wrap ()
+  (interactive)
+  (auto-fill-mode 'toggle)
+  (visual-line-mode 'toggle)
+  (visual-fill-column-mode 'toggle))
+
 (provide 'johmue-defuns)
 
 ;;; johmue-defuns.el ends here

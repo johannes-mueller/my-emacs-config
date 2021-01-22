@@ -38,7 +38,10 @@
 (use-package wc-mode
   :hook (text-mode . (lambda () (wc-mode 1))))
 
-(use-package visual-fill-column :diminish)
+(use-package visual-fill-column
+  :diminish
+  :custom
+  (visual-fill-column-with 79))
 
 (use-package pyvenv)
 (use-package python

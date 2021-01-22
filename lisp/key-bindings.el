@@ -44,7 +44,7 @@
 (global-set-key (kbd "C-S-M-s") 'johmue/ripgrep-thing-at-point)
 
 (global-set-key (kbd "M-q") 'johmue/fill-paragraph-79)
-
+(global-set-key [f6] 'johmue/toggle-soft-wrap)
 ;(define-key global-map [f11]         'ispell-buffer)
 ;(define-key global-map [(meta f11)]  'flyspell-auto-correct-word)
 
