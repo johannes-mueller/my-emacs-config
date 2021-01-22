@@ -46,6 +46,12 @@
 	      ("C-r" . comint-history-isearch-backward))
   )
 
+(use-package py-autopep8
+  :custom
+  (py-autopep8-options '('("--max-line-length=100"))))
+
+(use-package py-isort)
+
 (add-hook 'python-mode-hook
 	  (lambda ()
 	    (johmue/auto-activate-virtualenv)
@@ -54,6 +60,7 @@
 	    (setq dap-python-debugger 'debugpy)
 ))
 (setq-default lsp-pyls-configuration-sources ["flake8"])
+(setq lsp-pyls-plugins-flake8-enabled t)
 
 (use-package ein
   :hook (ein:ipynb-mode . (lambda ()
