@@ -28,8 +28,9 @@
 
 (add-hook 'text-mode-hook
 	  (lambda ()
+	    (turn-on-auto-fill)
+	    (set-fill-column 79)
 	    (flyspell-mode 1)
-	    (visual-line-mode 1)
 	    (setq company-backends '(company-dabbrev company-ispell))
 	    (company-fuzzy-mode 0)
 	    ))
@@ -37,9 +38,7 @@
 (use-package wc-mode
   :hook (text-mode . (lambda () (wc-mode 1))))
 
-(use-package visual-fill-column
-  :diminish
-  :hook (text-mode . visual-fill-column-mode))
+(use-package visual-fill-column :diminish)
 
 (use-package pyvenv)
 (use-package python
