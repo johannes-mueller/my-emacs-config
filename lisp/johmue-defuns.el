@@ -143,6 +143,12 @@
       (let ((fill-column (point-max)))
         (fill-paragraph nil region)))
 
+(defun johmue/fill-paragraph-79 ()
+  "Formats the paragraph to 79 characters independently of the fill-column setting."
+  (interactive)
+  (let ((fill-column 79))
+    (fill-paragraph)))
+
 (provide 'johmue-defuns)
 
 ;;; johmue-defuns.el ends here
