@@ -179,10 +179,10 @@
   (magit-display-buffer-function #'magit-display-buffer-traditional)
   (magit-diff-refine-hunk (quote all)))
 
-
 (use-package gitignore-mode)
 (use-package gitattributes-mode)
 (use-package gitconfig-mode)
+(use-package git-timemachine)
 
 (use-package forge
   :after magit
