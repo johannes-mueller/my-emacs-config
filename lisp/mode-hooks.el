@@ -31,8 +31,9 @@
 	    (turn-on-auto-fill)
 	    (set-fill-column 79)
 	    (flyspell-mode 1)
-	    (setq company-backends '(company-dabbrev company-ispell))
 	    (company-fuzzy-mode 0)
+	    (setq-local company-backends '(company-wordfreq))
+	    (setq-local company-transformers nil)
 	    ))
 
 (use-package wc-mode
