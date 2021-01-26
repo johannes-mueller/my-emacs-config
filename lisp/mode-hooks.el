@@ -67,8 +67,9 @@
 (setq lsp-pyls-plugins-flake8-enabled t)
 
 (use-package ein
-  :hook (ein:ipynb-mode . (lambda ()
-			    (johmue/auto-activate-virtualenv))))
+  :hook (ein:ipynb-mode . (lambda () (johmue/auto-activate-virtualenv)))
+  :config
+  (setq ein:output-area-inlined-images t))
 
 (use-package rustic)
 (add-hook 'rustic-mode-hook
