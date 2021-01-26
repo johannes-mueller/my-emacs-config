@@ -37,7 +37,7 @@
 
   (rainbow-delimiters-depth-1-face (:foreground "black"))
   (rainbow-delimiters-depth-2-face (:foreground "dark red"))
-  (Rainbow-delimiters-depth-3-face (:foreground "dark olive green"))
+  (rainbow-delimiters-depth-3-face (:foreground "dark olive green"))
   (rainbow-delimiters-depth-4-face (:foreground "dark blue"))
   (rainbow-delimiters-depth-5-face (:foreground "dark orchid"))
   (rainbow-delimiters-depth-6-face (:foreground "deep sky blue"))
