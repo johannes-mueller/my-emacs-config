@@ -1,7 +1,5 @@
 ;;; Code;
 
-(setenv "LANG" "en_US.UTF-8")
-
 (setq load-path (add-to-list 'load-path "~/.emacs.d/lisp"))
 
 (load "proxy-settings" t)
@@ -190,7 +188,9 @@
 (use-package magit
   :custom
   (magit-display-buffer-function #'magit-display-buffer-traditional)
-  (magit-diff-refine-hunk (quote all)))
+  (magit-diff-refine-hunk (quote all))
+  :config
+  (setq magit-git-environment (cons "LANG=en" magit-git-environment)))
 
 (use-package gitignore-mode)
 (use-package gitattributes-mode)
