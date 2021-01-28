@@ -17,7 +17,7 @@
 (add-hook 'prog-mode-hook #'flyspell-prog-mode)
 (add-hook 'prog-mode-hook (lambda ()
 			    (setq fill-column 88)
-		            (setq company-backends '(company-bbdb company-semantic company-capf company-clang company-files
+		            (setq company-backends '(company-bbdb company-semantic company-capf company-clang
 					(company-dabbrev-code company-gtags company-etags company-keywords)
 					company-oddmuse company-dabbrev))
 			    (company-fuzzy-mode 1)))
