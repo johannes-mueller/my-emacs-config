@@ -44,6 +44,10 @@
   :custom
   (visual-fill-column-with 79))
 
+(use-package pandoc)
+(use-package pandoc-mode
+  :hook (markdown-mode . (lambda () (pandoc-mode 1))))
+
 (use-package pyvenv)
 (use-package python
   :bind (:map inferior-python-mode-map
