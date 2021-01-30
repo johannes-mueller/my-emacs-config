@@ -308,6 +308,14 @@
 
 (use-package vterm
   :commands vterm
+  :bind (:map vterm-mode-map
+	      ("C-<right>" . vterm--self-insert)
+	      ("C-<left>" . vterm--self-insert)
+	      ("M-<right>" . vterm--self-insert)
+	      ("M-<left>" . vterm--self-insert)
+	      ("M-<up>" . vterm--self-insert)
+	      ("C-r" . vterm--self-insert)
+	      ("C-g" . vterm--self-insert))
   :config
   (setq term-prompt-regexp "^[a-z]*@[a-z]* [^<]* <[0-9]*> %")
   (setq vterm-shell "zsh")
