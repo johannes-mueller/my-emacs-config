@@ -125,4 +125,14 @@
 
 (use-package test-cockpit-cargo
   :straight (test-cockpit :type git :host github :repo "johannes-mueller/test-cockpit.el"))
+
+(use-package web-mode
+  :config
+  (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.eex\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.leex\\'" . web-mode))
+  )
+
+
 ;;; mode-hooks.el ends here
