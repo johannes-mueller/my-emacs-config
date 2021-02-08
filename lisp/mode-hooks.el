@@ -44,11 +44,14 @@
   :custom
   (visual-fill-column-with 79))
 
-(use-package pandoc)
+(use-package pandoc
+  :after pandoc-mode)
 (use-package pandoc-mode
   :hook (markdown-mode . (lambda () (pandoc-mode 1))))
 
-(use-package pyvenv)
+(use-package pyvenv
+  :after python-mode)
+
 (use-package python
   :bind (:map inferior-python-mode-map
 	      ("C-r" . comint-history-isearch-backward))
@@ -58,7 +61,8 @@
   :custom
   (py-autopep8-options '('("--max-line-length=100"))))
 
-(use-package py-isort)
+(use-package py-isort
+  :after python)
 
 (add-hook 'python-mode-hook
 	  (lambda ()
@@ -75,7 +79,8 @@
   :config
   (setq ein:output-area-inlined-images t))
 
-(use-package rustic)
+(use-package rustic
+  :commands rustic-mode)
 (add-hook 'rustic-mode-hook
 	  (lambda ()
 	    (setq indent-tabs-mode nil)

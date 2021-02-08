@@ -50,8 +50,8 @@
   :config
   (ivy-prescient-mode 1))
 
-
-(use-package lsp-ivy)
+(use-package lsp-ivy
+  :after lsp)
 
 (use-package ivy-yasnippet)
 

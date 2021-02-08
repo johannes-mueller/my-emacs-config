@@ -4,6 +4,9 @@
 
 (load "proxy-settings" t)
 
+(setq gc-cons-threshold 128000000)
+(setq read-process-output-max (* 1024 1024)) ;; 1mb
+
 (require 'package)
 
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
@@ -186,16 +189,17 @@
 (load "ivy-counsel")
 
 (use-package magit
+  :commands magit-status
   :custom
   (magit-display-buffer-function #'magit-display-buffer-traditional)
   (magit-diff-refine-hunk (quote all))
   :config
   (setq magit-git-environment (cons "LANG=en" magit-git-environment)))
 
-(use-package gitignore-mode)
-(use-package gitattributes-mode)
-(use-package gitconfig-mode)
-(use-package git-timemachine)
+(use-package gitignore-mode :after magit)
+(use-package gitattributes-mode :after magit)
+(use-package gitconfig-mode :after magit)
+(use-package git-timemachine :after magit)
 
 (use-package forge
   :after magit
@@ -245,8 +249,6 @@
   :init
   (setq lsp-keymap-prefix "C-M-l")
   :config
-  (setq gc-cons-threshold 128000000)
-  (setq read-process-output-max (* 1024 1024)) ;; 1mb
   (lsp-enable-which-key-integration t))
 
 (use-package lsp-ui
@@ -261,6 +263,7 @@
   :after lsp)
 
 (use-package dap-mode
+  :commands (dap-debug dap-mode)
   :config
   (require 'dap-node)
   (dap-node-setup))
@@ -297,6 +300,7 @@
  '(company-wordfreq :type git :host github :repo "johannes-mueller/company-wordfreq.el"))
 
 (use-package term
+  :commands term
   :config
   (setq explicit-shell-file-name "zsh")
   (setq term-prompt-regexp "^[a-z]*@[a-z]* [^<]* <[0-9]*> %")
