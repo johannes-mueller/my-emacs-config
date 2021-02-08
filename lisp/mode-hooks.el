@@ -17,9 +17,10 @@
 (add-hook 'prog-mode-hook #'flyspell-prog-mode)
 (add-hook 'prog-mode-hook (lambda ()
 			    (setq fill-column 88)
-		            (setq company-backends '(company-bbdb company-semantic company-capf company-clang
-					(company-dabbrev-code company-gtags company-etags company-keywords)
-					company-oddmuse company-dabbrev))
+		            (setq company-backends '(company-semantic
+						     company-capf
+						     (company-dabbrev-code company-keywords)
+						     company-dabbrev))
 			    (company-fuzzy-mode 1)))
 
 (dolist (mode '(text-mode-hook
@@ -33,8 +34,7 @@
 	    (flyspell-mode 1)
 	    (company-fuzzy-mode 0)
 	    (setq-local company-backends '(company-wordfreq))
-	    (setq-local company-transformers nil)
-	    ))
+	    (setq-local company-transformers nil)))
 
 (use-package wc-mode
   :hook (text-mode . (lambda () (wc-mode 1))))
@@ -54,8 +54,7 @@
 
 (use-package python
   :bind (:map inferior-python-mode-map
-	      ("C-r" . comint-history-isearch-backward))
-  )
+	      ("C-r" . comint-history-isearch-backward)))
 
 (use-package py-autopep8
   :custom
@@ -69,8 +68,8 @@
 	    (johmue/auto-activate-virtualenv)
 	    (lsp)
 	    (require 'dap-python)
-	    (setq dap-python-debugger 'debugpy)
-))
+	    (setq dap-python-debugger 'debugpy)))
+
 (setq-default lsp-pyls-configuration-sources ["flake8"])
 (setq lsp-pyls-plugins-flake8-enabled t)
 
