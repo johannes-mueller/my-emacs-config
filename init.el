@@ -179,6 +179,12 @@
   :config
   (prescient-persist-mode 1))
 
+(use-package imenu-list
+  :bind (("C-'" . imenu-list-smart-toggle))
+  :config
+  (setq imenu-list-focus-after-activation t
+        imenu-list-auto-resize nil))
+
 (use-package avy
   :bind
   ("C-:" . avy-goto-char-timer)
