@@ -61,6 +61,9 @@
   (line-number              (:foreground "dim gray" :background "white smoke"))
   (line-number-current-line (:foreground "dim gray" :background "white"))
   (auto-dim-other-buffers-face (:background "white smoke"))
+
+  (web-mode-html-tag-face (:foreground johmue-dark-blue :bold t))
+  (web-mode-html-attr-name-face (:foreground johmue-magenta))
   ))
 
 (provide-theme 'johmue)
