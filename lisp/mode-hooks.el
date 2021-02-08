@@ -140,5 +140,16 @@
   (setq web-mode-enable-element-tag-fontification t)
   (setq web-mode-enable-current-element-highlight t))
 
+(use-package js2-mode
+  :config
+  (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode)))
 
+(use-package elixir-mode
+  :hook (elixir-mode . (lambda ()
+			 (setq lsp-clients-elixir-server-executable "/usr/bin/elixir-ls")
+			 (lsp))))
+
+(use-package alchemist)
+(use-package elixir-yasnippets)
+(use-package flycheck-elixir)
 ;;; mode-hooks.el ends here
