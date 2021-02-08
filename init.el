@@ -319,7 +319,9 @@
 	      ("M-<left>" . vterm--self-insert)
 	      ("M-<up>" . vterm--self-insert)
 	      ("C-r" . vterm--self-insert)
-	      ("C-g" . vterm--self-insert))
+	      ("C-g" . vterm--self-insert)
+	      ("C-u" . vterm--self-insert)
+	      ("C-y" . vterm--self-insert))
   :config
   (setq term-prompt-regexp "^[a-z]*@[a-z]* [^<]* <[0-9]*> %")
   (setq vterm-shell "zsh")
