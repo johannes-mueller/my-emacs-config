@@ -155,6 +155,11 @@
   (visual-line-mode 'toggle)
   (visual-fill-column-mode 'toggle))
 
+(defun johmue/start-web-server ()
+  (interactive)
+  (let ((default-directory (projectile-project-root)))
+    (start-process-shell-command "Webserver" "Webserver" "python -m http.server")))
+
 (provide 'johmue-defuns)
 
 ;;; johmue-defuns.el ends here
