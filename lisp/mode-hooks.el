@@ -33,6 +33,7 @@
 	    (set-fill-column 79)
 	    (flyspell-mode 1)
 	    (company-fuzzy-mode 0)
+	    (setq indent-tabs-mode nil)
 	    (setq-local company-backends '(company-wordfreq))
 	    (setq-local company-transformers nil)))
 
