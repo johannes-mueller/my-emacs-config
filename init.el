@@ -189,7 +189,9 @@
   :bind
   ("C-:" . avy-goto-char-timer)
   ("C-'" . avy-goto-char-2)
-  )
+  (:map isearch-mode-map
+	("C-s" . avy-isearch)))
+
 
 ;(load "selectrum-consult")
 (load "ivy-counsel")
