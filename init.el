@@ -83,6 +83,7 @@
   (push '("*xref*" :height 0.3 :position bottom) popwin:special-display-config)
   (push '("*grep*" :height 0.5 :position bottom) popwin:special-display-config)
   (push '(python-pytest-mode :height 0.5 :position bottom) popwin:special-display-config)
+  (push '(magit-mode :position right) popwin:special-display-config)
   (popwin-mode 1)
 )
 
