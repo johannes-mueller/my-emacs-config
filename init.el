@@ -113,7 +113,8 @@
 		shell-mode-hook
 		eshell-mode-hook
 		treemacs-mode-hook
-		helpful-mode-hook))
+		helpful-mode-hook
+		compilation-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
 (setq dired-listing-switches "-agho --group-directories-first")
