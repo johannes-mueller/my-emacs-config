@@ -142,8 +142,12 @@
   (setq web-mode-enable-current-element-highlight t))
 
 (use-package js2-mode
+  :commands js2-mode
   :config
   (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode)))
+
+(use-package json-mode
+  :commands json-mode)
 
 (use-package elixir-mode
   :hook (elixir-mode . (lambda ()
