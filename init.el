@@ -304,8 +304,8 @@
   :after company
   :config
   (setq company-fuzzy-prefix-on-top t)
-  (setq company-fuzzy-sorting-function 'johmue/company-fuzzy-no-dabbrev))
-
+  ;(setq company-fuzzy-sorting-function 'johmue/company-fuzzy-no-dabbrev)
+)
 (straight-use-package
  '(company-wordfreq :type git :host github :repo "johannes-mueller/company-wordfreq.el"))
 
