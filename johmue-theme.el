@@ -68,11 +68,12 @@
   )
 
  (custom-theme-set-variables 'johmue
-			     `(ansi-color-names-vector [,johmue-red
+			     `(ansi-color-names-vector ["black"
+							,johmue-red
 							,johmue-green
+							,johmue-yellow
 							,johmue-blue
 							,johmue-magenta
-							,johmue-yellow
 							,johmue-orange
 							,johmue-cyan])))
 (provide-theme 'johmue)
