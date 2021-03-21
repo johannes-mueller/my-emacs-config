@@ -8,6 +8,16 @@
 
 (use-package yasnippet-snippets)
 
+(require 'ansi-color)
+
+(defun johmue/colorize-compilation ()
+  (let ((inhibit-read-only t))
+    (ansi-color-apply-on-region
+     compilation-filter-start (point))))
+
+(add-hook 'compilation-filter-hook
+          #'johmue/colorize-compilation)
+
 
 (use-package string-inflection
   :bind ("<f4>" . string-inflection-all-cycle))
