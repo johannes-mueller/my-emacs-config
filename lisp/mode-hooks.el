@@ -76,6 +76,7 @@
 (add-hook 'python-mode-hook
 	  (lambda ()
 	    (johmue/auto-activate-virtualenv)
+	    (require 'lsp-pyright)
 	    (lsp)
 	    (require 'dap-python)
 	    (setq dap-python-debugger 'debugpy)))
