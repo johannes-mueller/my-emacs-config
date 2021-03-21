@@ -14,6 +14,7 @@
   (johmue-blue "blue3")
   (johmue-dark-blue "blue4")
   (johmue-yellow "yellow4")
+  (johmue-orange "orange4")
   (johmue-alert "red")
   (johmue-comment "rosybrown")
   (johmue-region "DeepSkyBlue")
@@ -64,7 +65,15 @@
 
   (web-mode-html-tag-face (:foreground johmue-dark-blue :bold t))
   (web-mode-html-attr-name-face (:foreground johmue-magenta))
-  ))
+  )
 
+ (custom-theme-set-variables 'johmue
+			     `(ansi-color-names-vector [,johmue-red
+							,johmue-green
+							,johmue-blue
+							,johmue-magenta
+							,johmue-yellow
+							,johmue-orange
+							,johmue-cyan])))
 (provide-theme 'johmue)
 ;;; johmue-theme.el ends here
