@@ -78,6 +78,7 @@
 	    (johmue/auto-activate-virtualenv)
 	    (lsp)
 	    (require 'dap-python)
+	    (company-fuzzy-mode 0)
 	    (setq dap-python-debugger 'debugpy)))
 
 (setq-default lsp-pyls-configuration-sources ["flake8"])
