@@ -128,9 +128,9 @@
 
 (use-package toml
   :straight (toml :type git :host github :repo "gongo/emacs-toml"
-                      :fork (:host github
-				   :repo "johannes-mueller/emacs-toml"
-				   :branch "johmue-merges")))
+                  :fork (:host github
+			       :repo "johannes-mueller/emacs-toml"
+			       :branch "johmue-merges")))
 
 (use-package test-cockpit-python
   :straight (test-cockpit :type git :host github :repo "johannes-mueller/test-cockpit.el"))
