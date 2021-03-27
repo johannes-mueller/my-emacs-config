@@ -58,8 +58,8 @@
 
 (define-key global-map [(meta g)] 'magit-status)
 
-(define-key projectile-mode-map [f12] 'test-cockpit-dispatch)
-(define-key projectile-mode-map [S-f12] 'test-cockpit-repeat-test)
+(define-key projectile-mode-map [S-f12] 'test-cockpit-dispatch)
+(define-key projectile-mode-map [f12] 'test-cockpit-repeat-test)
 (define-key projectile-mode-map (kbd "C-c p") #'projectile-command-map)
 
 
