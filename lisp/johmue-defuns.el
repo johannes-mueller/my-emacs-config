@@ -92,6 +92,11 @@
   (setq projectile-mode-line-function '(lambda () (format " <%s>" (projectile-project-name))))
 )
 
+(defun johmue/split-window-right ()
+  (interactive)
+  (split-window-right)
+  (balance-windows))
+
 (defun johmue/ripgrep-thing-at-point ()
   (interactive)
   (counsel-rg (ivy-thing-at-point) (projectile-project-root)))
