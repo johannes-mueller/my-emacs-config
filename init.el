@@ -76,6 +76,10 @@
   :config
   (auto-dim-other-buffers-mode t))
 
+(use-package default-text-scale
+  :config
+  (default-text-scale-mode 1))
+
 (use-package popwin
   :config
   (push '(compilation-mode :noselect t :height 0.3 :position bottom :tail t) popwin:special-display-config)
