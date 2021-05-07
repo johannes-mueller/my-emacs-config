@@ -73,9 +73,13 @@
 (use-package py-isort
   :after python)
 
+(use-package lsp-pyright
+  :after lsp)
+
 (add-hook 'python-mode-hook
 	  (lambda ()
 	    (johmue/auto-activate-virtualenv)
+	    (require 'lsp-pyright)
 	    (lsp)
 	    (require 'dap-python)
 	    (company-fuzzy-mode 0)
