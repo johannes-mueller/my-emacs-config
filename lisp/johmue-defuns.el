@@ -110,6 +110,8 @@
 
 (defun johmue/activate-python-venv (env-dir)
   (pyvenv-activate env-dir)
+  (setq lsp-pyright-venv-path env-dir)
+  (setq lsp-pyright-python-executable-cmd (concat (file-name-as-directory env-dir) "bin/python"))
   (johmue/adjust-python-shell-interpreter)
   (message "Switched to %s." env-dir)
   )
