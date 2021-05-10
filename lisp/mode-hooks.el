@@ -73,6 +73,13 @@
 (use-package py-isort
   :after python)
 
+(use-package lsp-jedi
+  :ensure t
+  :config
+  (with-eval-after-load "lsp-mode"
+    (add-to-list 'lsp-disabled-clients 'pyls)
+    (add-to-list 'lsp-enabled-clients 'jedi)))
+
 (add-hook 'python-mode-hook
 	  (lambda ()
 	    (johmue/auto-activate-virtualenv)
