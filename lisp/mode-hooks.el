@@ -73,6 +73,11 @@
 (use-package py-isort
   :after python)
 
+(require 'lsp-pylsp)
+(with-eval-after-load "lsp-mode"
+  (add-to-list 'lsp-disabled-clients 'pyls)
+  (add-to-list 'lsp-enabled-clients 'pylsp))
+
 (add-hook 'python-mode-hook
 	  (lambda ()
 	    (johmue/auto-activate-virtualenv)
@@ -81,8 +86,8 @@
 	    (company-fuzzy-mode 0)
 	    (setq dap-python-debugger 'debugpy)))
 
-(setq-default lsp-pyls-configuration-sources ["flake8"])
-(setq lsp-pyls-plugins-flake8-enabled t)
+(setq-default lsp-pylsp-configuration-sources ["flake8"])
+(setq-default lsp-pylsp-plugins-flake8-enabled t)
 
 (use-package ein
   :hook (ein:ipynb-mode . (lambda () (johmue/auto-activate-virtualenv)))
