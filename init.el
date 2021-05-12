@@ -254,6 +254,10 @@
 )
 
 (defun efs/lsp-mode-setup ()
+  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\.venv.*\\'")
+  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\.venv\\'")
+  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\_venv.*\\'")
+  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\__pycache__\\'")
   (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
   (lsp-headerline-breadcrumb-mode))
 
@@ -263,7 +267,9 @@
   :init
   (setq lsp-keymap-prefix "C-M-l")
   :config
-  (lsp-enable-which-key-integration t))
+  (lsp-enable-which-key-integration t)
+  (setq lsp-idle-delay 0.500)
+  (setq lsp-log-io nil))
 
 (use-package lsp-ui
   :hook (lsp-mode . lsp-ui-mode)
@@ -292,7 +298,7 @@
 	      ("C-<return>" . company-complete-selection))
   :custom
   (company-minimum-prefix-length 1)
-  (company-idle-delay 0.0)
+  (company-idle-delay 0.2)
   (company-require-match nil)
   :config
   (setq company-ispell-dictionary (file-truename "~/.emacs.d/dicts/en.txt"))
