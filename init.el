@@ -275,6 +275,7 @@
   :hook (lsp-mode . lsp-ui-mode)
   :custom
   (lsp-ui-doc-position 'bottom)
+  (lsp-ui-doc-enable nil)
   (lsp-ui-peek-enable t)
   (lsp-ui-imenu-enable t)
   )
