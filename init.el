@@ -278,6 +278,7 @@
   (lsp-ui-doc-enable nil)
   (lsp-ui-peek-enable t)
   (lsp-ui-imenu-enable t)
+  (lsp-signature-auto-activate nil)
   )
 
 (use-package lsp-treemacs
