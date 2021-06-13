@@ -87,6 +87,28 @@
 	    (company-fuzzy-mode 0)
 	    (setq dap-python-debugger 'debugpy)))
 
+(require 'dap-python)
+
+(add-hook 'dap-stopped-hook
+          (lambda (arg) (call-interactively #'dap-hydra)))
+
+(defun dap-python-johmue-populate-test-at-point (conf)
+  "Populate CONF with the required arguments."
+  (if-let ((test (test-cockpit--python--test-function-path)))
+      (plist-put conf :program test)
+    (user-error "`dap-python': no test at point"))
+  (plist-put conf :cwd (lsp-workspace-root))
+  (dap-python--populate-start-file-args conf))
+
+(dap-register-debug-provider "python-test-at-point" 'dap-python-johmue-populate-test-at-point)
+(dap-register-debug-template "Python :: Run pytest (at point)"
+                             (list :type "python-test-at-point"
+                                   :args ""
+                                   :program nil
+                                   :module "pytest"
+                                   :request "launch"
+                                   :name "Python :: Run pytest (at point)"))
+
 (setq-default lsp-pylsp-configuration-sources ["flake8"])
 (setq-default lsp-pylsp-plugins-flake8-enabled t)
 
