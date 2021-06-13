@@ -100,14 +100,14 @@
   (plist-put conf :cwd (lsp-workspace-root))
   (dap-python--populate-start-file-args conf))
 
-(dap-register-debug-provider "python-test-at-point" 'dap-python-johmue-populate-test-at-point)
-(dap-register-debug-template "Python :: Run pytest (at point)"
-                             (list :type "python-test-at-point"
+(dap-register-debug-provider "python-test-at-point-johmue" 'dap-python-johmue-populate-test-at-point)
+(dap-register-debug-template "Python :: johmue Run pytest (at point)"
+                             (list :type "python-test-at-point-johmue"
                                    :args ""
                                    :program nil
                                    :module "pytest"
                                    :request "launch"
-                                   :name "Python :: Run pytest (at point)"))
+                                   :name "Python :: johmue Run pytest (at point)"))
 
 (setq-default lsp-pylsp-configuration-sources ["flake8"])
 (setq-default lsp-pylsp-plugins-flake8-enabled t)
