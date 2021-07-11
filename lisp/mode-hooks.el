@@ -81,11 +81,12 @@
 
 (add-hook 'python-mode-hook
 	  (lambda ()
-	    (johmue/auto-activate-virtualenv)
 	    (lsp)
 	    (require 'dap-python)
 	    (company-fuzzy-mode 0)
 	    (setq dap-python-debugger 'debugpy)))
+
+(add-hook 'window-state-change-hook (lambda () (johmue/auto-activate-virtualenv)))
 
 (require 'dap-python)
 

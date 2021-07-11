@@ -119,16 +119,20 @@
   (johmue/adjust-python-shell-interpreter)
   (message "Deactivated python environment."))
 
+(defvar johmue/last-projectile-project-root nil)
+
 (defun johmue/auto-activate-virtualenv ()
   (interactive)
-  (let
-      ((possible-env-dir
-	(concat
-	 (file-name-as-directory
-	  (or (projectile-project-p) default-directory)) ".venv")))
-    (if (file-directory-p possible-env-dir)
-	(johmue/activate-python-venv possible-env-dir)
-      (johmue/deactivate-python-venv))))
+  (let ((project-root (projectile-project-root)))
+    (unless (equal project-root johmue/last-projectile-project-root)
+      (let ((possible-env-dir
+	     (concat
+	      (file-name-as-directory
+	       (or project-root default-directory)) ".venv")))
+    	(if (file-directory-p possible-env-dir)
+	    (johmue/activate-python-venv possible-env-dir)
+	  (johmue/deactivate-python-venv))
+	(setq johmue/last-projectile-project-root project-root)))))
 
 (defvar johmue/company-fuzzy-allowed-backends '("capf"))
 
