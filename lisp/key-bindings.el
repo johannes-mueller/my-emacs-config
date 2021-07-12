@@ -23,11 +23,6 @@
 (global-set-key (kbd "C-}") 'sp-wrap-curly)
 (global-set-key (kbd "<C-S-delete>") 'sp-unwrap-sexp)
 
-(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
-
 (define-key global-map [(meta up)] 'johmue/scroll-other-window-one-up)
 (define-key global-map [(meta down)] 'johmue/scroll-other-window-one-down)
 

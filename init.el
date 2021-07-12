@@ -128,10 +128,16 @@
 
 (use-package multiple-cursors
   :bind (("C-S-c C-S-c" . mc/edit-lines)
-	 ("C->" . mc/mark-next-like-this)
-	 ("C-<" . mc/mark-previous-like-this)
-	 ("C-c C-<" . mc/mark-all-like-this)
+	 ("C->" . mc/mark-next-like-this-symbol)
+	 ("C-<" . mc/mark-previous-like-this-symbol)
+	 ("C-M->" . mc/mark-next-like-this-word)
+	 ("C-M-<" . mc/mark-previous-like-this-word)
+	 ("C-c C-<" . mc/mark-all-like-this-symbol)
 	 ("C-S-<mouse-1>" . mc/add-cursor-on-click)))
+
+(use-package phi-search
+  :bind (("C-s" . phi-search)
+	 ("C-r" . phi-search-backward)))
 
 (use-package smartparens
   :diminish
@@ -190,14 +196,6 @@
   :config
   (setq imenu-list-focus-after-activation t
         imenu-list-auto-resize nil))
-
-(use-package avy
-  :bind
-  ("C-:" . avy-goto-char-timer)
-  ("C-'" . avy-goto-char-2)
-  (:map isearch-mode-map
-	("C-M-s" . avy-isearch)))
-
 
 ;(load "selectrum-consult")
 (load "ivy-counsel")
