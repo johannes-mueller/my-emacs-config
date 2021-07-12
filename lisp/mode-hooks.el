@@ -62,14 +62,6 @@
 (use-package pyvenv
   :after python-mode)
 
-(use-package python
-  :bind (:map inferior-python-mode-map
-	      ("C-r" . comint-history-isearch-backward)))
-
-(use-package py-autopep8
-  :custom
-  (py-autopep8-options '('("--max-line-length=100"))))
-
 (use-package py-isort
   :after python)
 
