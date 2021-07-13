@@ -190,6 +190,16 @@
   (interactive)
   (johmue/search--search-initialize t))
 
+
+(defun johmue/change-isearch-to-swiper ()
+  (interactive)
+  (put 'quit 'error-message "")
+  (run-at-time nil nil
+               (lambda ()
+                 (put 'quit 'error-message "Quit")
+                 (swiper phi-search--last-executed)))
+  (phi-search-abort))
+
 (provide 'johmue-defuns)
 
 ;;; johmue-defuns.el ends here

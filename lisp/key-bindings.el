@@ -48,6 +48,8 @@
 
 (define-key phi-search-default-map (kbd "<up>") 'phi-search-again-or-previous)
 (define-key phi-search-default-map (kbd "<down>") 'phi-search-again-or-next)
+(define-key phi-search-default-map (kbd "C-s") 'johmue/change-isearch-to-swiper)
+
 
 (global-set-key (kbd "M-q") 'johmue/fill-paragraph-79)
 (global-set-key [f6] 'johmue/toggle-soft-wrap)
