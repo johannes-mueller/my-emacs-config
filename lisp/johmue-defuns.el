@@ -169,6 +169,27 @@
   (let ((default-directory (projectile-project-root)))
     (start-process-shell-command "Webserver" "*Webserver*" "python -m http.server")))
 
+(defun johmue/search--search-initialize (&optional backward)
+  (phi-search--initialize phi-search-mode-line-format
+			  (if backward
+			      phi-search-additional-keybinds
+			    phi-search-additional-keybinds)
+			  nil
+			  (when backward 'phi-search--backward-after-update-function)
+			  'phi-search--complete-function
+			  nil
+			  (lambda ()
+			    (run-hooks 'phi-search-init-hook))))
+
+
+(defun johmue/isearch ()
+  (interactive)
+  (johmue/search--search-initialize nil))
+
+(defun johmue/isearch-backward ()
+  (interactive)
+  (johmue/search--search-initialize t))
+
 (provide 'johmue-defuns)
 
 ;;; johmue-defuns.el ends here

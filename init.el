@@ -135,9 +135,7 @@
 	 ("C-c C-<" . mc/mark-all-like-this-symbol)
 	 ("C-S-<mouse-1>" . mc/add-cursor-on-click)))
 
-(use-package phi-search
-  :bind (("C-s" . phi-search)
-	 ("C-r" . phi-search-backward)))
+(use-package phi-search)
 
 (use-package smartparens
   :diminish
