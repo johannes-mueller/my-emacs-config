@@ -41,8 +41,6 @@
 
 (global-set-key (kbd "C-s") 'johmue/isearch)
 (global-set-key (kbd "C-r") 'johmue/isearch-backward)
-(define-key mc/keymap (kbd "C-s") 'johmue/isearch)
-(define-key mc/keymap (kbd "C-r") 'johmue/isearch-backward)
 
 (global-set-key (kbd "M-%") 'phi-replace-query)
 
