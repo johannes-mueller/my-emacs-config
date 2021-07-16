@@ -1,3 +1,5 @@
+
+
 ;;; Code;
 
 (setq load-path (add-to-list 'load-path "~/.emacs.d/lisp"))
@@ -133,7 +135,10 @@
 	 ("C-M->" . mc/mark-next-like-this-word)
 	 ("C-M-<" . mc/mark-previous-like-this-word)
 	 ("C-c C-<" . mc/mark-all-like-this-symbol)
-	 ("C-S-<mouse-1>" . mc/add-cursor-on-click)))
+	 ("C-S-<mouse-1>" . mc/add-cursor-on-click)
+	 :map mc/keymap
+	 ("C-s" . johmue/isearch)
+	 ("C-r" . johmue/isearch-backward)))
 
 (use-package phi-search)
 
