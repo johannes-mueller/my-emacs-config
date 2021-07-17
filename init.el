@@ -201,7 +201,9 @@
         imenu-list-auto-resize nil))
 
 ;(load "selectrum-consult")
-(load "ivy-counsel")
+;(load "ivy-counsel")
+(load "vertico-consult")
+
 
 (use-package magit
   :commands magit-status

@@ -191,13 +191,13 @@
   (johmue/search--search-initialize t))
 
 
-(defun johmue/change-isearch-to-swiper ()
+(defun johmue/change-isearch-to-line-search ()
   (interactive)
   (put 'quit 'error-message "")
   (run-at-time nil nil
                (lambda ()
                  (put 'quit 'error-message "Quit")
-                 (swiper phi-search--last-executed)))
+                 (funcall johmue/line-search-command phi-search--last-executed)))
   (phi-search-abort))
 
 (provide 'johmue-defuns)
