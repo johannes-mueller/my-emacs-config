@@ -9,7 +9,9 @@
 
 (use-package vertico
   :ensure t
-  :init (vertico-mode))
+  :init (vertico-mode)
+  :bind (:map minibuffer-local-map
+         ("<backspace>" . johmue/consult-find-file-backward-kill)))
 
 (use-package savehist
   :init
@@ -58,5 +60,17 @@
 (use-package orderless
    :ensure t
    :custom (completion-styles '(orderless)))
+
+(use-package consult-lsp
+  :after (lsp))
+
+(defun johmue/consult-find-file-backward-kill (arg)
+    (interactive "p")
+  (if (and minibuffer-completing-file-name
+	   (file-directory-p (minibuffer-contents)))
+      (if (string-match-p "/." (minibuffer-contents))
+	  (zap-up-to-char (- arg) ?/)
+        (delete-minibuffer-contents))
+    (delete-backward-char arg)))
 
 (defvar johmue/line-search-command 'consult-line)
