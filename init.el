@@ -129,6 +129,8 @@
 
 (setq dired-listing-switches "-agho --group-directories-first")
 
+(use-package dired-single
+  :ensure t)
 
 (require 'scroll-in-place)
 

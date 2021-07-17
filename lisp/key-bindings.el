@@ -68,5 +68,7 @@
 (define-key projectile-mode-map [f12] 'test-cockpit-repeat-test-or-projectile-test)
 (define-key projectile-mode-map (kbd "C-c p") #'projectile-command-map)
 
-
+(define-key dired-mode-map (kbd "?") #'which-key-show-major-mode)
+(define-key dired-mode-map (kbd "<left>") #'dired-single-up-directory)
+(define-key dired-mode-map (kbd "<right>") #'dired-single-buffer)
 ;;; keys.el ends here
