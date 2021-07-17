@@ -51,6 +51,10 @@
 
 (setq visible-bell 1)
 
+(setq make-backup-files nil)
+(setq create-lockfiles nil)
+(add-to-list 'completion-ignored-extensions "#")
+
 (setq indicate-buffer-boundaries 'right)
 
 (use-package diminish
@@ -230,8 +234,6 @@
 (use-package undo-tree
   :diminish
   :init (global-undo-tree-mode))
-
-(setq make-backup-files nil)
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
