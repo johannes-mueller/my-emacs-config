@@ -2,10 +2,12 @@
   :init
   (setq projectile-keymap-prefix (kbd "C-c C-p"))
   (setq projectile-switch-project-action 'projectile-commander)
+  (setq projectile-mode-line-function '(lambda () (format " <%s>" (projectile-project-name))))
   :config
   (projectile-global-mode)
   (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
-  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+  (define-key projectile-command-map (kbd ".") #'projectile-run-vterm))
 
 (use-package vertico
   :ensure t
