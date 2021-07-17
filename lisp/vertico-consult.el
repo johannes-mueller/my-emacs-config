@@ -24,8 +24,10 @@
   (marginalia-mode))
 
 (use-package consult
-  :bind (("C-S-s" . consult-ripgrep)
-	 ("C-M-s" . consult-line)
+  :bind (("C-S-s" . johmue/isearch-line-symbol-at-point)
+	 ("C-S-r" . johmue/ripgrep-symbol-at-point)
+	 ("s-s" . consult-line)
+	 ("s-r" . consult-ripgrep)
 	 ("C-o" . consult-outline)
 	 ("C-x b" . consult-buffer)
 	 ("M-y" . consult-yank-pop)

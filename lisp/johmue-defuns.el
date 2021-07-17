@@ -200,6 +200,14 @@
                  (funcall johmue/line-search-command phi-search--last-executed)))
   (phi-search-abort))
 
+(defun johmue/isearch-line-symbol-at-point ()
+  (interactive)
+  (funcall johmue/line-search-command (thing-at-point 'symbol)))
+
+(defun johmue/ripgrep-symbol-at-point()
+  (interactive)
+  (consult-ripgrep (projectile-project-root) (thing-at-point 'symbol)))
+
 (provide 'johmue-defuns)
 
 ;;; johmue-defuns.el ends here
