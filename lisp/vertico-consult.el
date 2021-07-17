@@ -41,9 +41,9 @@
   :ensure t
 
   :bind
-  (("C-." . embark-act)         ;; pick some comfortable binding
-   ("M-." . embark-dwim)        ;; good alternative: M-.
-   ("C-h B" . embark-bindings))) ;; alternative for `describe-bindings'
+  (("C-." . embark-act)
+   ("M-." . embark-dwim)
+   ("C-h B" . embark-bindings)))
 
 (setq embark-action-indicator
       (lambda (map _target)
@@ -52,12 +52,6 @@
       embark-become-indicator embark-action-indicator)
 
 (use-package embark-consult)
-
-;; (use-package ignoramus
-;;   :init
-;;   (ignoramus-setup))
-
-
 
 (use-package orderless
    :ensure t
