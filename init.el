@@ -132,6 +132,11 @@
 (use-package dired-single
   :ensure t)
 
+(use-package all-the-icons)
+
+(use-package all-the-icons-dired
+  :hook (dired-mode . all-the-icons-dired-mode))
+
 (require 'scroll-in-place)
 
 (use-package multiple-cursors
