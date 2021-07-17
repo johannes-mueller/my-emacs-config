@@ -2,6 +2,7 @@
   :init
   (setq projectile-keymap-prefix (kbd "C-c C-p"))
   (setq projectile-globally-ignored-files '("TAGS" "#*"))
+  (setq projectile-switch-project-action 'projectile-commander)
   :config
   (projectile-global-mode)
   (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
