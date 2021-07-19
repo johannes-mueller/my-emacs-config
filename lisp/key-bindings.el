@@ -71,4 +71,6 @@
 (define-key dired-mode-map (kbd "?") #'which-key-show-major-mode)
 (define-key dired-mode-map (kbd "<left>") #'dired-single-up-directory)
 (define-key dired-mode-map (kbd "<right>") #'dired-single-buffer)
+(define-key dired-mode-map (kbd "h") #'dired-gitignore-mode)
+
 ;;; keys.el ends here

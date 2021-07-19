@@ -132,6 +132,10 @@
 (use-package dired-single
   :ensure t)
 
+(straight-use-package
+ '(dired-gitignore :type git :host github :repo "johannes-mueller/dired-gitignore.el"))
+
+
 (use-package all-the-icons)
 
 (use-package all-the-icons-dired
