@@ -130,9 +130,7 @@
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
 (setq dired-listing-switches "-agho --group-directories-first")
-
-(use-package dired-single
-  :ensure t)
+(setq dired-kill-when-opening-new-dired-buffer t)
 
 (straight-use-package
  '(dired-gitignore :type git :host github :repo "johannes-mueller/dired-gitignore.el"))
