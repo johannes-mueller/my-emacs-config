@@ -59,6 +59,9 @@
 
 (use-package embark-consult)
 
+(define-key embark-symbol-map (kbd "h") 'helpful-symbol)
+
+
 (use-package orderless
    :ensure t
    :custom (completion-styles '(orderless)))
