@@ -59,9 +59,9 @@
 ;(add-to-list 'marginalia-prompt-categories '("Find file" . file))
 
 
-(use-package orderless
+(use-package hotfuzz
    :ensure t
-   :custom (completion-styles '(orderless)))
+   :custom (completion-styles '(hotfuzz)))
 
 (use-package consult-lsp
   :after (lsp))
