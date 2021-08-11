@@ -61,7 +61,9 @@
 
 (use-package hotfuzz
    :ensure t
-   :custom (completion-styles '(hotfuzz)))
+   :custom
+   (completion-styles '(hotfuzz))
+   (completion-ignore-case t))
 
 (use-package consult-lsp
   :after (lsp))
