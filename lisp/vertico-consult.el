@@ -65,6 +65,9 @@
    (completion-styles '(hotfuzz))
    (completion-ignore-case t))
 
+(setq completion-category-overrides
+      '((consult-location (styles substring))))
+
 (use-package consult-lsp
   :after (lsp))
 
