@@ -169,6 +169,11 @@
   (let ((default-directory (projectile-project-root)))
     (start-process-shell-command "Webserver" "*Webserver*" "python -m http.server")))
 
+(defun johmue/start-jupyter-server ()
+  (interactive)
+  (let ((default-directory (projectile-project-root)))
+    (start-process-shell-command "Jupyter" "*Jupyter*" "jupyter notebook")))
+
 (defun johmue/search--search-initialize (&optional backward)
   (phi-search--initialize phi-search-mode-line-format
 			  (if backward
