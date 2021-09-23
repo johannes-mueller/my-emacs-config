@@ -39,14 +39,11 @@
 
 (global-set-key (kbd "C-S-M-s") 'johmue/ripgrep-thing-at-point)
 
-(global-set-key (kbd "C-s") 'johmue/isearch)
-(global-set-key (kbd "C-r") 'johmue/isearch-backward)
-
 (global-set-key (kbd "M-%") 'phi-replace-query)
 
-(define-key phi-search-default-map (kbd "<up>") 'phi-search-again-or-previous)
-(define-key phi-search-default-map (kbd "<down>") 'phi-search-again-or-next)
-(define-key phi-search-default-map (kbd "C-s") 'johmue/change-isearch-to-line-search)
+(define-key isearch-mode-map (kbd "<up>") 'isearch-repeat-backward)
+(define-key isearch-mode-map (kbd "<down>") 'isearch-repeat-forward)
+(define-key isearch-mode-map (kbd "C-s") 'johmue/change-isearch-to-line-search)
 
 
 (global-set-key (kbd "M-q") 'johmue/fill-paragraph-79)

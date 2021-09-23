@@ -195,15 +195,14 @@
   (interactive)
   (johmue/search--search-initialize t))
 
-
 (defun johmue/change-isearch-to-line-search ()
   (interactive)
   (put 'quit 'error-message "")
   (run-at-time nil nil
                (lambda ()
                  (put 'quit 'error-message "Quit")
-                 (funcall johmue/line-search-command phi-search--last-executed)))
-  (phi-search-abort))
+                 (funcall johmue/line-search-command isearch-string)))
+  (isearch-abort))
 
 (defun johmue/isearch-line-symbol-at-point ()
   (interactive)
