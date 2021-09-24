@@ -212,6 +212,24 @@
   (interactive)
   (consult-ripgrep (projectile-project-root) (thing-at-point 'symbol)))
 
+
+(defun johmue/sphinx-build-html ()
+  (interactive)
+  (let* ((docs-dir (concat (projectile-project-root) "docs"))
+	 (target-dir (concat (projectile-project-root) "_build/html"))
+	 (command (concat "sphinx-build -j8 -b html " docs-dir " " target-dir)))
+    (compile command)))
+
+
+(defun johmue/sphinx-build-html-this-file ()
+  (interactive)
+  (let* ((docs-dir (concat (projectile-project-root) "docs"))
+	 (target-dir (concat (projectile-project-root) "_build/html"))
+	 (this-file (buffer-file-name))
+	 (command (concat "sphinx-build -b html -a " this-file " " docs-dir " " target-dir)))
+    (compile command)))
+
+
 (provide 'johmue-defuns)
 
 ;;; johmue-defuns.el ends here
