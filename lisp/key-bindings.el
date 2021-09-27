@@ -39,8 +39,6 @@
 
 (global-set-key (kbd "C-S-M-s") 'johmue/ripgrep-thing-at-point)
 
-(global-set-key (kbd "M-%") 'phi-replace-query)
-
 (define-key isearch-mode-map (kbd "<up>") 'isearch-repeat-backward)
 (define-key isearch-mode-map (kbd "<down>") 'isearch-repeat-forward)
 (define-key isearch-mode-map (kbd "C-s") 'johmue/change-isearch-to-line-search)
