@@ -114,6 +114,7 @@
   (setq highlight-indent-guides-auto-enabled nil)
   :hook (prog-mode . highlight-indent-guides-mode))
 
+(require 'display-line-numbers)
 (column-number-mode 1)
 (global-display-line-numbers-mode t)
 
