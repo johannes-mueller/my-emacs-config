@@ -32,6 +32,10 @@
 						     company-dabbrev))
 			    (company-fuzzy-mode 1)))
 
+(add-hook 'emacs-lisp-mode-hook (lambda ()
+				  (setq company-backends '(company-capf))
+				  (company-fuzzy-mode nil)))
+
 (dolist (mode '(text-mode-hook
 		prog-mode-hook))
   (add-hook mode (lambda() (display-fill-column-indicator-mode t))))
