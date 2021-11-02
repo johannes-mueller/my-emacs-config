@@ -33,6 +33,9 @@
   (setq consult-root-function 'projectile-project-root)
   (setq consult-line-start-from-top nil))
 
+(use-package consult-projectile
+  :bind (("C-x p" . consult-projectile)))
+
 (use-package embark
   :ensure t
 
