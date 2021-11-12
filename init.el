@@ -234,7 +234,8 @@
   (projectile-global-mode)
   (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-  (define-key projectile-command-map (kbd ".") #'projectile-run-vterm))
+  (define-key projectile-command-map (kbd ".") #'projectile-run-vterm)
+  (add-to-list 'projectile-globally-ignored-directories ".venv"))
 
 
 ;(load "selectrum-consult")
