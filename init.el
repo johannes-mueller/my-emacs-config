@@ -160,7 +160,7 @@
 
 (use-package phi-search)
 
-(setq case-replace nil)
+;(setq case-replace nil)
 (setq isearch-allow-motion t)
 
 (use-package smartparens
