@@ -166,6 +166,9 @@
 (use-package test-cockpit-cargo
   :straight (test-cockpit :type git :host github :repo "johannes-mueller/test-cockpit.el"))
 
+(use-package test-cockpit-mix
+  :straight (test-cockpit :type git :host github :repo "johannes-mueller/test-cockpit.el"))
+
 (use-package web-mode
   :config
   (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
@@ -191,5 +194,5 @@
 
 (use-package alchemist)
 (use-package elixir-yasnippets)
-(use-package flycheck-elixir)
+;(use-package flycheck-elixir)
 ;;; mode-hooks.el ends here
