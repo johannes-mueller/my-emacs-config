@@ -178,6 +178,7 @@
   (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.eex\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.leex\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.heex\\'" . web-mode))
   (setq web-mode-enable-element-content-fontification t)
   (setq web-mode-enable-element-tag-fontification t)
   (setq web-mode-enable-current-element-highlight t))
