@@ -4,7 +4,7 @@
   (corfu-cycle t)                ;; Enable cycling for `corfu-next/previous'
   (corfu-auto t)                 ;; Enable auto completion
   ;; (corfu-commit-predicate nil)   ;; Do not commit selected candidates on next input
-  ;; (corfu-quit-at-boundary t)     ;; Automatically quit at word boundary
+  (corfu-quit-at-boundary t)     ;; Automatically quit at word boundary
   (corfu-quit-no-match t)        ;; Automatically quit if there is no match
   ;; (corfu-preview-current nil)    ;; Disable current candidate preview
   ;; (corfu-preselect-first nil)    ;; Disable candidate preselection
