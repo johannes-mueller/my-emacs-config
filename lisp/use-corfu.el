@@ -57,3 +57,5 @@
 
 (setq completion-cycle-threshold 3)
 (setq tab-always-indent 'complete)
+
+(setq global-company-mode nil)

@@ -309,6 +309,7 @@
   (setq lsp-keymap-prefix "C-M-l")
   :config
   (lsp-enable-which-key-integration t)
+  (setq lsp-completion-provider :none)
   (setq lsp-idle-delay 0.500)
   (setq lsp-log-io nil))
 
