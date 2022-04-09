@@ -27,9 +27,14 @@
 (add-hook 'prog-mode-hook #'flyspell-prog-mode)
 (add-hook 'prog-mode-hook (lambda ()
 			    (setq fill-column 88)
-			    (add-to-list 'completion-at-point-functions #'cape-keyword)
-			    (add-to-list 'completion-at-point-functions #'cape-dabbrev)
-			    (add-to-list 'completion-at-point-functions #'cape-file)))
+		            (setq company-backends '(company-capf
+						     (company-dabbrev-code company-keywords)
+						     company-dabbrev))
+			    (company-fuzzy-mode 1)))
+
+(add-hook 'emacs-lisp-mode-hook (lambda ()
+				  (setq company-backends '(company-capf))
+				  (company-fuzzy-mode nil)))
 
 (dolist (mode '(text-mode-hook
 		prog-mode-hook))
@@ -40,10 +45,10 @@
 	    (turn-on-auto-fill)
 	    (set-fill-column 79)
 	    (flyspell-mode 1)
+	    (company-fuzzy-mode 0)
 	    (setq indent-tabs-mode nil)
-	    (setq completion-at-point-functions
-		  '(capf-wordfreq-completion-at-point-function
-		    cape-dabbrev))))
+	    (setq-local company-backends '(company-wordfreq))
+	    (setq-local company-transformers nil)))
 
 (use-package wc-mode
   :hook (text-mode . (lambda () (wc-mode 1))))
@@ -77,6 +82,7 @@
 	  (lambda ()
 	    (lsp)
 	    (require 'dap-python)
+	    (company-fuzzy-mode 0)
 	    (setq dap-python-debugger 'debugpy)))
 
 (add-hook 'window-state-change-hook (lambda () (johmue/auto-activate-virtualenv)))
