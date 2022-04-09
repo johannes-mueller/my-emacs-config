@@ -171,14 +171,8 @@
   (sp-pair "{" "}" :unless '(sp-point-before-word-p))
   (smartparens-global-mode t)
   :init
-  (bind-key "C-<right>" 'sp-forward-sexp)
-  (bind-key "C-<left>" 'sp-backward-sexp)
-  (bind-key "C-<delete>" 'kill-sexp)
-  (bind-key "C-<backspace>" 'backward-kill-sexp)
-  (bind-key "M-<right>" 'right-word)
-  (bind-key "M-<left>" 'left-word)
-  (bind-key "M-<delete>" 'kill-word)
-  (bind-key "M-<backspace>" 'backward-kill-word)
+  (bind-key "M-<right>" 'sp-forward-sexp)
+  (bind-key "M-<left>" 'sp-backward-sexp)
   (require 'smartparens-config)
 )
 
