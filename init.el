@@ -269,7 +269,9 @@
 
 (use-package undo-tree
   :diminish
-  :init (global-undo-tree-mode))
+  :init
+  (global-undo-tree-mode)
+  (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo"))))
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
