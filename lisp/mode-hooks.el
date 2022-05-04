@@ -188,6 +188,10 @@
   :config
   (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode)))
 
+(use-package typescript-mode
+  :config
+  (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode)))
+
 (use-package json-mode
   :commands json-mode)
 
