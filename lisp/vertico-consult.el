@@ -3,7 +3,9 @@
   :ensure t
   :init (vertico-mode)
   :bind (:map minibuffer-local-map
-         ("<backspace>" . johmue/consult-find-file-backward-kill)))
+              ("<backspace>" . johmue/consult-find-file-backward-kill)
+	      ("S-<down>" . forward-paragraph)
+	      ("S-<up>" . backward-paragraph)))
 
 (use-package savehist
   :init
@@ -18,12 +20,18 @@
   (marginalia-mode))
 
 (use-package consult
-  :bind (("C-S-s" . johmue/isearch-line-symbol-at-point)
-	 ("C-S-r" . johmue/ripgrep-symbol-at-point)
+  :bind (("C-S-s" . consult-line)
+	 ("C-S-r" . consult-ripgrep)
+	 ("C-S-M-s" . johmue/isearch-line-symbol-at-point)
+	 ("C-S-M-r" . johmue/ripgrep-symbol-at-point)
+	 ("C-s" . consult-isearch-history)
 	 ("s-s" . consult-line)
 	 ("s-r" . consult-ripgrep)
+	 ("s-g" . consult-grep)
+	 ("C-c m" . consult-mark)
 	 ("C-o" . consult-outline)
 	 ("C-x b" . consult-buffer)
+	 ("C-x C-b" . consult-project-buffer)
 	 ("M-y" . consult-yank-pop)
 	 ("C-c i" . consult-imenu)
 	 :map minibuffer-local-map
@@ -35,6 +43,12 @@
 
 (use-package consult-projectile
   :bind (("C-x p" . consult-projectile)))
+
+(setq consult-narrow-key "<")
+
+;; Use Consult to select xref locations with preview
+(setq xref-show-xrefs-function #'consult-xref
+      xref-show-definitions-function #'consult-xref)
 
 (use-package embark
   :ensure t
