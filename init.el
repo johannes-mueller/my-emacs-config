@@ -251,9 +251,6 @@
   :config
   (setq magit-git-environment (cons "LANG=en" magit-git-environment)))
 
-(use-package gitignore-mode :after magit)
-(use-package gitattributes-mode :after magit)
-(use-package gitconfig-mode :after magit)
 (use-package git-timemachine :after magit)
 
 (use-package forge
