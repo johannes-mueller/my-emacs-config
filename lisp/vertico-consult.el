@@ -78,7 +78,10 @@
 
 (use-package orderless
    :ensure t
-   :custom (completion-styles '(orderless basic)))
+   :custom
+   (completion-styles '(orderless basic))
+   (orderless-matching-styles '(orderless-prefixes)))
+
 
 (setq completion-category-overrides nil)
 (setq completion-category-defaults nil)
