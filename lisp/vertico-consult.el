@@ -62,14 +62,14 @@
 ;(add-to-list 'marginalia-prompt-categories '("Find file" . file))
 
 
-(use-package hotfuzz
+(use-package orderless
    :ensure t
-   :custom
-   (completion-styles '(hotfuzz))
-   (completion-ignore-case t))
+   :custom (completion-styles '(orderless basic)))
 
-(setq completion-category-overrides
-      '((consult-location (styles substring))))
+(setq completion-category-overrides nil)
+(setq completion-category-defaults nil)
+
+(setq completion-ignore-case t)
 
 (use-package consult-lsp
   :after (lsp))
