@@ -24,7 +24,7 @@
 	 ("C-S-r" . consult-ripgrep)
 	 ("C-S-M-s" . johmue/isearch-line-symbol-at-point)
 	 ("C-S-M-r" . johmue/ripgrep-symbol-at-point)
-	 ("C-s" . consult-isearch-history)
+	 ("C-s-s" . consult-isearch-history)
 	 ("s-s" . consult-line)
 	 ("s-r" . consult-ripgrep)
 	 ("s-g" . consult-grep)
