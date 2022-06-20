@@ -20,11 +20,11 @@
   (marginalia-mode))
 
 (use-package consult
-  :bind (("C-S-s" . consult-line)
-	 ("C-S-r" . consult-ripgrep)
-	 ("C-S-M-s" . johmue/isearch-line-symbol-at-point)
-	 ("C-S-M-r" . johmue/ripgrep-symbol-at-point)
+  :bind (("C-S-s" . johmue/isearch-line-symbol-at-point)
+	 ("C-S-r" . johmue/ripgrep-symbol-at-point)
+	 ("C-M-S-r" . johmue/ripgrep-thing-at-point)
 	 ("C-s-s" . consult-isearch-history)
+	 ("<f3>" . consult-isearch-history)
 	 ("s-s" . consult-line)
 	 ("s-r" . consult-ripgrep)
 	 ("s-g" . consult-grep)

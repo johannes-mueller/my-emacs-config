@@ -37,8 +37,6 @@
 (global-set-key (kbd "C-x C-2") 'delete-other-windows-vertically)
 (global-set-key (kbd "C-x 3") 'johmue/split-window-right)
 
-(global-set-key (kbd "C-S-M-s") 'johmue/ripgrep-thing-at-point)
-
 (define-key isearch-mode-map (kbd "<up>") 'isearch-repeat-backward)
 (define-key isearch-mode-map (kbd "<down>") 'isearch-repeat-forward)
 (define-key isearch-mode-map (kbd "C-s") 'johmue/change-isearch-to-line-search)
