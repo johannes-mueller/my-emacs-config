@@ -18,6 +18,8 @@
 (add-hook 'compilation-filter-hook
           #'johmue/colorize-compilation)
 
+(use-package aggressive-fill-paragraph)
+(use-package aggressive-indent)
 
 (use-package string-inflection
   :bind ("<f4>" . string-inflection-all-cycle))
@@ -25,6 +27,7 @@
 (add-hook 'prog-mode-hook #'which-function-mode)
 (add-hook 'prog-mode-hook #'show-paren-mode)
 (add-hook 'prog-mode-hook #'flyspell-prog-mode)
+(add-hook 'prog-mode-hook #'aggressive-indent-mode)
 (add-hook 'prog-mode-hook (lambda ()
 			    (setq fill-column 88)
 		            (setq company-backends '(company-capf
@@ -45,6 +48,7 @@
 	    (turn-on-auto-fill)
 	    (set-fill-column 79)
 	    (flyspell-mode 1)
+	    (aggressive-fill-mode)
 	    (company-fuzzy-mode 0)
 	    (setq indent-tabs-mode nil)
 	    (setq-local company-backends '(company-wordfreq))
