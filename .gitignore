@@ -10,7 +10,7 @@ var/
 session.*
 /.lsp-session-v1
 /eln-cache/
-/forge-database.sqlite
+/forge-database*
 /.extension/
 /.dap-breakpoints
 /projects
