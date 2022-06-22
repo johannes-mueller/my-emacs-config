@@ -27,7 +27,6 @@
 (add-hook 'prog-mode-hook #'which-function-mode)
 (add-hook 'prog-mode-hook #'show-paren-mode)
 (add-hook 'prog-mode-hook #'flyspell-prog-mode)
-(add-hook 'prog-mode-hook #'aggressive-indent-mode)
 (add-hook 'prog-mode-hook (lambda ()
 			    (setq fill-column 88)
 		            (setq company-backends '(company-capf
