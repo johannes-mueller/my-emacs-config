@@ -7,6 +7,16 @@
 	      ("S-<down>" . forward-paragraph)
 	      ("S-<up>" . backward-paragraph)))
 
+(defun +vertico-restrict-to-matches ()
+  (interactive)
+  (let ((inhibit-read-only t))
+    (goto-char (point-max))
+    (insert " ")
+    (add-text-properties (minibuffer-prompt-end) (point-max)
+                         '(invisible t read-only t cursor-intangible t rear-nonsticky t))))
+
+(define-key vertico-map (kbd "S-SPC") #'+vertico-restrict-to-matches)
+
 (use-package savehist
   :init
   (savehist-mode))
