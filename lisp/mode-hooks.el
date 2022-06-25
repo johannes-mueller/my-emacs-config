@@ -47,7 +47,7 @@
 	    (turn-on-auto-fill)
 	    (set-fill-column 79)
 	    (flyspell-mode 1)
-	    (aggressive-fill-mode)
+	    (aggressive-fill-paragraph-mode)
 	    (company-fuzzy-mode 0)
 	    (setq indent-tabs-mode nil)
 	    (setq-local company-backends '(company-wordfreq))
