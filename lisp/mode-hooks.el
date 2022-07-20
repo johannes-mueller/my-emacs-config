@@ -66,7 +66,10 @@
 (use-package pandoc-mode
   :hook (markdown-mode . (lambda () (pandoc-mode 1))))
 
-(use-package yaml-mode)
+(use-package yaml-mode
+  :hook (yaml-mode . (lambda()
+		       (auto-fill-mode -1)
+		       (aggressive-fill-paragraph-mode -1))))
 (use-package yaml-tomato)
 
 (use-package pyvenv
