@@ -82,6 +82,7 @@
 (with-eval-after-load "lsp-mode"
   (add-to-list 'lsp-disabled-clients 'pyls)
   (add-to-list 'lsp-enabled-clients 'pylsp)
+  (add-to-list 'lsp-enabled-clients 'elixir-ls)
   (add-to-list 'lsp-enabled-clients 'rust-analyzer))
 
 (add-hook 'python-mode-hook
@@ -203,8 +204,8 @@
 
 (use-package elixir-mode
   :hook (elixir-mode . (lambda ()
-			 (setq lsp-clients-elixir-server-executable "/usr/bin/elixir-ls")
-			 (lsp))))
+			  (add-to-list 'exec-path "/home/joh/.mix/elixir-ls/release")
+			 (lsp-deferred))))
 
 (use-package alchemist)
 (use-package elixir-yasnippets)
