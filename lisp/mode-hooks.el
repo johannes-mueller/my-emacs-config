@@ -80,11 +80,11 @@
   :after python)
 
 (require 'lsp-pylsp)
-(with-eval-after-load "lsp-mode"
-  (add-to-list 'lsp-disabled-clients 'pyls)
-  (add-to-list 'lsp-enabled-clients 'pylsp)
-  (add-to-list 'lsp-enabled-clients 'elixir-ls)
-  (add-to-list 'lsp-enabled-clients 'rust-analyzer))
+;; (with-eval-after-load "lsp-mode"
+;;   (add-to-list 'lsp-disabled-clients 'pyls)
+;;   (add-to-list 'lsp-enabled-clients 'pylsp)
+;;   (add-to-list 'lsp-enabled-clients 'elixir-ls)
+;;   (add-to-list 'lsp-enabled-clients 'rust-analyzer))
 
 (add-hook 'python-mode-hook
 	  (lambda ()
@@ -193,19 +193,23 @@
 
 (use-package js2-mode
   :commands js2-mode
-  :config
-  (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode)))
+  :hook
+  (js2-mode . (lambda () (lsp-deferred))))
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 (use-package typescript-mode
   :config
-  (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode)))
+  (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
+  :hook
+  (typescript-mode . (lambda () (lsp-deferred))))
+
 
 (use-package json-mode
   :commands json-mode)
 
 (use-package elixir-mode
   :hook (elixir-mode . (lambda ()
-			  (add-to-list 'exec-path "/home/joh/.mix/elixir-ls/release")
+			 (add-to-list 'exec-path "/home/joh/.mix/elixir-ls/release")
 			 (lsp-deferred))))
 
 (use-package alchemist)
