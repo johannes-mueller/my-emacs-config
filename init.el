@@ -307,9 +307,14 @@
 
 (use-package lsp-mode
   :commands (lsp lsp-deferred)
-  :hook (lsp-mode . efs/lsp-mode-setup)
+  :hook
+  (lsp-mode . efs/lsp-mode-setup)
+  (lsp-completion-mode . my/lsp-mode-setup-completion)
   :init
   (setq lsp-keymap-prefix "C-M-l")
+  (defun my/lsp-mode-setup-completion ()
+    (setf (alist-get 'styles (alist-get 'lsp-capf completion-category-defaults))
+          '(orderless-fles))) ;; Configure orderless
   :config
   (lsp-enable-which-key-integration t)
   (setq lsp-completion-provider :none)

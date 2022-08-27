@@ -36,7 +36,8 @@
 
 (add-hook 'emacs-lisp-mode-hook (lambda ()
 				  (setq company-backends '(company-capf))
-				  (company-fuzzy-mode nil)))
+				  (company-fuzzy-mode nil)
+				  (add-to-list 'completion-at-point-functions #'cape-dabbrev)))
 
 (dolist (mode '(text-mode-hook
 		prog-mode-hook))
