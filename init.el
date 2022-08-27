@@ -171,9 +171,12 @@
   (sp-pair "[" "]" :unless '(sp-point-before-word-p))
   (sp-pair "{" "}" :unless '(sp-point-before-word-p))
   (smartparens-global-mode t)
+  :bind
+  ("M-<right>" . 'sp-forward-sexp)
+  ("M-<left>" . 'sp-backward-sexp)
+  ("M-<backspace>" . 'sp-backward-kill-sexp)
+  ("M-<delete>" . 'sp-kill-sexp)
   :init
-  (bind-key "M-<right>" 'sp-forward-sexp)
-  (bind-key "M-<left>" 'sp-backward-sexp)
   (require 'smartparens-config)
 )
 

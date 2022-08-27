@@ -18,9 +18,9 @@
 (global-set-key (kbd "C-c C-;") 'johmue/comment-current-line)
 (global-set-key (kbd "C-c ;") 'johmue/uncomment-current-line)
 
-(global-set-key (kbd "C-)") 'sp-wrap-round)
-(global-set-key (kbd "C-]") 'sp-wrap-square)
-(global-set-key (kbd "C-}") 'sp-wrap-curly)
+(global-set-key (kbd "C-M-(") 'sp-wrap-round)
+(global-set-key (kbd "C-M-[") 'sp-wrap-square)
+(global-set-key (kbd "C-M-{") 'sp-wrap-curly)
 (global-set-key (kbd "<C-S-delete>") 'sp-unwrap-sexp)
 
 (define-key global-map [(meta up)] 'johmue/scroll-other-window-one-up)
@@ -66,4 +66,6 @@
 (define-key dired-mode-map (kbd "<right>") #'dired-single-buffer)
 (define-key dired-mode-map (kbd "h") #'dired-gitignore-mode)
 
+
+(global-set-key (kbd "C-c C-s") #'yas-insert-snippet)
 ;;; keys.el ends here
