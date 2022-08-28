@@ -182,6 +182,9 @@
 (use-package test-cockpit-mix
   :straight (test-cockpit :type git :host github :repo "johannes-mueller/test-cockpit.el"))
 
+(use-package test-cockpit-npm-jest
+  :straight (test-cockpit :type git :host github :repo "johannes-mueller/test-cockpit.el"))
+
 (use-package web-mode
   :config
   (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
@@ -192,6 +195,19 @@
   (setq web-mode-enable-element-content-fontification t)
   (setq web-mode-enable-element-tag-fontification t)
   (setq web-mode-enable-current-element-highlight t))
+
+;; use smart parens in web mode
+(defun my-web-mode-hook ()
+  (setq web-mode-enable-auto-pairing nil))
+
+(add-hook 'web-mode-hook  'my-web-mode-hook)
+
+(defun sp-web-mode-is-code-context (id action context)
+  (and (eq action 'insert)
+       (not (or (get-text-property (point) 'part-side)
+                (get-text-property (point) 'block-side)))))
+
+(sp-local-pair 'web-mode "<" nil :when '(sp-web-mode-is-code-context))
 
 (use-package js2-mode
   :commands js2-mode
@@ -205,6 +221,15 @@
   :hook
   (typescript-mode . (lambda () (lsp-deferred))))
 
+(use-package ng2-mode)
+
+(define-derived-mode ng2-web-mode
+  web-mode "ng2-web"
+  "Major mode for Angular 2 templates"
+  (font-lock-add-keywords nil ng2-html-font-lock-keywords))
+
+(add-to-list 'auto-mode-alist '("\\.component.html\\'" . ng2-web-mode))
+(add-hook 'ng2-web-mode-hook (lambda () (lsp)))
 
 (use-package json-mode
   :commands json-mode)
