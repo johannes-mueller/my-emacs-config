@@ -263,22 +263,6 @@
 
 (use-package git-modes)
 
-(use-package blamer
-  :ensure t
-  :bind (("s-i" . blamer-show-commit-info)
-         ("C-c i" . blamer-show-posframe-commit-info))
-  :defer 20
-  :custom
-  (blamer-idle-time 0.3)
-  (blamer-min-offset 70)
-  :custom-face
-  (blamer-face ((t :foreground "#7a88cf"
-                    :background nil
-                    :height 110
-                    :italic t)))
-  :config
-  (global-blamer-mode 1))
-
 (use-package diff-hl
   :hook ((magit-pre-refresh . diff-hl-magit-pre-refresh)
 	 (magit-post-refresh . diff-hl-magit-post-refresh))
