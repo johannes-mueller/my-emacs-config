@@ -14,8 +14,8 @@
 (require 'package)
 
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
-			 ("org" . "https://orgmode.org/elpa/")
-			 ("elpa" . "https://elpa.gnu.org/packages/")))
+                         ("org" . "https://orgmode.org/elpa/")
+                         ("elpa" . "https://elpa.gnu.org/packages/")))
 
 (package-initialize)
 (unless package-archive-contents
@@ -70,14 +70,14 @@
   :ensure t
   :init (doom-modeline-mode 1)
   :custom (
-	   (doom-modeline-height 20)
-	   (doom-modeline-project-detection 'projectile)
-	   (doom-modeline-major-mode-icon t)
-	   (doom-modeline-major-mode-color-icon t)
-	   (doom-modeline-major-mode-color-icon t)
-	   (doom-modeline-buffer-state-icon t)
-	   (doom-modeline-minor-modes t)
-	   )
+           (doom-modeline-height 20)
+           (doom-modeline-project-detection 'projectile)
+           (doom-modeline-major-mode-icon t)
+           (doom-modeline-major-mode-color-icon t)
+           (doom-modeline-major-mode-color-icon t)
+           (doom-modeline-buffer-state-icon t)
+           (doom-modeline-minor-modes t)
+           )
   )
 
 (use-package auto-dim-other-buffers
@@ -120,14 +120,14 @@
 
 ;; Disable line numbers for some modes
 (dolist (mode '(org-mode-hook
-		dired-mode-hook
-		term-mode-hook
-		vterm-mode-hook
-		shell-mode-hook
-		eshell-mode-hook
-		treemacs-mode-hook
-		helpful-mode-hook
-		compilation-mode-hook))
+                dired-mode-hook
+                term-mode-hook
+                vterm-mode-hook
+                shell-mode-hook
+                eshell-mode-hook
+                treemacs-mode-hook
+                helpful-mode-hook
+                compilation-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
 (require 'dired)
@@ -149,15 +149,15 @@
 
 (use-package multiple-cursors
   :bind (("C-S-c C-S-c" . mc/edit-lines)
-	 ("C->" . mc/mark-next-like-this-symbol)
-	 ("C-<" . mc/mark-previous-like-this-symbol)
-	 ("C-M->" . mc/mark-next-like-this-word)
-	 ("C-M-<" . mc/mark-previous-like-this-word)
-	 ("C-c C-<" . mc/mark-all-like-this-symbol)
-	 ("C-S-<mouse-1>" . mc/add-cursor-on-click)
-	 :map mc/keymap
-	 ("C-s" . johmue/isearch)
-	 ("C-r" . johmue/isearch-backward)))
+         ("C->" . mc/mark-next-like-this-symbol)
+         ("C-<" . mc/mark-previous-like-this-symbol)
+         ("C-M->" . mc/mark-next-like-this-word)
+         ("C-M-<" . mc/mark-previous-like-this-word)
+         ("C-c C-<" . mc/mark-all-like-this-symbol)
+         ("C-S-<mouse-1>" . mc/add-cursor-on-click)
+         :map mc/keymap
+         ("C-s" . johmue/isearch)
+         ("C-r" . johmue/isearch-backward)))
 
 (use-package phi-search)
 
@@ -185,7 +185,7 @@
 
 (use-package move-text
   :bind (("C-M-<up>" . move-text-up)
-	 ("C-M-<down>" . move-text-down)))
+         ("C-M-<down>" . move-text-down)))
 
 (use-package crux
   :bind
@@ -227,9 +227,9 @@
 
 (use-package projectile
   :straight (projectile :type git :host github :repo "bbatsov/projectile"
-			:fork (:host github
-				     :repo "johannes-mueller/projectile")
-			:branch "johmue-merges")
+                        :fork (:host github
+                                     :repo "johannes-mueller/projectile")
+                        :branch "johmue-merges")
   :init
   (setq projectile-keymap-prefix (kbd "C-c C-p"))
   (setq projectile-switch-project-action 'projectile-commander)
@@ -265,7 +265,7 @@
 
 (use-package diff-hl
   :hook ((magit-pre-refresh . diff-hl-magit-pre-refresh)
-	 (magit-post-refresh . diff-hl-magit-post-refresh))
+         (magit-post-refresh . diff-hl-magit-post-refresh))
   :config (global-diff-hl-mode))
 
 (use-package undo-tree
@@ -356,15 +356,15 @@
 (use-package vterm
   :commands vterm
   :bind (:map vterm-mode-map
-	      ("C-<right>" . vterm--self-insert)
-	      ("C-<left>" . vterm--self-insert)
-	      ("M-<right>" . vterm--self-insert)
-	      ("M-<left>" . vterm--self-insert)
-	      ("M-<up>" . vterm--self-insert)
-	      ("C-r" . vterm--self-insert)
-	      ("C-g" . vterm--self-insert)
-	      ("C-u" . vterm--self-insert)
-	      ("C-y" . vterm--self-insert))
+              ("C-<right>" . vterm--self-insert)
+              ("C-<left>" . vterm--self-insert)
+              ("M-<right>" . vterm--self-insert)
+              ("M-<left>" . vterm--self-insert)
+              ("M-<up>" . vterm--self-insert)
+              ("C-r" . vterm--self-insert)
+              ("C-g" . vterm--self-insert)
+              ("C-u" . vterm--self-insert)
+              ("C-y" . vterm--self-insert))
   :config
   (setq term-prompt-regexp "^[a-z]*@[a-z]* [^<]* <[0-9]*> %")
   (setq vterm-shell "zsh")

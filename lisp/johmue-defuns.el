@@ -88,9 +88,9 @@
   (interactive)
   (indent-for-tab-command)
   (let* ((keys (recent-keys))
-	 (last-key (aref keys (- (length keys) 3))))
+         (last-key (aref keys (- (length keys) 3))))
     (if (integerp last-key)
-	(yas-expand))))
+        (yas-expand))))
 
 
 (defun johmue/jump-to-project ()
@@ -111,10 +111,10 @@
 
 (defun johmue/adjust-python-shell-interpreter ()
   (let ((invoke-python (if (executable-find "ipython")
-			   '("ipython" "--simple-prompt" "-i")
-			 '("python" "-i"))))
+                           '("ipython" "--simple-prompt" "-i")
+                         '("python" "-i"))))
   (setq python-shell-interpreter (pop invoke-python)
-	python-shell-interpreter-args (pop invoke-python))))
+        python-shell-interpreter-args (pop invoke-python))))
 
 (defun johmue/activate-python-venv (env-dir)
   (pyvenv-activate env-dir)
@@ -134,13 +134,13 @@
   (let ((project-root (projectile-project-root)))
     (unless (equal project-root johmue/last-projectile-project-root)
       (let ((possible-env-dir
-	     (concat
-	      (file-name-as-directory
-	       (or project-root default-directory)) ".venv")))
-    	(if (file-directory-p possible-env-dir)
-	    (johmue/activate-python-venv possible-env-dir)
-	  (johmue/deactivate-python-venv))
-	(setq johmue/last-projectile-project-root project-root)))))
+             (concat
+              (file-name-as-directory
+               (or project-root default-directory)) ".venv")))
+            (if (file-directory-p possible-env-dir)
+            (johmue/activate-python-venv possible-env-dir)
+          (johmue/deactivate-python-venv))
+        (setq johmue/last-projectile-project-root project-root)))))
 
 (defvar johmue/company-fuzzy-allowed-backends '("capf"))
 
@@ -148,11 +148,11 @@
   (let ((preferred-candidates '()))
     (dolist (cand candidates)
      (let* ((backend (company-fuzzy--get-backend-by-candidate cand))
-	    (prefix (company-fuzzy--backend-prefix-candidate cand 'match)))
+            (prefix (company-fuzzy--backend-prefix-candidate cand 'match)))
        (when (or (company-fuzzy--string-prefix-p prefix cand)
-		 (member backend johmue/company-fuzzy-allowed-backends))
-	 (push cand preferred-candidates)
-	 (setq candidates (remove cand candidates)))))
+                 (member backend johmue/company-fuzzy-allowed-backends))
+         (push cand preferred-candidates)
+         (setq candidates (remove cand candidates)))))
     (append preferred-candidates candidates)))
 
 (defun johmue/unfill-paragraph (&optional region)
@@ -184,15 +184,15 @@
 
 (defun johmue/search--search-initialize (&optional backward)
   (phi-search--initialize phi-search-mode-line-format
-			  (if backward
-			      phi-search-additional-keybinds
-			    phi-search-additional-keybinds)
-			  nil
-			  (when backward 'phi-search--backward-after-update-function)
-			  'phi-search--complete-function
-			  nil
-			  (lambda ()
-			    (run-hooks 'phi-search-init-hook))))
+                          (if backward
+                              phi-search-additional-keybinds
+                            phi-search-additional-keybinds)
+                          nil
+                          (when backward 'phi-search--backward-after-update-function)
+                          'phi-search--complete-function
+                          nil
+                          (lambda ()
+                            (run-hooks 'phi-search-init-hook))))
 
 
 (defun johmue/isearch ()
@@ -224,17 +224,17 @@
 (defun johmue/sphinx-build-html ()
   (interactive)
   (let* ((docs-dir (concat (projectile-project-root) "docs"))
-	 (target-dir (concat (projectile-project-root) "_build/html"))
-	 (command (concat "sphinx-build -j8 -b html " docs-dir " " target-dir)))
+         (target-dir (concat (projectile-project-root) "_build/html"))
+         (command (concat "sphinx-build -j8 -b html " docs-dir " " target-dir)))
     (compile command)))
 
 
 (defun johmue/sphinx-build-html-this-file ()
   (interactive)
   (let* ((docs-dir (concat (projectile-project-root) "docs"))
-	 (target-dir (concat (projectile-project-root) "_build/html"))
-	 (this-file (buffer-file-name))
-	 (command (concat "sphinx-build -b html -a " this-file " " docs-dir " " target-dir)))
+         (target-dir (concat (projectile-project-root) "_build/html"))
+         (this-file (buffer-file-name))
+         (command (concat "sphinx-build -b html -a " this-file " " docs-dir " " target-dir)))
     (compile command)))
 
 
