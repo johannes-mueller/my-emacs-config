@@ -82,9 +82,10 @@
   :after python)
 
 (require 'lsp-pylsp)
-;; (with-eval-after-load "lsp-mode"
+(with-eval-after-load "lsp-mode"
 ;;   (add-to-list 'lsp-disabled-clients 'pyls)
 ;;   (add-to-list 'lsp-enabled-clients 'pylsp)
+  (add-to-list 'lsp-disabled-clients 'pyright))
 ;;   (add-to-list 'lsp-enabled-clients 'elixir-ls)
 ;;   (add-to-list 'lsp-enabled-clients 'rust-analyzer))
 
