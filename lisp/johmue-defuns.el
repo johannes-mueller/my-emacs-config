@@ -79,11 +79,19 @@
   (scroll-other-window-down 1)
   )
 
+(defun johmue/yas-expand ()
+  (interactive)
+  (corfu-quit)
+  (yas-expand))
+
 (defun johmue/indent-and-maybe-yas-expand ()
   (interactive)
   (indent-for-tab-command)
-  (if (not (looking-at "[[:alnum:]]"))
-      (yas-expand)))
+  (let* ((keys (recent-keys))
+	 (last-key (aref keys (- (length keys) 3))))
+    (if (integerp last-key)
+	(yas-expand))))
+
 
 (defun johmue/jump-to-project ()
   (projectile-dired)

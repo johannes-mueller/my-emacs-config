@@ -4,7 +4,7 @@
   :bind
   (:map yas-minor-mode-map
 	("<tab>" . johmue/indent-and-maybe-yas-expand))
-  ("C-<tab>" . yas-expand))
+  ("C-<tab>" . johmue/yas-expand))
 
 (use-package yasnippet-snippets)
 
