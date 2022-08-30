@@ -242,6 +242,7 @@
 (use-package elixir-mode
   :hook (elixir-mode . (lambda ()
 			 (add-to-list 'exec-path "/home/joh/.mix/elixir-ls/release")
+			 (setq-local lsp-enable-file-watchers nil)
 			 (lsp-deferred))))
 
 (use-package alchemist)
