@@ -314,7 +314,7 @@
   (setq lsp-keymap-prefix "C-M-l")
   (defun my/lsp-mode-setup-completion ()
     (setf (alist-get 'styles (alist-get 'lsp-capf completion-category-defaults))
-          '(orderless-fles))) ;; Configure orderless
+          '(orderless))) ;; Configure orderless
   :config
   (lsp-enable-which-key-integration t)
   (setq lsp-completion-provider :none)
