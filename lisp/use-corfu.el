@@ -59,4 +59,11 @@
 (setq completion-cycle-threshold 3)
 (setq tab-always-indent 'complete)
 
+(use-package corfu-doc
+  :hook ((corfu-mode . corfu-doc-mode))
+  :bind (:map corfu-map
+	      ("<prior>" . corfu-doc-scroll-down)
+	      ("<next>" . corfu-doc-scroll-up)))
+
+
 (setq global-company-mode nil)
