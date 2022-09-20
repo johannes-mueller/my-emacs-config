@@ -317,7 +317,7 @@
 (defun efs/lsp-mode-setup ()
   (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\.venv.*\\'")
   (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\.venv\\'")
-  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\_venv.*\\'")
+  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\_venv*\\'")
   (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\__pycache__\\'")
   (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
   (lsp-headerline-breadcrumb-mode))
