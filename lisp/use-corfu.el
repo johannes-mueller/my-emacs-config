@@ -20,7 +20,9 @@
   ;; Recommended: Enable Corfu globally.
   ;; This is recommended since dabbrev can be used globally (M-/).
   :init
-  (global-corfu-mode))
+  (global-corfu-mode)
+  :hook (multiple-cursors-mode . (lambda () (corfu-mode -1))))
+(add-hook 'multiple-cursors-mode-disabled-hook #'corfu-mode)
 
 ;; Optionally use the `orderless' completion style. See `+orderless-dispatch'
 ;; in the Consult wiki for an advanced Orderless style dispatcher.

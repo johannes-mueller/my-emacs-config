@@ -148,16 +148,17 @@
 (require 'scroll-in-place)
 
 (use-package multiple-cursors
-  :bind (("C-S-c C-S-c" . mc/edit-lines)
-         ("C->" . mc/mark-next-like-this-symbol)
-         ("C-<" . mc/mark-previous-like-this-symbol)
-         ("C-M->" . mc/mark-next-like-this-word)
-         ("C-M-<" . mc/mark-previous-like-this-word)
-         ("C-c C-<" . mc/mark-all-like-this-symbol)
-         ("C-S-<mouse-1>" . mc/add-cursor-on-click)
-         :map mc/keymap
-         ("C-s" . johmue/isearch)
-         ("C-r" . johmue/isearch-backward)))
+  :bind
+  (("C-S-c C-S-c" . mc/edit-lines)
+   ("C->" . mc/mark-next-like-this-symbol)
+   ("C-<" . mc/mark-previous-like-this-symbol)
+   ("C-M->" . mc/mark-next-like-this-word)
+   ("C-M-<" . mc/mark-previous-like-this-word)
+   ("C-c C-<" . mc/mark-all-like-this-symbol)
+   ("C-S-<mouse-1>" . mc/add-cursor-on-click)
+   :map mc/keymap
+   ("C-s" . johmue/isearch)
+   ("C-r" . johmue/isearch-backward)))
 
 (use-package phi-search)
 
