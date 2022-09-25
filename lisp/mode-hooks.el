@@ -233,7 +233,7 @@
 (add-to-list 'auto-mode-alist '("\\.component.html\\'" . ng2-web-mode))
 (add-hook 'ng2-web-mode-hook (lambda () (lsp)))
 
-(require 'lsp-sonarlint)
+(use-package lsp-sonarlint)
 (push 'ng2-ts-mode (lsp--client-major-modes (gethash 'sonarlint lsp-clients)))
 (push 'ng2-html-mode (lsp--client-major-modes (gethash 'sonarlint lsp-clients)))
 
