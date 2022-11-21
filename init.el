@@ -317,8 +317,8 @@
 
 (defun efs/lsp-mode-setup ()
   (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\.venv.*\\'")
-  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\.venv\\'")
-  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\_venv*\\'")
+  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\_venv.*\\'")
+  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\_*build\\'")
   (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\__pycache__\\'")
   (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
   (lsp-headerline-breadcrumb-mode))
@@ -337,7 +337,8 @@
   (lsp-enable-which-key-integration t)
   (setq lsp-completion-provider :none)
   (setq lsp-idle-delay 0.500)
-  (setq lsp-log-io nil))
+  (setq lsp-log-io nil)
+  (setq lsp-log-max nil))
 
 (use-package lsp-ui
   :hook (lsp-mode . lsp-ui-mode)
