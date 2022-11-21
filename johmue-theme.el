@@ -65,6 +65,7 @@
 
   (web-mode-html-tag-face (:foreground johmue-dark-blue :bold t))
   (web-mode-html-attr-name-face (:foreground johmue-magenta))
+  (web-mode-current-element-highlight-face (:background "white"))
   )
 
  (custom-theme-set-variables 'johmue
