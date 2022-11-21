@@ -31,12 +31,10 @@
                             (setq fill-column 88)
                             (setq company-backends '(company-capf
                                                      (company-dabbrev-code company-keywords)
-                                                     company-dabbrev))
-                            (company-fuzzy-mode 1)))
+                                                     company-dabbrev))))
 
 (add-hook 'emacs-lisp-mode-hook (lambda ()
                                   (setq company-backends '(company-capf))
-                                  (company-fuzzy-mode nil)
                                   (setq indent-tabs-mode nil)
                                   (setq-local completion-at-point-functions
                                               (list (cape-super-capf #'elisp-completion-at-point #'cape-dabbrev)
@@ -52,7 +50,6 @@
             (set-fill-column 79)
             (flyspell-mode 1)
             (aggressive-fill-paragraph-mode)
-            (company-fuzzy-mode 0)
             (setq indent-tabs-mode nil)
             (setq-local company-backends '(company-wordfreq))
             (setq-local company-transformers nil)))
@@ -95,7 +92,6 @@
           (lambda ()
             (lsp)
             (require 'dap-python)
-            (company-fuzzy-mode 0)
             (setq dap-python-debugger 'debugpy)))
 
 (add-hook 'window-state-change-hook (lambda () (johmue/auto-activate-virtualenv)))
