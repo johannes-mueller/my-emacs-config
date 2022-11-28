@@ -323,6 +323,8 @@
   (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
   (lsp-headerline-breadcrumb-mode))
 
+(setq lsp-use-plists t)
+
 (use-package lsp-mode
   :commands (lsp lsp-deferred)
   :hook
