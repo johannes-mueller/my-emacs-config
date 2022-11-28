@@ -5,7 +5,7 @@
   (corfu-auto t)                 ;; Enable auto completion
   (corfu-quit-at-boundary nil)     ;; Automatically quit at word boundary
   (corfu-quit-no-match t)        ;; Automatically quit if there is no match
-  (corfu-auto-delay 0)
+  (corfu-auto-delay 0.2)
   (corfu-auto-prefix 1)
   ;; (corfu-preview-current nil)    ;; Disable current candidate preview
   ;; (corfu-preselect-first nil)    ;; Disable candidate preselection
@@ -21,7 +21,11 @@
   ;; This is recommended since dabbrev can be used globally (M-/).
   :init
   (global-corfu-mode)
-  :hook (multiple-cursors-mode . (lambda () (corfu-mode -1))))
+  :hook ((multiple-cursors-mode . (lambda () (corfu-mode -1)))
+         (corfu-mode . corfu-popupinfo-mode))
+  :bind (:map corfu-map
+              ("<prior>" . corfu-popupinfo-scroll-down)
+              ("<next>" . corfu-popupinfo-scroll-up)))
 (add-hook 'multiple-cursors-mode-disabled-hook #'corfu-mode)
 
 ;; Optionally use the `orderless' completion style. See `+orderless-dispatch'
@@ -60,12 +64,6 @@
 
 (setq completion-cycle-threshold 3)
 (setq tab-always-indent 'complete)
-
-(use-package corfu-doc
-  :hook ((corfu-mode . corfu-doc-mode))
-  :bind (:map corfu-map
-              ("<prior>" . corfu-doc-scroll-down)
-              ("<next>" . corfu-doc-scroll-up)))
 
 
 (setq global-company-mode nil)
