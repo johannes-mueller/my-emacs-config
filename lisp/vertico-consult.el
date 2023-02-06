@@ -78,10 +78,7 @@
 
 (define-key embark-symbol-map (kbd "h") 'helpful-symbol)
 
-(embark-define-keymap embark-project-file-map
-  "For projectile find file"
-  :parent embark-file-map
-  ("RET" projectile-find-file))
+(define-key embark-general-map [?\r] 'projectile-find-file)
 
 ;(add-to-list 'marginalia-prompt-categories '("Find file" . file))
 
