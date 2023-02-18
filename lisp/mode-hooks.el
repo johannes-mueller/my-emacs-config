@@ -18,9 +18,6 @@
 (add-hook 'compilation-filter-hook
           #'johmue/colorize-compilation)
 
-(use-package aggressive-fill-paragraph)
-(use-package aggressive-indent)
-
 (use-package string-inflection
   :bind ("<f4>" . string-inflection-all-cycle))
 
@@ -49,7 +46,6 @@
             (turn-on-auto-fill)
             (set-fill-column 79)
             (flyspell-mode 1)
-            (aggressive-fill-paragraph-mode)
             (setq indent-tabs-mode nil)
             (setq-local company-backends '(company-wordfreq))
             (setq-local company-transformers nil)))
@@ -69,8 +65,7 @@
 
 (use-package yaml-mode
   :hook (yaml-mode . (lambda()
-                       (auto-fill-mode -1)
-                       (aggressive-fill-paragraph-mode -1))))
+                       (auto-fill-mode -1))))
 (use-package yaml-tomato)
 
 (use-package pyvenv
