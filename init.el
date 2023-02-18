@@ -279,7 +279,7 @@
                     :height 110
                     :italic t)))
   :config
-  (global-blamer-mode 1))
+  (global-blamer-mode nil))
 
 (use-package diff-hl
   :hook ((magit-pre-refresh . diff-hl-magit-pre-refresh)
