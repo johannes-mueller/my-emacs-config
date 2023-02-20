@@ -227,10 +227,6 @@
         imenu-list-auto-resize nil))
 
 (use-package projectile
-  :straight (projectile :type git :host github :repo "bbatsov/projectile"
-                        :fork (:host github
-                                     :repo "johannes-mueller/projectile")
-                        :branch "johmue-merges")
   :init
   (setq projectile-keymap-prefix (kbd "C-c C-p"))
   (setq projectile-switch-project-action 'projectile-commander)
