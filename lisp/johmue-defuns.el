@@ -175,7 +175,7 @@
 (defun johmue/start-web-server ()
   (interactive)
   (let ((default-directory (projectile-project-root)))
-    (start-process-shell-command "Webserver" "*Webserver*" "python -m http.server")))
+    (start-process-shell-command "Webserver" "*Webserver*" "python -m http.server 8080")))
 
 (defun johmue/start-jupyter-server ()
   (interactive)
