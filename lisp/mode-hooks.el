@@ -48,6 +48,7 @@
             (flyspell-mode 1)
             (setq indent-tabs-mode nil)
             (setq-local completion-at-point-functions '(capf-wordfreq-completion-at-point-function))
+            (setq-local corfu-sort-function 'identity)
             (setq-local company-backends '(company-wordfreq))
             (setq-local company-transformers nil)))
 
