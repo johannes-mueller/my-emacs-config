@@ -21,14 +21,6 @@
 (use-package string-inflection
   :bind ("<f4>" . string-inflection-all-cycle))
 
-(add-hook 'prog-mode-hook #'which-function-mode)
-(add-hook 'prog-mode-hook #'show-paren-mode)
-(add-hook 'prog-mode-hook #'flyspell-prog-mode)
-(add-hook 'prog-mode-hook (lambda ()
-                            (setq fill-column 88)
-                            (setq company-backends '(company-capf
-                                                     (company-dabbrev-code company-keywords)
-                                                     company-dabbrev))))
 
 (add-hook 'emacs-lisp-mode-hook (lambda ()
                                   (setq company-backends '(company-capf))
@@ -41,16 +33,45 @@
                 prog-mode-hook))
   (add-hook mode (lambda() (display-fill-column-indicator-mode t))))
 
-(add-hook 'text-mode-hook
-          (lambda ()
-            (turn-on-auto-fill)
-            (set-fill-column 79)
-            (flyspell-mode 1)
-            (setq indent-tabs-mode nil)
-            (setq-local completion-at-point-functions '(capf-wordfreq-completion-at-point-function))
-            (setq-local corfu-sort-function 'identity)
-            (setq-local company-backends '(company-wordfreq))
-            (setq-local company-transformers nil)))
+
+
+(add-hook 'mmm-python-mode-rst-mode-hook #'johmue/enter-text-submode)
+(add-hook 'mmm-rst-mode-python-mode-hook #'johmue/exit-text-submode)
+
+(setq johmue/completion-at-point-functions '())
+
+(defun johmue/enter-text-submode ()
+  (setq johmue/completion-at-point-functions completion-at-point-functions)
+  (johmue/text-mode-hook))
+
+(defun johmue/exit-text-submode ()
+  (johmue/prog-mode-hook)
+  (setq completion-at-point-functions johmue/completion-at-point-functions))
+
+(defun johmue/prog-mode-hook ()
+  (which-function-mode)
+  (show-paren-mode)
+  (flyspell-prog-mode)
+  (setq fill-column 88)
+  (setq-local corfu-auto-delay 0.2)
+  (setq company-backends '(company-capf
+                           (company-dabbrev-code company-keywords)
+                           company-dabbrev)))
+
+
+(defun johmue/text-mode-hook ()
+  (turn-on-auto-fill)
+  (set-fill-column 79)
+  (flyspell-mode 1)
+  (setq indent-tabs-mode nil)
+  (setq-local completion-at-point-functions '(capf-wordfreq-completion-at-point-function))
+  (setq-local corfu-sort-function 'identity)
+  (setq-local corfu-auto-delay 0.8)
+  (setq-local company-backends '(company-wordfreq))
+  (setq-local company-transformers nil))
+
+(add-hook 'prog-mode-hook #'johmue/prog-mode-hook)
+(add-hook 'text-mode-hook #'johmue/text-mode-hook)
 
 (use-package wc-mode
   :hook (text-mode . (lambda () (wc-mode 1))))

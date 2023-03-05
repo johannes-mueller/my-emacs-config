@@ -311,6 +311,40 @@
   (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●"))
 )
 
+
+(defun rst-python-statement-is-docstring (begin)
+  "Return true if beginning of statiment is :begin"
+  (save-excursion
+    (save-match-data
+      (python-nav-beginning-of-statement)
+      (looking-at-p begin))))
+
+(defun rst-python-front-verify ()
+  (rst-python-statement-is-docstring (match-string 0)))
+
+
+(use-package mmm-mode
+  :config
+  (setq mmm-global-mode 'maybe)
+  (mmm-add-classes
+   '((python-rst
+      :submode rst-mode
+      :face mmm-comment-submode-face
+      :front "[ru]?\\(\"\"\"\\|\'\'\'\\)"
+      :front-verify rst-python-front-verify
+      :back "~1"
+      :end-not-begin t
+      :save-matches 1
+      ;; :front rst-python-docstrings-find-front
+      ;; :back rst-python-docstrings-find-back
+      :insert ((?d embdocstring nil @ "u\"\"\"" @ _ @ "\"\"\"" @))
+      :delimiter-mode nil)))
+  (mmm-add-mode-ext-class 'python-mode nil 'python-rst)
+                                        ;(add-hook 'mmm-python-rst-hook )
+  )
+
+;(add-to-list 'mmm-save-local-variables 'completion-at-point-functions)
+
 (defun efs/lsp-mode-setup ()
   (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\.venv.*\\'")
   (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\_venv.*\\'")

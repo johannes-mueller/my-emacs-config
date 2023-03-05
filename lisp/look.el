@@ -7,6 +7,7 @@
 ;(set-face-attribute 'bold nil :font "Hasklig Medium" :height 110)
 (set-face-attribute 'italic nil :family "Hasklig Italic" :inherit 'default)
 (set-face-attribute 'fixed-pitch nil :family "Hasklig Light" :inherit 'default)
+(set-face-attribute 'fixed-pitch-serif nil :family "Hasklig Light" :inherit 'default)
 
 ;(set-face-attribute 'fill-column-indicator nil :font "Source Code Pro" :height 200)
 

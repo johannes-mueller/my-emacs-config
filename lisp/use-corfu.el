@@ -36,6 +36,8 @@
 (straight-use-package
  '(capf-wordfreq :type git :host github :repo "johannes-mueller/capf-wordfreq.el"))
 
+(setq capf-wordfreq-minimal-candidate-length 8)
+
 (use-package cape
   ;; Bind dedicated completion commands
   :bind (("C-c p p" . completion-at-point) ;; capf
