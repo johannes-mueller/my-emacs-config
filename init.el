@@ -3,7 +3,7 @@
 ;;; Code;
 
 (setq load-path (add-to-list 'load-path "~/.emacs.d/lisp"))
-
+(setenv "LSP_USE_PLISTS" "true")
 (load "proxy-settings" t)
 
 (setq gc-cons-threshold 128000000)
