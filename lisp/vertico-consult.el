@@ -17,10 +17,6 @@
 
 (define-key vertico-map (kbd "S-SPC") #'+vertico-restrict-to-matches)
 
-(use-package savehist
-  :init
-  (savehist-mode))
-
 (use-package marginalia
   :after vertico
   :ensure t

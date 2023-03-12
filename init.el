@@ -59,6 +59,11 @@
 
 (setq indicate-buffer-boundaries 'right)
 
+(savehist-mode 1)
+(recentf-mode 1)
+(save-place-mode 1)
+(global-auto-revert-mode)
+
 (use-package diminish
   :config
   (diminish 'auto-revert-mode)
