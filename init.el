@@ -169,6 +169,8 @@
 
 ;(setq case-replace nil)
 (setq isearch-allow-motion t)
+(setq isearch-lazy-count t)
+(setq isearch-yank-on-move t)
 
 (use-package smartparens
   :diminish
