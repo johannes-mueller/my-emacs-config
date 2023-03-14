@@ -43,6 +43,8 @@
 (define-key isearch-mode-map (kbd "<down>") 'isearch-repeat-forward)
 (define-key isearch-mode-map (kbd "C-s") 'johmue/change-isearch-to-line-search)
 
+(global-set-key (kbd "s-/") 'completion-at-point)
+(global-set-key (kbd "s-<tab>") 'completion-at-point)
 
 (global-set-key (kbd "M-q") 'johmue/fill-paragraph-79)
 (global-set-key [f6] 'johmue/toggle-soft-wrap)
