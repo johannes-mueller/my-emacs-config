@@ -225,7 +225,7 @@
   (interactive)
   (let* ((docs-dir (concat (projectile-project-root) "docs"))
          (target-dir (concat (projectile-project-root) "_build/html"))
-         (command (concat "sphinx-build -j8 -b html " docs-dir " " target-dir)))
+         (command (concat "sphinx-build -b html " docs-dir " " target-dir)))
     (compile command)))
 
 
