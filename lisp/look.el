@@ -17,3 +17,9 @@
                     :slant 'italic
                     :inherit 'default)
 (set-face-attribute 'corfu-default nil :inherit 'default)
+
+
+(use-package goggles
+  :hook ((prog-mode text-mode) . goggles-mode)
+  :config
+  (setq-default goggles-pulse t))
