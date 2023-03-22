@@ -14,5 +14,6 @@
 (use-package auto-dictionary)
 (add-hook 'flyspell-mode-hook (lambda () (auto-dictionary-mode 1)))
 
+(use-package flyspell-correct)
 
 ;;; spelling.el ends here

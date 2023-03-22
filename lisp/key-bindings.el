@@ -48,9 +48,8 @@
 
 (global-set-key (kbd "M-q") 'johmue/fill-paragraph-79)
 (global-set-key [f6] 'johmue/toggle-soft-wrap)
-;(define-key global-map [f11]         'ispell-buffer)
-;(define-key global-map [(meta f11)]  'flyspell-auto-correct-word)
 
+(global-set-key (kbd "M-$") 'flyspell-correct-at-point)
 ;(define-key global-map '(meta control kp-right) 'bigframe)
 ;(define-key global-map '(meta control kp-6) 'bigframe)
 ;(define-key global-map '(meta control kp-left) 'normalframe)
