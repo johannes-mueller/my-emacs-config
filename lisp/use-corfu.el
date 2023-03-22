@@ -38,6 +38,8 @@
 
 (setq capf-wordfreq-minimal-candidate-length 8)
 
+(use-package corfu-prescient)
+
 (use-package cape
   ;; Bind dedicated completion commands
   :bind (("C-c p p" . completion-at-point) ;; capf

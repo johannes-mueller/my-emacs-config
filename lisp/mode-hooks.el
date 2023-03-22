@@ -54,6 +54,7 @@
   (flyspell-prog-mode)
   (setq fill-column 88)
   (setq-local corfu-auto-delay 0.2)
+  (corfu-prescient-mode t)
   (setq company-backends '(company-capf
                            (company-dabbrev-code company-keywords)
                            company-dabbrev)))
@@ -68,6 +69,7 @@
   (setq-local corfu-sort-function 'identity)
   (setq-local corfu-auto-delay 0.8)
   (setq-local company-backends '(company-wordfreq))
+  (corfu-prescient-mode -1)
   (setq-local company-transformers nil))
 
 (add-hook 'prog-mode-hook #'johmue/prog-mode-hook)
