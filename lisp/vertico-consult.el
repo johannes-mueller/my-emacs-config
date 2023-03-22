@@ -56,6 +56,8 @@
 (use-package consult-projectile
   :bind (("C-x p" . consult-projectile)))
 
+(use-package consult-flycheck)
+
 (setq consult-narrow-key "<")
 
 ;; Use Consult to select xref locations with preview
