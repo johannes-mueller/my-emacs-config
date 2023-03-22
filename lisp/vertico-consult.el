@@ -17,6 +17,9 @@
 
 (define-key vertico-map (kbd "S-SPC") #'+vertico-restrict-to-matches)
 
+(use-package vertico-prescient
+  :init (vertico-prescient-mode))
+
 (use-package marginalia
   :after vertico
   :ensure t
