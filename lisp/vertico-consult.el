@@ -17,6 +17,9 @@
 
 (define-key vertico-map (kbd "S-SPC") #'+vertico-restrict-to-matches)
 
+(add-hook 'minibuffer-setup-hook #'vertico-repeat-save)
+(keymap-global-set "M-r" #'vertico-repeat)
+
 (use-package vertico-prescient
   :init (vertico-prescient-mode))
 
