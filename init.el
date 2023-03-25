@@ -257,7 +257,8 @@
   (magit-display-buffer-function #'magit-display-buffer-traditional)
   (magit-diff-refine-hunk (quote all))
   :config
-  (setq magit-git-environment (cons "LANG=en" magit-git-environment)))
+  (setq magit-git-environment (cons "LANG=en" magit-git-environment))
+  :hook (git-commit-setup . (lambda () (adict-change-dictionary "english"))))
 
 (use-package git-timemachine :after magit)
 
