@@ -254,7 +254,7 @@
 (use-package magit
   :commands magit-status
   :custom
-  (magit-display-buffer-function #'magit-display-buffer-traditional)
+  (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
   (magit-diff-refine-hunk (quote all))
   :config
   (setq magit-git-environment (cons "LANG=en" magit-git-environment))
