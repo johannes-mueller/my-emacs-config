@@ -49,7 +49,7 @@
 (global-set-key (kbd "M-q") 'johmue/fill-paragraph-79)
 (global-set-key [f6] 'johmue/toggle-soft-wrap)
 
-(global-set-key (kbd "M-$") 'flyspell-correct-at-point)
+(global-set-key (kbd "M-$") 'jinx-correct)
 ;(define-key global-map '(meta control kp-right) 'bigframe)
 ;(define-key global-map '(meta control kp-6) 'bigframe)
 ;(define-key global-map '(meta control kp-left) 'normalframe)
