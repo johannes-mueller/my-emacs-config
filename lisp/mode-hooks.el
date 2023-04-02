@@ -46,7 +46,8 @@
 
 (defun johmue/exit-text-submode ()
   (johmue/prog-mode-hook)
-  (setq completion-at-point-functions johmue/completion-at-point-functions))
+  (when johmue/completion-at-point-functions
+    (setq completion-at-point-functions johmue/completion-at-point-functions)))
 
 (defun johmue/prog-mode-hook ()
   (which-function-mode)
