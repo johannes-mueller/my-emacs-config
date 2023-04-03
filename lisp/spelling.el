@@ -19,11 +19,9 @@
 (add-hook 'jinx-mode-hook (lambda () (auto-dictionary-mode 1)))
 
 (defun johmue/adjust-jinx-languages ()
-  (message "adjusting to %s" ispell-local-dictionary)
   (setq-local jinx-languages
               (or (car (rassoc ispell-local-dictionary adict-dictionary-list))
                   ispell-local-dictionary))
-  (message "jinx-languages set to %s" jinx-languages)
   (jinx-mode -1)
   (jinx-mode 1))
 
