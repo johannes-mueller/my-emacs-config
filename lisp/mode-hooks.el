@@ -108,9 +108,12 @@
 ;;   (add-to-list 'lsp-enabled-clients 'rust-analyzer))
   )
 
+(use-package py-autopep8)
+
 (add-hook 'python-mode-hook
           (lambda ()
             (lsp)
+            (py-autopep8-enable-on-save)
             (require 'dap-python)
             (setq dap-python-debugger 'debugpy)))
 
