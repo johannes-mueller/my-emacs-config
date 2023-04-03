@@ -51,6 +51,7 @@
 
 (defun johmue/prog-mode-hook ()
   (which-function-mode)
+  (auto-fill-mode -1)
   (show-paren-mode)
   (setq fill-column 88)
   (setq-local corfu-auto-delay 0.2)
