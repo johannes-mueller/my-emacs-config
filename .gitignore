@@ -23,3 +23,7 @@ session.*
 /anaconda-mode/
 history
 undo
+places
+projectile.cache
+recentf
+tree-sitter/
