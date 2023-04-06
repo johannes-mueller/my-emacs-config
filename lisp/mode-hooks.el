@@ -109,12 +109,22 @@
 ;;   (add-to-list 'lsp-enabled-clients 'rust-analyzer))
   )
 
-(use-package py-autopep8)
+(use-package python-black
+  :config
+  (setq python-black-command "~/miniconda3/envs/pylsp/bin/black")
+  (setq python-black-macchiato-command "~/miniconda3/envs/pylsp/bin/black-macchiato"))
+
+(defun johmue/python-black-format-defun ()
+    (interactive)
+  (save-excursion
+    (beginning-of-defun)
+    (let ((beg (point)))
+      (end-of-defun)
+      (python-black-region beg (point)))))
 
 (add-hook 'python-mode-hook
           (lambda ()
             (lsp)
-            (py-autopep8-enable-on-save)
             (require 'dap-python)
             (setq dap-python-debugger 'debugpy)))
 
