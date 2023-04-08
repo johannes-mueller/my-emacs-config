@@ -112,7 +112,8 @@
 (use-package python-black
   :config
   (setq python-black-command "~/miniconda3/envs/pylsp/bin/black")
-  (setq python-black-macchiato-command "~/miniconda3/envs/pylsp/bin/black-macchiato"))
+  (setq python-black-macchiato-command "~/miniconda3/envs/pylsp/bin/black-macchiato")
+  (setq python-black-extra-args '("--skip-string-normalization")))
 
 (defun johmue/python-black-format-defun ()
     (interactive)
