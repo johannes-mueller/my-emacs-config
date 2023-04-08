@@ -93,21 +93,10 @@
   :config
   (default-text-scale-mode 1))
 
-(use-package popwin
-  :config
-  (push '(compilation-mode :noselect t :height 0.3 :position bottom :tail t) popwin:special-display-config)
-  (push '("*Help*" :height 0.5 :position top) popwin:special-display-config)
-  (push '("*xref*" :height 0.3 :position bottom) popwin:special-display-config)
-  (push '("*grep*" :height 0.5 :position bottom) popwin:special-display-config)
-  (push '(python-pytest-mode :height 0.5 :position bottom) popwin:special-display-config)
-  (push '(magit-mode :position right) popwin:special-display-config)
-  (popwin-mode 1)
-)
+
+(load "display")
 
 (setq compilation-scroll-output t)
-
-(setq split-width-threshold 210)
-(setq split-height-threshold 150)
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
@@ -244,7 +233,7 @@
   (projectile-global-mode)
   (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-  (define-key projectile-command-map (kbd ".") #'projectile-run-vterm)
+  (define-key projectile-command-map (kbd ".") #'johmue/project-vterm)
   (add-to-list 'projectile-globally-ignored-directories ".venv"))
 
 
