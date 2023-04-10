@@ -141,11 +141,11 @@
 (setq dired-listing-switches "-agho --group-directories-first")
 (setq dired-kill-when-opening-new-dired-buffer t)
 
-(straight-use-package
- '(dired-gitignore :type git :host github :repo "johannes-mueller/dired-gitignore.el"))
-
-(eval-after-load 'dired #'dired-gitignore-mode)
-
+(use-package dired-gitignore
+  :straight (dired-gitignore :type git
+                             :host github
+                             :repo "johannes-mueller/dired-gitignore.el")
+  :hook (dired-mode dired-gitignore-mode))
 
 (use-package all-the-icons)
 
