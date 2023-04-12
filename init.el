@@ -144,8 +144,9 @@
 (use-package dired-gitignore
   :straight (dired-gitignore :type git
                              :host github
-                             :repo "johannes-mueller/dired-gitignore.el")
-  :hook (dired-mode dired-gitignore-mode))
+                             :repo "johannes-mueller/dired-gitignore.el"))
+
+(add-hook 'dired-mode-hook #'dired-gitignore-mode)
 
 (use-package all-the-icons)
 
