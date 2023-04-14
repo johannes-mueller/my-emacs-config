@@ -36,6 +36,7 @@
 
 (global-set-key (kbd "C-x C-2") 'delete-other-windows-vertically)
 (global-set-key (kbd "C-x 3") 'johmue/split-window-right)
+(global-set-key (kbd "C-x 2") 'johmue/split-window-below)
 
 (global-set-key (kbd "C-x C-r") 'consult-recent-file)
 
