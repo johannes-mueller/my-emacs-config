@@ -92,18 +92,22 @@
     (if (integerp last-key)
         (yas-expand))))
 
-
 (defun johmue/jump-to-project ()
   (projectile-dired)
   (projectile-vc)
   (other-window 1)
   (setq projectile-mode-line-function '(lambda () (format " <%s>" (projectile-project-name))))
 )
-
 (defun johmue/split-window-right ()
   (interactive)
   (split-window-right)
-  (balance-windows))
+  (balance-windows)
+  (other-window 1))
+
+(defun johmue/split-window-below ()
+  (interactive)
+  (split-window-below)
+  (other-window 1))
 
 (defun johmue/ripgrep-thing-at-point ()
   (interactive)

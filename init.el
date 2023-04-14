@@ -98,6 +98,14 @@
 
 (setq compilation-scroll-output t)
 
+(use-package switchy-window
+  :ensure t
+  :custom (switchy-window-delay 1.0) ;; That's the default value.
+  :bind     :bind (:map switchy-window-minor-mode-map
+                        ([f2] . switchy-window))
+  :init
+  (switchy-window-minor-mode))
+
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
