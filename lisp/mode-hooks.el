@@ -232,7 +232,8 @@
   (add-to-list 'auto-mode-alist '("\\.heex\\'" . web-mode))
   (setq web-mode-enable-element-content-fontification t)
   (setq web-mode-enable-element-tag-fontification t)
-  (setq web-mode-enable-current-element-highlight t))
+  (setq web-mode-enable-current-element-highlight t)
+  (setq web-mode-enable-auto-indentation nil))
 
 ;; use smart parens in web mode
 (defun my-web-mode-hook ()
