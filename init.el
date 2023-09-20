@@ -454,3 +454,6 @@
 (load-theme 'johmue t)
 
 (load "local-devel" t)
+
+(when (file-exists-p (concat (file-name-as-directory "~/.emacs.d/lisp") "local-lisp.el"))
+  (load "local-lisp"))
