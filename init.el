@@ -405,10 +405,7 @@
 (use-package dap-mode
   :commands (dap-debug dap-mode)
   :config
-  (require 'dap-node)
-  (dap-node-setup))
-
-
+)
 
 (use-package term
   :commands term
