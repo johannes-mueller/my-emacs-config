@@ -111,7 +111,7 @@
 
 (defun johmue/ripgrep-thing-at-point ()
   (interactive)
-  (counsel-rg (ivy-thing-at-point) (projectile-project-root)))
+  (consult-ripgrep (projectile-project-root) (symbol-at-point)))
 
 (defun johmue/adjust-python-shell-interpreter ()
   (let ((invoke-python (if (executable-find "ipython")
