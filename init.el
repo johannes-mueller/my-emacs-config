@@ -312,6 +312,8 @@
 
 (defun johmue/org-mode-hook ()
   (org-indent-mode)
+  (define-key org-mode-map (kbd "<S-left>") 'johmue/jump-whitespace-backward)
+  (define-key org-mode-map (kbd "<S-right>") 'johmue/jump-whitespace-forward)
   )
 
 (use-package org
