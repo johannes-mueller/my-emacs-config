@@ -202,11 +202,7 @@
             (setq sqlind-basic-offset 8)
             (add-to-list 'sqlind-indentation-offsets-alist '(defun-start 0))))
 
-(use-package toml
-  :straight (toml :type git :host github :repo "gongo/emacs-toml"
-                  :fork (:host github
-                               :repo "johannes-mueller/emacs-toml"
-                               :branch "johmue-merges")))
+(use-package toml)
 
 (use-package test-cockpit-python
   :straight (test-cockpit :type git :host github :repo "johannes-mueller/test-cockpit.el"))
