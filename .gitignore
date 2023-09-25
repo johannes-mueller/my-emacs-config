@@ -27,3 +27,4 @@ places
 projectile.cache
 recentf
 tree-sitter/
+/lisp/local-lisp.el
