@@ -272,9 +272,7 @@
 
 (use-package git-timemachine :after magit)
 
-(use-package forge
-  :after magit
-  )
+(use-package forge)
 
 (use-package git-modes)
 
