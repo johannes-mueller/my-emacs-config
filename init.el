@@ -155,6 +155,8 @@
                              :host github
                              :repo "johannes-mueller/dired-gitignore.el"))
 
+(dired-gitignore-global-mode)
+
 (use-package all-the-icons)
 
 (use-package all-the-icons-dired
