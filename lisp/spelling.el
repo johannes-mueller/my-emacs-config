@@ -27,5 +27,13 @@
 
 (add-hook 'adict-change-dictionary-hook #'johmue/adjust-jinx-languages)
 
+(setq adict-dictionary-list
+      '(("en" . "english")
+        ("de" . "deutsch")
+        ("fr" . "francais")
+        ("sv" . "svenska")
+        ("eo" . "eo")
+        ("sk" . "slovak")
+        ("sl" . nil)))
 
 ;;; spelling.el ends here
