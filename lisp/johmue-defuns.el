@@ -230,7 +230,8 @@
   (let* ((docs-dir (concat (projectile-project-root) "docs"))
          (target-dir (concat (projectile-project-root) "_build/html"))
          (command (concat "sphinx-build -b html " docs-dir " " target-dir)))
-    (compile command)))
+    (projectile-with-default-dir (projectile-acquire-root)
+      (compile command))))
 
 
 (defun johmue/sphinx-build-html-this-file ()
@@ -239,7 +240,8 @@
          (target-dir (concat (projectile-project-root) "_build/html"))
          (this-file (buffer-file-name))
          (command (concat "sphinx-build -b html -a " this-file " " docs-dir " " target-dir)))
-    (compile command)))
+    (projectile-with-default-dir (projectile-acquire-root)
+      (compile command))))
 
 
 (provide 'johmue-defuns)
