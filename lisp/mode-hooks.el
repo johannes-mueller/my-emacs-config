@@ -104,7 +104,7 @@
   :after python)
 
 (require 'lsp-pylsp)
-(setq lsp-pylsp-server-command "~/miniconda3/envs/pylsp/bin/pylsp")
+(setq lsp-pylsp-server-command "~/.miniconda3/envs/pylsp/bin/pylsp")
 (with-eval-after-load "lsp-mode"
 ;;   (add-to-list 'lsp-disabled-clients 'pyls)
 ;;   (add-to-list 'lsp-enabled-clients 'pylsp)
@@ -115,8 +115,8 @@
 
 (use-package python-black
   :config
-  (setq python-black-command "~/miniconda3/envs/pylsp/bin/black")
-  (setq python-black-macchiato-command "~/miniconda3/envs/pylsp/bin/black-macchiato")
+  (setq python-black-command "~/.miniconda3/envs/pylsp/bin/black")
+  (setq python-black-macchiato-command "~/.miniconda3/envs/pylsp/bin/black-macchiato")
   (setq python-black-extra-args '("--skip-string-normalization")))
 
 (defun johmue/python-black-format-defun ()
