@@ -26,7 +26,7 @@
                                   (setq company-backends '(company-capf))
                                   (setq indent-tabs-mode nil)
                                   (setq-local completion-at-point-functions
-                                              (list (cape-super-capf #'elisp-completion-at-point #'cape-dabbrev)
+                                              (list (cape-capf-super #'elisp-completion-at-point #'cape-dabbrev)
                                                     #'cape-file))))
 
 (use-package flycheck-package)
