@@ -127,11 +127,18 @@
       (end-of-defun)
       (python-black-region beg (point)))))
 
+
+(setq major-mode-remap-alist
+      '((python-mode . python-ts-mode)))
+
 (add-hook 'python-mode-hook
           (lambda ()
-            (lsp)
-            (require 'dap-python)
-            (setq dap-python-debugger 'debugpy)))
+            (eglot-ensure)
+            ;(require 'dap-python)
+            ;(setq dap-python-debugger 'debugpy)
+            ))
+
+(add-hook 'python-ts-mode-hook #'eglot-ensure)
 
 (add-hook 'window-state-change-hook (lambda () (johmue/auto-activate-virtualenv)))
 
