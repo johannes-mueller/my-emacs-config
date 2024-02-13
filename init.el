@@ -311,6 +311,10 @@
 (use-package flycheck
   :config (global-flycheck-mode))
 
+(use-package flycheck-pos-tip
+  :init
+  (flycheck-pos-tip-mode))
+
 (defun johmue/org-mode-hook ()
   (org-indent-mode)
   (define-key org-mode-map (kbd "<S-left>") 'johmue/jump-whitespace-backward)
@@ -409,6 +413,12 @@
   :commands (dap-debug dap-mode)
   :config
 )
+
+(use-package flycheck-eglot
+  :init
+  (global-flycheck-eglot-mode 1))
+
+(use-package eldoc-box)
 
 (use-package term
   :commands term
