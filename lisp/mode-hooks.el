@@ -139,6 +139,23 @@
             ;(setq dap-python-debugger 'debugpy)
             ))
 
+(setq-default eglot-workspace-configuration
+              '((:pylsp . (:configurationSources
+                           ["flake8"]
+                           :plugins (
+                                     :pycodestyle (:enabled :json-false)
+                                     :mccabe (:enabled t)
+                                     :pyflakes (:enabled :json-false)
+                                     :flake8 (:enabled t :maxLineLength 88)
+                                     :ruff (:enabled t :lineLength 88)
+                                     :pydocstyle (:enabled t :convention "numpy")
+                                     :yapf (:enabled :json-false)
+                                     :autopep8 (:enabled :json-false)
+                                     :black (:enabled t
+                                                      :line_length 88
+                                                      :cache_config t))
+                           ))))
+
 (add-hook 'python-ts-mode-hook #'eglot-ensure)
 
 (add-hook 'window-state-change-hook (lambda () (johmue/auto-activate-virtualenv)))
