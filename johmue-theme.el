@@ -68,6 +68,13 @@
   (web-mode-current-element-highlight-face (:background "white"))
 
   (mmm-default-submode-face (:background nil  :foreground "dim gray"))
+
+  (flycheck-posframe-border-face (:forground "red"))
+  (flycheck-posframe-face (:background "RosyBrown1"))
+
+  (eldoc-box-body (:background "white smoke"))
+
+  (eglot-highlight-symbol-face (:background "MediumSpringGreen" :bold nil))
   )
 
  (custom-theme-set-variables 'johmue
