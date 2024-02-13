@@ -69,6 +69,8 @@
   (diminish 'auto-revert-mode)
   (diminish 'eldoc-mode)
   (diminish 'whitespace-mode)
+  (diminish 'eldoc-box-hover-at-point-mode)
+  (diminish 'goggles-mode)
 )
 
 (use-package doom-modeline
