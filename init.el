@@ -311,9 +311,12 @@
 (use-package flycheck
   :config (global-flycheck-mode))
 
-(use-package flycheck-pos-tip
+(use-package flycheck-posframe
   :init
-  (flycheck-pos-tip-mode))
+  (setq flycheck-posframe-position 'window-bottom-right-corner)
+  (setq flycheck-posframe-border-width 1)
+  (flycheck-posframe-mode))
+
 
 (defun johmue/org-mode-hook ()
   (org-indent-mode)
@@ -418,7 +421,18 @@
   :init
   (global-flycheck-eglot-mode 1))
 
-(use-package eldoc-box)
+
+(defun johmue/eldoc-box--upper-right-window-corner-position-function (width _)
+  "The default function to set childframe position.
+Used by `eldoc-box-position-function'.
+Position is calculated base on WIDTH and HEIGHT of childframe text window"
+  (pcase-let ((`(,offset-l ,offset-r ,offset-t) eldoc-box-offset))
+    (cons (- (window-pixel-width (selected-window)) width offset-r) offset-t)))
+
+(use-package eldoc-box
+  :init
+  (setq eldoc-box-position-function #'johmue/eldoc-box--upper-right-window-corner-position-function))
+
 
 (use-package term
   :commands term
