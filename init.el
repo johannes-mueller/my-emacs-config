@@ -429,11 +429,16 @@
 Used by `eldoc-box-position-function'.
 Position is calculated base on WIDTH and HEIGHT of childframe text window"
   (pcase-let ((`(,offset-l ,offset-r ,offset-t) eldoc-box-offset))
-    (cons (- (window-pixel-width (selected-window)) width offset-r) offset-t)))
+    (cons
+     (- (+ (window-pixel-left (selected-window))
+           (window-pixel-width (selected-window)))
+        width offset-r)
+     offset-t)))
 
 (use-package eldoc-box
   :init
-  (setq eldoc-box-position-function #'johmue/eldoc-box--upper-right-window-corner-position-function))
+  (setq eldoc-box-position-function #'johmue/eldoc-box--upper-right-window-corner-position-function)
+  (setq eldoc-box-offset '(32 48 16)))
 
 
 (use-package term
