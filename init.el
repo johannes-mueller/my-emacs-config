@@ -319,6 +319,10 @@
   (setq flycheck-posframe-border-width 1)
   (flycheck-posframe-mode))
 
+(use-package eglot
+  :bind (:map eglot-mode-map
+              ("C-c r" . eglot-rename)
+              ("C-c a" . eglot-code-actions)))
 
 (defun johmue/org-mode-hook ()
   (org-indent-mode)
