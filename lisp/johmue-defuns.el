@@ -243,6 +243,10 @@
     (projectile-with-default-dir (projectile-acquire-root)
       (compile command))))
 
+(defun johmue/eldoc ()
+  (interactive)
+  (eldoc)
+  (switch-to-buffer eldoc--doc-buffer))
 
 (provide 'johmue-defuns)
 

@@ -18,6 +18,8 @@
 (global-set-key (kbd "C-c C-;") 'johmue/comment-current-line)
 (global-set-key (kbd "C-c ;") 'johmue/uncomment-current-line)
 
+(global-set-key (kbd "C-c d") 'johmue/eldoc)
+
 (global-set-key (kbd "C-M-(") 'sp-wrap-round)
 (global-set-key (kbd "C-M-[") 'sp-wrap-square)
 (global-set-key (kbd "C-M-{") 'sp-wrap-curly)

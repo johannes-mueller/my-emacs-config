@@ -54,7 +54,6 @@
     (setq completion-at-point-functions johmue/completion-at-point-functions)))
 
 (defun johmue/prog-mode-hook ()
-  (eldoc-box-hover-mode)
   (flycheck-posframe-mode)
   (which-function-mode)
   (auto-fill-mode -1)

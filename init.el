@@ -444,6 +444,7 @@ Position is calculated base on WIDTH and HEIGHT of childframe text window"
   (setq eldoc-box-position-function #'johmue/eldoc-box--upper-right-window-corner-position-function)
   (setq eldoc-box-offset '(32 48 16)))
 
+(global-eldoc-mode nil)
 
 (use-package term
   :commands term
