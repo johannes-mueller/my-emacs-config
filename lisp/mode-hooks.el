@@ -153,7 +153,14 @@
                                      :autopep8 (:enabled :json-false)
                                      :black (:enabled t
                                                       :line_length 88
-                                                      :cache_config t))
+                                                      :cache_config t)
+                                     :jedi_completion (:enabled t
+                                                                :include_params t
+                                                                :eager t
+                                                                :include_class_objects t
+                                                                :fuzzy t)
+                                     ;:rope_autoimport (:enabled t)
+                                     )
                            ))))
 
 (add-hook 'python-ts-mode-hook #'eglot-ensure)
