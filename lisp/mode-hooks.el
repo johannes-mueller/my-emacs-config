@@ -130,7 +130,8 @@
 
 
 (setq major-mode-remap-alist
-      '((python-mode . python-ts-mode)))
+      '((python-mode . python-ts-mode)
+        (json-mode . json-ts-mode)))
 
 (add-hook 'python-mode-hook
           (lambda ()
