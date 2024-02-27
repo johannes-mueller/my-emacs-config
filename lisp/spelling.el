@@ -12,7 +12,7 @@
 ;	'(progn (defun ispell-get-coding-system () 'utf-8)))
 
 (use-package jinx
-  :hook (emacs-startup . global-jinx-mode)
+  ;:hook (emacs-startup . global-jinx-mode)
   :bind ([remap ispell-word] . jinx-correct))
 
 (use-package auto-dictionary)
