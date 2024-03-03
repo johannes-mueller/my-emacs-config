@@ -104,16 +104,6 @@
 (use-package py-isort
   :after python)
 
-(require 'lsp-pylsp)
-(setq lsp-pylsp-server-command "~/.miniconda3/envs/pylsp/bin/pylsp")
-(with-eval-after-load "lsp-mode"
-;;   (add-to-list 'lsp-disabled-clients 'pyls)
-;;   (add-to-list 'lsp-enabled-clients 'pylsp)
-  (add-to-list 'lsp-disabled-clients 'pyright)
-;;   (add-to-list 'lsp-enabled-clients 'elixir-ls)
-;;   (add-to-list 'lsp-enabled-clients 'rust-analyzer))
-  )
-
 (use-package python-black
   :config
   (setq python-black-command "~/.miniconda3/envs/pylsp/bin/black")
@@ -136,8 +126,6 @@
 (add-hook 'python-mode-hook
           (lambda ()
             (eglot-ensure)
-            ;(require 'dap-python)
-            ;(setq dap-python-debugger 'debugpy)
             ))
 
 (setq-default eglot-workspace-configuration
@@ -168,31 +156,6 @@
 
 (add-hook 'window-state-change-hook (lambda () (johmue/auto-activate-virtualenv)))
 
-(require 'dap-python)
-
-(add-hook 'dap-stopped-hook
-          (lambda (arg) (call-interactively #'dap-hydra)))
-
-(defun dap-python-johmue-populate-test-at-point (conf)
-  "Populate CONF with the required arguments."
-  (if-let ((test (test-cockpit--python--test-function-path)))
-      (plist-put conf :program test)
-    (user-error "`dap-python': no test at point"))
-  (plist-put conf :cwd (lsp-workspace-root))
-  (dap-python--populate-start-file-args conf))
-
-(dap-register-debug-provider "python-test-at-point-johmue" 'dap-python-johmue-populate-test-at-point)
-(dap-register-debug-template "Python :: johmue Run pytest (at point)"
-                             (list :type "python-test-at-point-johmue"
-                                   :args ""
-                                   :program nil
-                                   :module "pytest"
-                                   :request "launch"
-                                   :name "Python :: johmue Run pytest (at point)"))
-
-(setq-default lsp-pylsp-configuration-sources ["flake8"])
-(setq-default lsp-pylsp-plugins-flake8-enabled t)
-
 (use-package ein
   :hook (ein:ipynb-mode . (lambda () (johmue/auto-activate-virtualenv)))
   :config
@@ -203,7 +166,7 @@
 (add-hook 'rustic-mode-hook
           (lambda ()
             (setq indent-tabs-mode nil)
-            (lsp)
+            (eglot-ensure)
             (setq fill-column 100)
             (setq-local whitespace-style (cons
                                           (car whitespace-style)
@@ -224,7 +187,7 @@
             (setq-default tab-width 8 indent-tabs-mode t)
             (setq indent-tabs-mode t)
             (define-key c-mode-base-map (kbd "RET") 'newline-and-indent)
-            (lsp)))
+            (eglot-ensure)))
 
 (use-package cask-mode)
 
@@ -280,14 +243,14 @@
 (use-package js2-mode
   :commands js2-mode
   :hook
-  (js2-mode . (lambda () (lsp-deferred))))
+  (js2-mode . (lambda () (eglot-ensure))))
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 (use-package typescript-mode
   :config
   (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
   :hook
-  (typescript-mode . (lambda () (lsp-deferred))))
+  (typescript-mode . (lambda () (eglog-ensure))))
 
 (use-package ng2-mode)
 
@@ -297,20 +260,11 @@
   (font-lock-add-keywords nil ng2-html-font-lock-keywords))
 
 (add-to-list 'auto-mode-alist '("\\.component.html\\'" . ng2-web-mode))
-(add-hook 'ng2-web-mode-hook (lambda () (lsp)))
-
-(use-package lsp-sonarlint)
-(push 'ng2-ts-mode (lsp--client-major-modes (gethash 'sonarlint lsp-clients)))
-(push 'ng2-html-mode (lsp--client-major-modes (gethash 'sonarlint lsp-clients)))
+(add-hook 'ng2-web-mode-hook (lambda () (eglot-ensure)))
 
 (use-package json-mode
   :commands json-mode)
 
-(use-package elixir-mode
-  :hook (elixir-mode . (lambda ()
-                         (add-to-list 'exec-path "/home/joh/.mix/elixir-ls/release")
-                         (setq-local lsp-enable-file-watchers nil)
-                         (lsp-deferred))))
 
 (use-package alchemist)
 (use-package elixir-yasnippets)

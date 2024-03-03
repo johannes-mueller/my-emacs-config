@@ -3,7 +3,6 @@
 ;;; Code;
 
 (setq load-path (add-to-list 'load-path "~/.emacs.d/lisp"))
-(setenv "LSP_USE_PLISTS" "true")
 (load "proxy-settings" t)
 
 (setq gc-cons-threshold 128000000)
@@ -377,51 +376,6 @@
   )
 
 ;(add-to-list 'mmm-save-local-variables 'completion-at-point-functions)
-
-(defun efs/lsp-mode-setup ()
-  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\.venv.*\\'")
-  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\_venv.*\\'")
-  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\_*build\\'")
-  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\__pycache__\\'")
-  (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
-  (lsp-headerline-breadcrumb-mode))
-
-(setq lsp-use-plists t)
-
-(use-package lsp-mode
-  :commands (lsp lsp-deferred)
-  :hook
-  (lsp-mode . efs/lsp-mode-setup)
-  (lsp-completion-mode . my/lsp-mode-setup-completion)
-  :init
-  (setq lsp-keymap-prefix "C-M-l")
-  (defun my/lsp-mode-setup-completion ()
-    (setf (alist-get 'styles (alist-get 'lsp-capf completion-category-defaults))
-          '(orderless))) ;; Configure orderless
-  :config
-  (lsp-enable-which-key-integration t)
-  (setq lsp-completion-provider :none)
-  (setq lsp-idle-delay 0.500)
-  (setq lsp-log-io nil)
-  (setq lsp-log-max nil))
-
-(use-package lsp-ui
-  :hook (lsp-mode . lsp-ui-mode)
-  :custom
-  (lsp-ui-doc-position 'bottom)
-  (lsp-ui-doc-enable nil)
-  (lsp-ui-peek-enable t)
-  (lsp-ui-imenu-enable t)
-  (lsp-signature-auto-activate nil)
-  )
-
-(use-package lsp-treemacs
-  :after lsp)
-
-(use-package dap-mode
-  :commands (dap-debug dap-mode)
-  :config
-)
 
 (use-package flycheck-eglot
   :init

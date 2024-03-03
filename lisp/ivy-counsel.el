@@ -49,9 +49,6 @@
   :config
   (ivy-prescient-mode 1))
 
-(use-package lsp-ivy
-  :after lsp)
-
 (use-package ivy-yasnippet)
 
 (use-package ivy-xref

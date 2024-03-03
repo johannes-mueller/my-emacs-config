@@ -99,9 +99,6 @@
 
 (setq completion-ignore-case t)
 
-(use-package consult-lsp
-  :after (lsp))
-
 (defun johmue/consult-find-file-backward-kill (arg)
     (interactive "p")
   (if (and minibuffer-completing-file-name

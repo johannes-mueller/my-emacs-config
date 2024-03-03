@@ -75,7 +75,5 @@
 (define-key dired-mode-map (kbd "<right>") #'dired-single-buffer)
 (define-key dired-mode-map (kbd "h") #'dired-gitignore-global-mode)
 
-(define-key lsp-mode-map (kbd "M-?") #'lsp-find-references)
-
 (global-set-key (kbd "C-c C-s") #'yas-insert-snippet)
 ;;; keys.el ends here
