@@ -50,8 +50,8 @@
 (global-set-key (kbd "s-<tab>") 'completion-at-point)
 
 (define-key text-mode-map (kbd "M-q") 'johmue/fill-paragraph-79)
-(define-key python-mode-map (kbd "M-q") 'python-black-partial-dwim)
-(define-key python-mode-map (kbd "<f5>") 'johmue/python-black-format-defun)
+(define-key python-ts-mode-map (kbd "M-q") 'python-black-partial-dwim)
+(define-key python-ts-mode-map (kbd "<f5>") 'johmue/python-black-format-defun)
 
 (global-set-key [f6] 'johmue/toggle-soft-wrap)
 

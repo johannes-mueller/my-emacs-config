@@ -128,11 +128,6 @@
         (elixir-mode . elixir-ts-mode)
         ))
 
-(add-hook 'python-mode-hook
-          (lambda ()
-            (eglot-ensure)
-            ))
-
 (setq-default eglot-workspace-configuration
               '((:pylsp . (:configurationSources
                            ["flake8"]
