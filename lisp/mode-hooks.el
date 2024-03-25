@@ -118,10 +118,15 @@
       (end-of-defun)
       (python-black-region beg (point)))))
 
+(use-package elixir-ts-mode
+  :hook
+  (elixir-ts-mode . (lambda () (eglot-ensure))))
 
 (setq major-mode-remap-alist
       '((python-mode . python-ts-mode)
-        (json-mode . json-ts-mode)))
+        (json-mode . json-ts-mode)
+        (elixir-mode . elixir-ts-mode)
+        ))
 
 (add-hook 'python-mode-hook
           (lambda ()
@@ -269,7 +274,6 @@
   :commands json-mode)
 
 
-(use-package alchemist)
-(use-package elixir-yasnippets)
+
 ;(use-package flycheck-elixir)
 ;;; mode-hooks.el ends here

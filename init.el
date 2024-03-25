@@ -321,7 +321,9 @@
 (use-package eglot
   :bind (:map eglot-mode-map
               ("C-c r" . eglot-rename)
-              ("C-c a" . eglot-code-actions)))
+              ("C-c a" . eglot-code-actions))
+  :config
+  (add-to-list 'eglot-server-programs `((elixir-ts-mode elixir-mode) . ("elixir-ls"))))
 
 (defun johmue/org-mode-hook ()
   (org-indent-mode)
