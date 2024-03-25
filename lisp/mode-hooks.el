@@ -162,7 +162,10 @@
   (setq ein:output-area-inlined-images t))
 
 (use-package rustic
-  :commands rustic-mode)
+  :commands rustic-mode
+  :config
+  (setq rustic-lsp-client 'eglot))
+
 (add-hook 'rustic-mode-hook
           (lambda ()
             (setq indent-tabs-mode nil)
