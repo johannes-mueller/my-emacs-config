@@ -25,7 +25,10 @@
          (corfu-mode . corfu-popupinfo-mode))
   :bind (:map corfu-map
               ("<prior>" . corfu-popupinfo-scroll-down)
-              ("<next>" . corfu-popupinfo-scroll-up)))
+              ("<next>" . corfu-popupinfo-scroll-up)
+              ("RET" . nil)
+              ("TAB" . corfu-next)
+              ("S-TAB" . corfu-previous)))
 (add-hook 'multiple-cursors-mode-disabled-hook #'corfu-mode)
 
 ;; Optionally use the `orderless' completion style. See `+orderless-dispatch'
