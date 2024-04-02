@@ -282,12 +282,11 @@
 
 (use-package blamer
   :ensure t
-  :bind (("s-i" . blamer-show-commit-info)
-         ("C-c i" . blamer-show-posframe-commit-info))
+  :bind (("s-i" . blamer-show-commit-info))
   :defer 20
   :custom
   (blamer-idle-time 0.3)
-  (blamer-min-offset 70)
+  (blamer-min-offset 40)
   (blamer-self-author-name "You")
   :custom-face
   (blamer-face ((t :foreground "#7a88cf"
@@ -295,7 +294,7 @@
                     :height 110
                     :italic t)))
   :init
-  (setq global-blamer-mode nil))
+  (setq global-blamer-mode t))
 
 (use-package diff-hl
   :hook ((magit-pre-refresh . diff-hl-magit-pre-refresh)
