@@ -114,8 +114,9 @@
 (use-package switchy-window
   :ensure t
   :custom (switchy-window-delay 1.0) ;; That's the default value.
-  :bind     :bind (:map switchy-window-minor-mode-map
-                        ([f2] . switchy-window))
+  :bind
+  (:map switchy-window-minor-mode-map
+        ([f2] . switchy-window))
   :init
   (switchy-window-minor-mode))
 
@@ -325,6 +326,29 @@
   :config
   (add-to-list 'eglot-server-programs `((elixir-ts-mode elixir-mode) . ("elixir-ls"))))
 
+(use-package flycheck-eglot
+  :init
+  (global-flycheck-eglot-mode 1))
+
+
+(defun johmue/eldoc-box--upper-right-window-corner-position-function (width _)
+  "The default function to set childframe position.
+Used by `eldoc-box-position-function'.
+Position is calculated base on WIDTH and HEIGHT of childframe text window"
+  (pcase-let ((`(,offset-l ,offset-r ,offset-t) eldoc-box-offset))
+    (cons
+     (- (+ (window-pixel-left (selected-window))
+           (window-pixel-width (selected-window)))
+        width offset-r)
+     offset-t)))
+
+(use-package eldoc-box
+  :init
+  (setq eldoc-box-position-function #'johmue/eldoc-box--upper-right-window-corner-position-function)
+  (setq eldoc-box-offset '(32 48 16)))
+
+(global-eldoc-mode nil)
+
 (defun johmue/org-mode-hook ()
   (org-indent-mode)
   (define-key org-mode-map (kbd "<S-left>") 'johmue/jump-whitespace-backward)
@@ -344,7 +368,6 @@
   :custom
   (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●"))
 )
-
 
 (defun rst-python-statement-is-docstring (begin)
   "Return true if beginning of statiment is :begin"
@@ -378,29 +401,6 @@
   )
 
 ;(add-to-list 'mmm-save-local-variables 'completion-at-point-functions)
-
-(use-package flycheck-eglot
-  :init
-  (global-flycheck-eglot-mode 1))
-
-
-(defun johmue/eldoc-box--upper-right-window-corner-position-function (width _)
-  "The default function to set childframe position.
-Used by `eldoc-box-position-function'.
-Position is calculated base on WIDTH and HEIGHT of childframe text window"
-  (pcase-let ((`(,offset-l ,offset-r ,offset-t) eldoc-box-offset))
-    (cons
-     (- (+ (window-pixel-left (selected-window))
-           (window-pixel-width (selected-window)))
-        width offset-r)
-     offset-t)))
-
-(use-package eldoc-box
-  :init
-  (setq eldoc-box-position-function #'johmue/eldoc-box--upper-right-window-corner-position-function)
-  (setq eldoc-box-offset '(32 48 16)))
-
-(global-eldoc-mode nil)
 
 (use-package term
   :commands term
