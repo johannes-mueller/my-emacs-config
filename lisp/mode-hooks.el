@@ -101,6 +101,8 @@
 (use-package pyvenv
   :after python-mode)
 
+(use-package cython-mode)
+
 (use-package py-isort
   :after python)
 
