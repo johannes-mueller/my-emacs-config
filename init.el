@@ -160,6 +160,9 @@
 (dired-gitignore-global-mode)
 
 (use-package all-the-icons)
+(use-package magit-file-icons
+  :after magit
+  :init (magit-file-icons-mode))
 
 (use-package all-the-icons-dired
   :hook (dired-mode . all-the-icons-dired-mode))
