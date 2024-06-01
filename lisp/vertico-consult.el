@@ -80,6 +80,11 @@
 
 (use-package embark-consult)
 
+(use-package consult-eglot)
+(use-package consult-eglot-embark
+  :after consult-eglot embark
+  :init (consult-eglot-embark-mode))
+
 (define-key embark-symbol-map (kbd "h") 'helpful-symbol)
 
 (define-key embark-general-map [?\r] 'projectile-find-file)
