@@ -4,7 +4,7 @@
   (corfu-cycle nil)                ;; Disable cycling for `corfu-next/previous'
   (corfu-auto t)                 ;; Enable auto completion
   (corfu-quit-at-boundary nil)     ;; Automatically quit at word boundary
-  (corfu-quit-no-match t)        ;; Automatically quit if there is no match
+  (corfu-quit-no-match 'separator)        ;; Automatically quit if there is no match
   (corfu-auto-delay 0.2)
   (corfu-auto-prefix 1)
   ;; (corfu-preview-current nil)    ;; Disable current candidate preview
@@ -26,6 +26,8 @@
   :bind (:map corfu-map
               ("<prior>" . corfu-popupinfo-scroll-down)
               ("<next>" . corfu-popupinfo-scroll-up)
+              ("<left>" . corfu-quit)
+              ("<right>" . corfu-quit)
               ("RET" . nil)
               ("TAB" . corfu-next)
               ("S-TAB" . corfu-previous)))
