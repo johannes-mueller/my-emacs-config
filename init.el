@@ -330,7 +330,9 @@
 
 (use-package flycheck-eglot
   :init
-  (global-flycheck-eglot-mode 1))
+  (global-flycheck-eglot-mode 1)
+  (setq eldoc-display-functions '(eldoc-display-in-buffer))
+)
 
 
 (defun johmue/eldoc-box--upper-right-window-corner-position-function (width _)
