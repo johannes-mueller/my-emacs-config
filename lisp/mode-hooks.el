@@ -271,6 +271,8 @@
   :commands json-mode)
 
 
+(use-package dockerfile-mode
+  :commands dockerfile-mode)
 
 ;(use-package flycheck-elixir)
 
