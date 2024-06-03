@@ -94,17 +94,40 @@
   :config
   (default-text-scale-mode 1))
 
-(use-package popwin
-  :config
-  (push '(compilation-mode :noselect t :height 0.3 :position bottom :tail t) popwin:special-display-config)
-  (push '("*Help*" :height 0.5 :position top) popwin:special-display-config)
-  (push '("*xref*" :height 0.3 :position bottom) popwin:special-display-config)
-  (push '("*grep*" :height 0.5 :position bottom) popwin:special-display-config)
-  (push '("*Package-Lint*" :height 0.5 :position bottom) popwin:special-display-config)
-  (push '(python-pytest-mode :height 0.5 :position bottom) popwin:special-display-config)
-  (push '(magit-mode :position right) popwin:special-display-config)
-  (popwin-mode 1)
-)
+(defun johmue/popper-display-function (buffer &optional alist)
+  (let ((window-settings
+         (if (>= (frame-width) 270)
+             `((window-width . ,(/ (frame-width) 3))
+               (side . right)
+               (slot . 1))
+         `((window-height . ,(/ (frame-height) 3))
+           (side . bottom)
+           (slot . 1)))))
+    (display-buffer-in-side-window
+     buffer
+     (append alist window-settings))))
+
+(use-package popper
+  :after projectile
+  :ensure t
+  :init
+  (setq popper-group-function #'popper-group-by-projectile)
+  (setq popper-display-function #'johmue/popper-display-function)
+  (setq popper-reference-buffers
+        '("\\*Messages\\*"
+          "\\*Warnings\\*"
+          "Output\\*$"
+          "\\*Async Shell Command\\*"
+          "\\*xref\\*"
+          grep-mode
+          help-mode
+          compilation-mode
+          helpful-mode))
+  (popper-mode 1)
+  (popper-echo-mode 1)
+  (global-set-key [f8] 'popper-toggle)
+  (global-set-key [M-f8] 'popper-cycle)
+  )
 
 (setq compilation-scroll-output t)
 
