@@ -34,11 +34,6 @@
               ("s-<tab>" . corfu-complete)))
 (add-hook 'multiple-cursors-mode-disabled-hook #'corfu-mode)
 
-;; Optionally use the `orderless' completion style. See `+orderless-dispatch'
-;; in the Consult wiki for an advanced Orderless style dispatcher.
-;; Enable `partial-completion' for files to allow path expansion.
-;; You may prefer to use `initials' instead of `partial-completion'.
-
 (straight-use-package
  '(capf-wordfreq :type git :host github :repo "johannes-mueller/capf-wordfreq.el"))
 
@@ -47,7 +42,7 @@
 (add-to-list 'completion-styles-alist
              '(tab completion-basic-try-completion ignore
                "Completion style which provides TAB completion only."))
-(setq completion-styles '(tab orderless basic))
+(setq completion-styles '(tab prescient basic))
 
 
 (use-package cape

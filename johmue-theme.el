@@ -75,6 +75,8 @@
   (eldoc-box-body (:background "white smoke"))
 
   (eglot-highlight-symbol-face (:background "MediumSpringGreen" :bold nil))
+
+  (prescient-secondary-highlight (:foreground johmue-magenta :bold t))
   )
 
  (custom-theme-set-variables 'johmue

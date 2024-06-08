@@ -92,13 +92,6 @@
 ;(add-to-list 'marginalia-prompt-categories '("Find file" . file))
 
 
-(use-package orderless
-   :ensure t
-   :custom
-   (completion-styles '(orderless basic))
-   (orderless-matching-styles '(orderless-prefixes)))
-
-
 (setq completion-category-overrides nil)
 (setq completion-category-defaults nil)
 
