@@ -21,6 +21,7 @@
   ;; This is recommended since dabbrev can be used globally (M-/).
   :init
   (global-corfu-mode)
+  (corfu-prescient-mode -1)
   :hook ((multiple-cursors-mode . (lambda () (corfu-mode -1)))
          (corfu-mode . corfu-popupinfo-mode))
   :bind (:map corfu-map
@@ -28,9 +29,9 @@
               ("<next>" . corfu-popupinfo-scroll-up)
               ("<left>" . corfu-quit)
               ("<right>" . corfu-quit)
-              ("RET" . nil)
-              ("TAB" . corfu-next)
-              ("S-TAB" . corfu-previous)))
+              ("RET" . corfu-complete)
+              ("<tab>" . corfu-expand)
+              ("s-<tab>" . corfu-complete)))
 (add-hook 'multiple-cursors-mode-disabled-hook #'corfu-mode)
 
 ;; Optionally use the `orderless' completion style. See `+orderless-dispatch'
@@ -43,7 +44,11 @@
 
 (setq capf-wordfreq-minimal-candidate-length 8)
 
-(use-package corfu-prescient)
+(add-to-list 'completion-styles-alist
+             '(tab completion-basic-try-completion ignore
+               "Completion style which provides TAB completion only."))
+(setq completion-styles '(tab orderless basic))
+
 
 (use-package cape
   ;; Bind dedicated completion commands
@@ -73,6 +78,5 @@
 
 (setq completion-cycle-threshold 3)
 (setq tab-always-indent 'complete)
-
 
 (setq global-company-mode nil)
