@@ -45,7 +45,7 @@
   (rainbow-delimiters-depth-7-face (:foreground "magenta"))
   (rainbow-delimiters-depth-8-face (:foreground "lime green"))
   (rainbow-delimiters-depth-9-face (:foreground "deep pink"))
-  (rainbow-delimiters-mismatched-face (:forground johmue-alert :bold t))
+  (rainbow-delimiters-mismatched-face (:foreground johmue-alert :bold t))
   (rainbow-delimiters-unmatched-face (:foreground "red"))
 
   (vterm-color-black (:foreground "black"))
@@ -69,7 +69,6 @@
 
   (mmm-default-submode-face (:background nil  :foreground "dim gray"))
 
-  (flycheck-posframe-border-face (:forground "red"))
   (flycheck-posframe-face (:background "RosyBrown1"))
 
   (eldoc-box-body (:background "white smoke"))
