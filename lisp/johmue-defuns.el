@@ -69,6 +69,16 @@
     )
   )
 
+(defun johmue/corfu-quit-and-left ()
+  (interactive)
+  (corfu-quit)
+  (left-char))
+
+(defun johmue/corfu-quit-and-right ()
+  (interactive)
+  (corfu-quit)
+  (right-char))
+
 (defun johmue/scroll-other-window-one-down ()
   (interactive)
   (scroll-other-window 1)

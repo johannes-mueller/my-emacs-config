@@ -27,9 +27,11 @@
   :bind (:map corfu-map
               ("<prior>" . corfu-popupinfo-scroll-down)
               ("<next>" . corfu-popupinfo-scroll-up)
-              ("<left>" . corfu-quit)
-              ("<right>" . corfu-quit)
+              ("<left>" . johmue/corfu-quit-and-left)
+              ("<right>" . johmue/corfu-quit-and-right)
+              ("C-SPC" . corfu-quit)
               ("RET" . corfu-complete)
+              ("<end>" . corfu-complete)
               ("<tab>" . corfu-expand)
               ("s-<tab>" . corfu-complete)))
 (add-hook 'multiple-cursors-mode-disabled-hook #'corfu-mode)
