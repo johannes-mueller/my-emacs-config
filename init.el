@@ -119,6 +119,7 @@
           "Output\\*$"
           "\\*Async Shell Command\\*"
           "\\*xref\\*"
+          "\\*Backtrace\\*"
           grep-mode
           help-mode
           compilation-mode
