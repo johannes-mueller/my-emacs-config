@@ -218,6 +218,8 @@
 (use-package test-cockpit-npm-jest
   :straight (test-cockpit :type git :host github :repo "johannes-mueller/test-cockpit.el"))
 
+(test-cockpit-add-custom-action 'python-toml '("D" "build docs" "sphinx-build -b html docs build/html"))
+
 (use-package web-mode
   :config
   (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
