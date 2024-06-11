@@ -358,6 +358,10 @@
   (setq eldoc-display-functions '(eldoc-display-in-buffer))
 )
 
+(use-package editorconfig
+  :ensure t
+  :config
+  (editorconfig-mode 1))
 
 (defun johmue/eldoc-box--upper-right-window-corner-position-function (width _)
   "The default function to set childframe position.
