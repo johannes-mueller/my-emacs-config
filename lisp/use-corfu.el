@@ -27,8 +27,8 @@
   :bind (:map corfu-map
               ("<prior>" . corfu-popupinfo-scroll-down)
               ("<next>" . corfu-popupinfo-scroll-up)
-              ("<left>" . johmue/corfu-quit-and-left)
-              ("<right>" . johmue/corfu-quit-and-right)
+              ("<left>" . corfu-quit)
+              ("<right>" . corfu-quit)
               ("C-SPC" . corfu-quit)
               ("RET" . corfu-complete)
               ("<end>" . corfu-complete)
@@ -75,5 +75,22 @@
 
 (setq completion-cycle-threshold 3)
 (setq tab-always-indent 'complete)
+
+
+;; quit corfu on the following charsd
+(dolist (c (list "." "," ":" ";" "(" ")" "{" "}" "[" "]" "|"))
+  (define-key corfu-map (kbd c) `(lambda () (interactive) (corfu-quit) (insert ,c))))
+
+
+(setq corfu-separator 32)
+
+;; quit corfu when space is hit twice
+(define-key corfu-map (kbd "SPC")
+  (lambda ()
+    (interactive)
+    (if (= (char-before) corfu-separator)
+        (progn
+          (corfu-quit))
+      (corfu-insert-separator))))
 
 (setq global-company-mode nil)
