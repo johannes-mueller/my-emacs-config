@@ -267,8 +267,8 @@
 (add-to-list 'auto-mode-alist '("\\.component.html\\'" . ng2-web-mode))
 (add-hook 'ng2-web-mode-hook (lambda () (eglot-ensure)))
 
-(use-package json-mode
-  :commands json-mode)
+(use-package json-ts-mode
+  :commands json-ts-mode)
 
 
 (use-package dockerfile-mode
