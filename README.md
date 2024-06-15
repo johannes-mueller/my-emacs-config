@@ -16,10 +16,13 @@ Scratch](https://github.com/daviwil/emacs-from-scratch/.)
 At first I used emacs mainly to write scientific texts, so important packages I
 used where auctex, reftex, etc. Nowadays my focus shifted more in the realm of
 programming. So the configuration now focuses more on programming language
-modes, lsp-mode, dap-mode, etc.
+modes, ~lsp-mode~ eglot, ~dap-mode~, etc.
 
 The languages I am using mainly are python, Rust, elixir, SQL, C, C++,
-javascript.
+javascript/typescript.
+
+It also makes heavy use of modern helpers like consult, embark, vertico, corfu
+and the like.
 
 At the moment I don't have any LaTeX packages in my configuration, as it has
 been a long time since I have actually been using LaTeX. So I decided not to
