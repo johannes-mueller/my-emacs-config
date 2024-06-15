@@ -41,6 +41,7 @@
 (global-set-key (kbd "C-x 2") 'johmue/split-window-below)
 
 (global-set-key (kbd "C-x C-r") 'consult-recent-file)
+(global-set-key (kbd "C-l") 'consult-goto-line)
 
 (define-key isearch-mode-map (kbd "<up>") 'isearch-repeat-backward)
 (define-key isearch-mode-map (kbd "<down>") 'isearch-repeat-forward)
