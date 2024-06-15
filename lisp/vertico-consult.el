@@ -107,3 +107,24 @@
     (delete-backward-char arg)))
 
 (defvar johmue/line-search-command 'consult-line)
+
+(use-package ctrlf
+  :bind (:map ctrlf-minibuffer-mode-map
+              ("<down>" . ctrlf-next-match)
+              ("<up>" . ctrlf-previous-match)
+              ("C-<down>" . ctrlf-last-match)
+              ("C-<up>" . ctrlf-first-match)
+              ("M-<down>" . ctrlf-forward-alternate)
+              ("M-<up>" . ctrlf-backward-alternate)
+              ("C-S-s" . 'johmue/quit-search-and-consult-line))
+  :init (ctrlf-mode 1))
+
+
+(defun johmue/quit-search-and-consult-line ()
+  (interactive)
+  (put 'quit 'error-message "")
+  (run-at-time nil nil
+               (lambda ()
+                 (put 'quit 'error-message "Quit")
+                 (consult-line ctrlf--last-input)))
+  (abort-recursive-edit))
