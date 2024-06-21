@@ -20,9 +20,11 @@
 
 (global-set-key (kbd "C-c d") 'johmue/eldoc)
 
-(global-set-key (kbd "C-M-(") 'sp-wrap-round)
-(global-set-key (kbd "C-M-[") 'sp-wrap-square)
-(global-set-key (kbd "C-M-{") 'sp-wrap-curly)
+(global-set-key (kbd "C-M-(") 'johmue/wrap-round)
+(global-set-key (kbd "C-M-[") 'johmue/wrap-square)
+(global-set-key (kbd "C-M-{") 'johmue/wrap-curly)
+(global-set-key (kbd "C-M-\"") 'johmue/wrap-double-quote)
+(global-set-key (kbd "C-M-'") 'johmue/wrap-single-quote)
 (global-set-key (kbd "<C-S-delete>") 'sp-unwrap-sexp)
 
 (define-key global-map [(meta up)] 'johmue/scroll-other-window-one-up)

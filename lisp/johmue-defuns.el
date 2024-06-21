@@ -48,6 +48,26 @@
   (set-mark (line-end-position))
   )
 
+(defun johmue/wrap-round ()
+  (interactive)
+  (save-excursion (sp-wrap-round)))
+
+(defun johmue/wrap-square ()
+  (interactive)
+  (save-excursion (sp-wrap-square)))
+
+(defun johmue/wrap-curly ()
+  (interactive)
+  (save-excursion (sp-wrap-curly)))
+
+(defun johmue/wrap-single-quote ()
+  (interactive)
+  (save-excursion (sp-wrap-with-pair "'")))
+
+(defun johmue/wrap-double-quote ()
+  (interactive)
+  (save-excursion (sp-wrap-with-pair "\"")))
+
 (defun johmue/eval-this-line ()
   (interactive)
   (save-excursion
