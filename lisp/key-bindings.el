@@ -27,6 +27,8 @@
 (global-set-key (kbd "C-M-'") 'johmue/wrap-single-quote)
 (global-set-key (kbd "<C-S-delete>") 'sp-unwrap-sexp)
 
+(global-set-key (kbd "C-s-[") 'johmue/python-toggle-dict-attr)
+
 (define-key global-map [(meta up)] 'johmue/scroll-other-window-one-up)
 (define-key global-map [(meta down)] 'johmue/scroll-other-window-one-down)
 

@@ -60,6 +60,25 @@
   (interactive)
   (save-excursion (sp-wrap-curly)))
 
+(defun johmue/attr-to-dict ()
+  (sp-wrap-square)
+  (sp-wrap-with-pair "\"")
+  (left-char 2)
+  (delete-char -1))
+
+(defun johmue/dict-to-attr ()
+  (sp-unwrap-sexp)
+  (sp-unwrap-sexp)
+  (insert "."))
+
+(defun johmue/python-toggle-dict-attr ()
+  (interactive)
+  (save-excursion
+    (sp-backward-sexp)
+    (let ((c (char-before)))
+      (cond ((eq c ?.) (johmue/attr-to-dict))
+            ((or (eq c ?') (eq c ?\")) (johmue/dict-to-attr))))))
+
 (defun johmue/wrap-single-quote ()
   (interactive)
   (save-excursion (sp-wrap-with-pair "'")))
