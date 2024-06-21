@@ -118,7 +118,7 @@
     (beginning-of-defun)
     (let ((beg (point)))
       (end-of-defun)
-      (python-black-region beg (point)))))
+      (python-black-region beg (point) nil))))
 
 (use-package elixir-ts-mode
   :hook
