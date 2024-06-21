@@ -110,6 +110,8 @@
   (setq python-black-macchiato-command "~/.miniconda3/envs/pylsp/bin/black-macchiato")
   (setq python-black-extra-args '("--skip-string-normalization")))
 
+(add-hook 'python-mode-hook (lambda () (setq electric-indent-inhibit nil)))
+
 (defun johmue/python-black-format-defun ()
     (interactive)
   (save-excursion
