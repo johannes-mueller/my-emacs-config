@@ -146,11 +146,20 @@
   (projectile-vc)
   (other-window 1)
   (setq projectile-mode-line-function '(lambda () (format " <%s>" (projectile-project-name))))
-)
+  )
+
+(defun johmue/balance-windows-popper ()
+  (interactive)
+  (let ((open-popups (not (eq popper-open-popup-alist nil))))
+    (when open-popups (popper-toggle))
+    (balance-windows)
+    (when open-popups (popper-toggle))
+    ))
+
 (defun johmue/split-window-right ()
   (interactive)
   (split-window-right)
-  (balance-windows)
+  (johmue/balance-windows-popper)
   (other-window 1))
 
 (defun johmue/split-window-below ()
