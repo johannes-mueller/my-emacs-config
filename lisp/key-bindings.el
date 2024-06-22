@@ -57,6 +57,9 @@
 (define-key text-mode-map (kbd "M-q") 'johmue/fill-paragraph-79)
 (define-key python-ts-mode-map (kbd "M-q") (lambda () (interactive) (python-black-partial-dwim nil)))
 (define-key python-ts-mode-map (kbd "<f5>") 'johmue/python-black-format-defun)
+(define-key python-ts-mode-map (kbd "S-<end>") 'python-nav-forward-statement)
+(define-key python-ts-mode-map (kbd "S-<home>") 'python-nav-backward-statement)
+
 
 (global-set-key [f6] 'johmue/toggle-soft-wrap)
 
