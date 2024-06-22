@@ -74,7 +74,7 @@
 (defun johmue/python-toggle-dict-attr ()
   (interactive)
   (save-excursion
-    (sp-backward-sexp)
+    (sp-beginning-of-sexp)
     (let ((c (char-before)))
       (cond ((eq c ?.) (johmue/attr-to-dict))
             ((or (eq c ?') (eq c ?\")) (johmue/dict-to-attr))))))
