@@ -60,6 +60,14 @@
   (interactive)
   (save-excursion (sp-wrap-curly)))
 
+(defun johmue/wrap-single-quote ()
+  (interactive)
+  (save-excursion (sp-wrap-with-pair "'")))
+
+(defun johmue/wrap-double-quote ()
+  (interactive)
+  (save-excursion (sp-wrap-with-pair "\"")))
+
 (defun johmue/attr-to-dict ()
   (sp-wrap-square)
   (sp-wrap-with-pair "\"")
