@@ -29,6 +29,9 @@
 
 (global-set-key (kbd "C-s-[") 'johmue/python-toggle-dict-attr)
 
+(global-set-key (kbd "C-M-c") 'johmue/toggle-case)
+(define-key minibuffer-mode-map (kbd "C-M-c")'exit-recursive-edit)
+
 (define-key global-map [(meta up)] 'johmue/scroll-other-window-one-up)
 (define-key global-map [(meta down)] 'johmue/scroll-other-window-one-down)
 

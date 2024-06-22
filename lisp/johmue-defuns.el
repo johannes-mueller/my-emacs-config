@@ -87,13 +87,18 @@
       (cond ((eq c ?.) (johmue/attr-to-dict))
             ((or (eq c ?') (eq c ?\")) (johmue/dict-to-attr))))))
 
-(defun johmue/wrap-single-quote ()
-  (interactive)
-  (save-excursion (sp-wrap-with-pair "'")))
+(defun johmue/downcase-char (arg)
+  "Uppercasify ARG chars starting from point.  Point doesn't move."
+  (interactive "p")
+  (save-excursion
+    (downcase-region (point) (progn (forward-char arg) (point)))))
 
-(defun johmue/wrap-double-quote ()
+(defun johmue/toggle-case ()
   (interactive)
-  (save-excursion (sp-wrap-with-pair "\"")))
+  (let ((current-char (char-after)))
+     (if (eq (upcase current-char) current-char)
+      (johmue/downcase-char 1)
+    (upcase-char 1))))
 
 (defun johmue/eval-this-line ()
   (interactive)
