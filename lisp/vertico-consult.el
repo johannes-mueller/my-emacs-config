@@ -119,6 +119,10 @@
               ("C-S-s" . 'johmue/quit-search-and-consult-line))
   :init (ctrlf-mode 1))
 
+(use-package visual-regexp
+  :bind
+  ("C-M-%" . vr/query-replace)
+  ("C-%" . vr/replace))
 
 (defun johmue/quit-search-and-consult-line ()
   (interactive)
