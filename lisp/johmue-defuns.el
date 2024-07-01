@@ -48,6 +48,14 @@
   (set-mark (line-end-position))
   )
 
+(defun johmue/mc/insert-numbers-1 ()
+    (interactive)
+    (mc/insert-numbers 1))
+
+(defun johmue/mc/insert-numbers-prompt (start)
+    (interactive "nStart number: ")
+    (mc/insert-numbers start))
+
 (defun johmue/wrap-round ()
   (interactive)
   (save-excursion (sp-wrap-round)))

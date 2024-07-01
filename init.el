@@ -202,6 +202,10 @@
    ("C-M-<" . mc/mark-previous-like-this-word)
    ("C-c C-<" . mc/mark-all-like-this-symbol)
    ("C-S-<mouse-1>" . mc/add-cursor-on-click)
+   ("C-c n" . #'mc/insert-numbers)
+   ("C-c N" . #'johmue/mc/insert-numbers-1)
+   ("C-c C-n" . #'johmue/mc/insert-numbers-prompt)
+   ("C-c l" . #'mc/insert-letters)
    :map mc/keymap
    ("C-s" . johmue/isearch)
    ("C-r" . johmue/isearch-backward)))
