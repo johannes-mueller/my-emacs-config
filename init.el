@@ -353,7 +353,8 @@
               ("C-c r" . eglot-rename)
               ("C-c a" . eglot-code-actions))
   :config
-  (add-to-list 'eglot-server-programs `((elixir-ts-mode elixir-mode) . ("elixir-ls"))))
+  (add-to-list 'eglot-server-programs `((elixir-ts-mode elixir-mode) . ("elixir-ls")))
+  (setq eglot-report-progress nil))
 
 (use-package flycheck-eglot
   :init
