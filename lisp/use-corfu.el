@@ -79,7 +79,8 @@
 
 ;; quit corfu on the following charsd
 (dolist (c (list "." "," ":" ";" "(" ")" "{" "}" "[" "]" "|"))
-  (define-key corfu-map (kbd c) `(lambda () (interactive) (corfu-quit) (insert ,c))))
+  (define-key corfu-map (kbd c)
+              `(lambda () (interactive) (corfu-quit) (insert ,c) (sp-insert-pair))))
 
 
 (setq corfu-separator 32)
