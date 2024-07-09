@@ -354,7 +354,8 @@
               ("C-c a" . eglot-code-actions))
   :config
   (add-to-list 'eglot-server-programs `((elixir-ts-mode elixir-mode) . ("elixir-ls")))
-  (setq eglot-report-progress nil))
+  (setq eglot-report-progress nil)
+  (setq eglot-events-buffer-config '(:size 0 :format full)))
 
 (use-package flycheck-eglot
   :init
