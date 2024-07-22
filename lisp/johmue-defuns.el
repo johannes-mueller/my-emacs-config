@@ -203,8 +203,7 @@
 (defun johmue/activate-python-venv (env-dir)
   (pyvenv-activate env-dir)
   (johmue/adjust-python-shell-interpreter)
-  (message "Switched to %s." env-dir)
-  )
+  (message "Switched to %s." env-dir))
 
 (defun johmue/deactivate-python-venv ()
   (pyvenv-deactivate)
@@ -213,18 +212,30 @@
 
 (defvar johmue/last-projectile-project-root nil)
 
-(defun johmue/auto-activate-virtualenv ()
+(defun johmue/check-for-poetry-env ()
+  (let ((venv (shell-command-to-string "poetry env info -p 2>/dev/null")))
+    (when (length> venv 1)
+      venv)))
+
+(defun johmue/check-for-venv ()
+  (when-let* ((project-root (projectile-project-root))
+              (cand (concat project-root ".venv")))
+    (when (file-directory-p cand) cand)))
+
+(defun johmue/activate-or-deactivate-venv ()
+  (pyvenv-deactivate)
+  (if-let ((possible-env-dir (or (johmue/check-for-venv)
+                                 (johmue/check-for-poetry-env))))
+      (johmue/activate-python-venv possible-env-dir)
+    (johmue/adjust-python-shell-interpreter)
+    (message "Deactivated python environment")))
+
+(defun johmue/auto-activate-virtualenv (_buffer)
   (interactive)
   (let ((project-root (projectile-project-root)))
     (unless (equal project-root johmue/last-projectile-project-root)
-      (let ((possible-env-dir
-             (concat
-              (file-name-as-directory (or project-root default-directory))
-              ".venv")))
-        (if (file-directory-p possible-env-dir)
-            (johmue/activate-python-venv possible-env-dir)
-          (johmue/deactivate-python-venv))
-        (setq johmue/last-projectile-project-root project-root)))))
+      (johmue/activate-or-deactivate-venv)
+      (setq johmue/last-projectile-project-root project-root))))
 
 (defvar johmue/company-fuzzy-allowed-backends '("capf"))
 

@@ -156,7 +156,7 @@
 
 (add-hook 'python-ts-mode-hook #'eglot-ensure)
 
-(add-hook 'window-state-change-hook (lambda () (johmue/auto-activate-virtualenv)))
+(add-hook 'window-selection-change-functions #'johmue/auto-activate-virtualenv)
 
 (use-package ein
   :hook (ein:ipynb-mode . (lambda () (johmue/auto-activate-virtualenv)))
