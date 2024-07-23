@@ -476,6 +476,10 @@ Position is calculated base on WIDTH and HEIGHT of childframe text window"
   :config
   (setq tramp-default-method "ssh"))
 
+(use-package docker
+  :ensure t
+  :bind ("C-x D" . docker))
+
 (load "use-corfu")
 (load "mode-hooks")
 (load "johmue-defuns")
