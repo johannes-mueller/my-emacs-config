@@ -29,6 +29,7 @@
               ("<next>" . corfu-popupinfo-scroll-up)
               ("<left>" . corfu-quit)
               ("<right>" . corfu-quit)
+              ("<up>" . johmue/corfu-previous)
               ("C-SPC" . corfu-quit)
               ("RET" . corfu-complete)
               ("<end>" . corfu-complete)
@@ -76,6 +77,14 @@
 (setq completion-cycle-threshold 3)
 (setq tab-always-indent 'complete)
 
+(defun johmue/corfu-previous (&optional n)
+  "Go backward N corfu candidates or corfu-quit when we are at the first."
+  (interactive "p")
+  (if (eq corfu--index 0)
+      (corfu-quit)
+    (corfu-next (- (or n 1)))))
+
+(add-to-list 'corfu-continue-commands 'johmue/corfu-previous)
 
 ;; quit corfu on the following charsd
 (dolist (c (list "." "," ":" ";" "(" ")" "{" "}" "[" "]" "|"))
