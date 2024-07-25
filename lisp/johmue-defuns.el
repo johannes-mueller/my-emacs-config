@@ -56,25 +56,32 @@
     (interactive "nStart number: ")
     (mc/insert-numbers start))
 
+(defun johmue/wrap-sexp-with (char)
+  (let ((start-point (point)))
+    (sp-wrap-with-pair char)
+    (when (> start-point (point))
+      (goto-char start-point)
+      (right-char))))
+
 (defun johmue/wrap-round ()
   (interactive)
-  (save-excursion (sp-wrap-round)))
+  (johmue/wrap-sexp-with "("))
 
 (defun johmue/wrap-square ()
   (interactive)
-  (save-excursion (sp-wrap-square)))
+  (johmue/wrap-sexp-with "["))
 
 (defun johmue/wrap-curly ()
   (interactive)
-  (save-excursion (sp-wrap-curly)))
+  (johmue/wrap-sexp-with "{"))
 
 (defun johmue/wrap-single-quote ()
   (interactive)
-  (save-excursion (sp-wrap-with-pair "'")))
+  (johmue/wrap-sexp-with "'"))
 
 (defun johmue/wrap-double-quote ()
   (interactive)
-  (save-excursion (sp-wrap-with-pair "\"")))
+  (johmue/wrap-sexp-with "\""))
 
 (defun johmue/attr-to-dict ()
   (sp-wrap-square)
