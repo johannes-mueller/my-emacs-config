@@ -217,15 +217,27 @@
     (when (length> venv 1)
       venv)))
 
-(defun johmue/check-for-venv ()
-  (when-let* ((project-root (projectile-project-root))
+(defun johmue/find-worktree-source ()
+  (let ((dot-git-path (concat (projectile-project-root) ".git")))
+    (when (file-regular-p dot-git-path)
+      (with-temp-buffer
+        (insert-file-contents dot-git-path)
+        (when-let (endpoint (and (string-prefix-p "gitdir: " (buffer-string))
+                                 (search-forward ".git" nil t)
+                                 (match-beginning 0)))
+          (buffer-substring 9 endpoint))))))
+
+(defun johmue/check-for-venv (&optional project-root-dir)
+  (when-let* ((project-root (or project-root-dir
+                                (projectile-project-root)))
               (cand (concat project-root ".venv")))
     (when (file-directory-p cand) cand)))
 
 (defun johmue/activate-or-deactivate-venv ()
   (pyvenv-deactivate)
   (if-let ((possible-env-dir (or (johmue/check-for-venv)
-                                 (johmue/check-for-poetry-env))))
+                                 (johmue/check-for-poetry-env)
+                                 (johmue/check-for-venv (johmue/find-worktree-source)))))
       (johmue/activate-python-venv possible-env-dir)
     (johmue/adjust-python-shell-interpreter)
     (message "Deactivated python environment")))
