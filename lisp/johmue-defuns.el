@@ -1,3 +1,4 @@
+(require 'project)
 
 (defun backward-kill-line (arg)
   "Kill ARG lines backward."
@@ -154,8 +155,8 @@
   (let ((invoke-python (if (executable-find "ipython")
                            '("ipython" "--simple-prompt" "-i")
                          '("python" "-i"))))
-  (setq python-shell-interpreter (pop invoke-python)
-        python-shell-interpreter-args (pop invoke-python))))
+    (setq python-shell-interpreter (pop invoke-python)
+          python-shell-interpreter-args (string-join invoke-python " "))))
 
 (defun johmue/activate-python-venv (env-dir)
   (pyvenv-activate env-dir)
@@ -201,10 +202,10 @@
 
 (defun johmue/auto-activate-virtualenv (_buffer)
   (interactive)
-  (let ((project-root (projectile-project-root)))
-    (unless (equal project-root johmue/last-projectile-project-root)
+  (let ((current-project-root (project-root (project-current))))
+    (unless (equal current-project-root johmue/last-projectile-project-root)
       (johmue/activate-or-deactivate-venv)
-      (setq johmue/last-projectile-project-root project-root))))
+      (setq johmue/last-projectile-project-root current-project-root))))
 
 (defun johmue/unfill-paragraph (&optional region)
       (interactive)
