@@ -7,16 +7,8 @@
 (global-set-key [(shift up)] 'beginning-of-defun)
 (global-set-key [(shift down)] 'end-of-defun)
 
-(global-set-key (kbd "<s-SPC>") 'johmue/mark-current-line)
-
 (global-set-key (kbd "C-c C-l") 'johmue/eval-this-line)
 (global-set-key (kbd "C-c C-d") 'eval-defun)
-
-(global-set-key (kbd "C-c C-k") 'comment-region)
-(global-set-key (kbd "C-c k") 'uncomment-region)
-
-(global-set-key (kbd "C-c C-;") 'johmue/comment-current-line)
-(global-set-key (kbd "C-c ;") 'johmue/uncomment-current-line)
 
 (global-set-key (kbd "C-c d") 'johmue/eldoc)
 

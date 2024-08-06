@@ -7,46 +7,33 @@
 
 (defun johmue/detect-ws-backward ()
   "Delete whitespace until the previous non whitespace."
-  (skip-chars-backward " \t\r\n")
-  )
+  (skip-chars-backward " \t\r\n"))
 
 (defun johmue/detect-ws-forward ()
   "Delete whitespace until the previous non whitespace."
-  (skip-chars-forward " \t\r\n")
-  )
+  (skip-chars-forward " \t\r\n"))
 
 (defun johmue/delete-whitespace-impl (fn)
   (let ((here (point)))
     (funcall fn)
     (if (/= (point) here)
-	(delete-region (point) here))
-    ))
+	(delete-region (point) here))))
 
 (defun johmue/delete-whitespace-backward ()
   (interactive)
-  (johmue/delete-whitespace-impl 'johmue/detect-ws-backward)
-)
+  (johmue/delete-whitespace-impl 'johmue/detect-ws-backward))
 
 (defun johmue/delete-whitespace-forward ()
   (interactive)
-  (johmue/delete-whitespace-impl 'johmue/detect-ws-forward)
-)
+  (johmue/delete-whitespace-impl 'johmue/detect-ws-forward))
 
 (defun johmue/jump-whitespace-backward ()
   (interactive)
-  (johmue/detect-ws-backward)
-)
+  (johmue/detect-ws-backward))
 
 (defun johmue/jump-whitespace-forward ()
   (interactive)
-  (johmue/detect-ws-forward)
-)
-
-(defun johmue/mark-current-line ()
-  (interactive)
-  (beginning-of-line)
-  (set-mark (line-end-position))
-  )
+  (johmue/detect-ws-forward))
 
 (defun johmue/mc/insert-numbers-1 ()
     (interactive)
@@ -106,8 +93,7 @@
 (defun johmue/downcase-char (arg)
   "Uppercasify ARG chars starting from point.  Point doesn't move."
   (interactive "p")
-  (save-excursion
-    (downcase-region (point) (progn (forward-char arg) (point)))))
+  (downcase-region (point) (save-excursion (forward-char arg) (point))))
 
 (defun johmue/toggle-case ()
   (interactive)
@@ -119,33 +105,15 @@
 (defun johmue/eval-this-line ()
   (interactive)
   (save-excursion
-    (eval-region (line-beginning-position) (line-end-position))
-    )
-  )
-
-(defun johmue/comment-current-line ()
-  (interactive)
-  (save-excursion
-    (comment-region (line-beginning-position) (line-end-position))
-    )
-  )
-
-(defun johmue/uncomment-current-line ()
-  (interactive)
-  (save-excursion
-    (uncomment-region (line-beginning-position) (line-end-position))
-    )
-  )
+    (eval-region (line-beginning-position) (line-end-position))))
 
 (defun johmue/scroll-other-window-one-down ()
   (interactive)
-  (scroll-other-window 1)
-  )
+  (scroll-other-window 1))
 
 (defun johmue/scroll-other-window-one-up ()
   (interactive)
-  (scroll-other-window-down 1)
-  )
+  (scroll-other-window-down 1))
 
 (defun johmue/yas-expand ()
   (interactive)
@@ -160,20 +128,12 @@
     (if (integerp last-key)
         (yas-expand))))
 
-(defun johmue/jump-to-project ()
-  (projectile-dired)
-  (projectile-vc)
-  (other-window 1)
-  (setq projectile-mode-line-function '(lambda () (format " <%s>" (projectile-project-name))))
-  )
-
 (defun johmue/balance-windows-popper ()
   (interactive)
   (let ((open-popups (not (eq popper-open-popup-alist nil))))
     (when open-popups (popper-toggle))
     (balance-windows)
-    (when open-popups (popper-toggle))
-    ))
+    (when open-popups (popper-toggle))))
 
 (defun johmue/split-window-right ()
   (interactive)
@@ -246,19 +206,6 @@
       (johmue/activate-or-deactivate-venv)
       (setq johmue/last-projectile-project-root project-root))))
 
-(defvar johmue/company-fuzzy-allowed-backends '("capf"))
-
-(defun johmue/company-fuzzy-no-dabbrev (candidates)
-  (let ((preferred-candidates '()))
-    (dolist (cand candidates)
-     (let* ((backend (company-fuzzy--get-backend-by-candidate cand))
-            (prefix (company-fuzzy--backend-prefix-candidate cand 'match)))
-       (when (or (company-fuzzy--string-prefix-p prefix cand)
-                 (member backend johmue/company-fuzzy-allowed-backends))
-         (push cand preferred-candidates)
-         (setq candidates (remove cand candidates)))))
-    (append preferred-candidates candidates)))
-
 (defun johmue/unfill-paragraph (&optional region)
       (interactive)
       (let ((fill-column (point-max)))
@@ -324,7 +271,6 @@
   (interactive)
   (consult-ripgrep (projectile-project-root) (thing-at-point 'symbol)))
 
-
 (defun johmue/sphinx-build-html ()
   (interactive)
   (let* ((docs-dir (concat (projectile-project-root) "docs"))
@@ -332,7 +278,6 @@
          (command (concat "sphinx-build -b html " docs-dir " " target-dir)))
     (projectile-with-default-dir (projectile-acquire-root)
       (compile command))))
-
 
 (defun johmue/sphinx-build-html-this-file ()
   (interactive)
