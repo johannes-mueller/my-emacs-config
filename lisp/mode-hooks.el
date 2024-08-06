@@ -99,7 +99,8 @@
 (use-package pyvenv
   :after python-mode)
 
-(use-package cython-mode)
+(use-package cython-mode
+  :straight (cython-mode :type git :host github :repo "johannes-mueller/emacs-cython-mode" :branch "updates"))
 
 (use-package py-isort
   :after python)
@@ -111,6 +112,7 @@
   (setq python-black-extra-args '("--skip-string-normalization")))
 
 (add-hook 'python-mode-hook (lambda () (setq electric-indent-inhibit nil)))
+(add-hook 'cython-mode-hook (lambda () (setq electric-indent-inhibit t)))
 
 (defun johmue/python-black-format-defun ()
     (interactive)
