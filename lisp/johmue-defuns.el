@@ -118,16 +118,15 @@
 
 (defun johmue/yas-expand ()
   (interactive)
-  (corfu-quit)
-  (yas-expand))
+  (or (and (yas-active-snippets) (progn (yas-next-field) t))
+      (yas-expand)
+      (indent-for-tab-command)))
 
-(defun johmue/indent-and-maybe-yas-expand ()
+(defun johmue/corfu-expand ()
   (interactive)
-  (indent-for-tab-command)
-  (let* ((keys (recent-keys))
-         (last-key (aref keys (- (length keys) 3))))
-    (if (integerp last-key)
-        (yas-expand))))
+  (or (and (yas-active-snippets) (progn (yas-next-field) t))
+      (yas-expand)
+      (corfu-expand)))
 
 (defun johmue/balance-windows-popper ()
   (interactive)

@@ -33,7 +33,7 @@
               ("C-SPC" . corfu-quit)
               ("RET" . corfu-complete)
               ("<end>" . corfu-complete)
-              ("<tab>" . corfu-expand)
+              ("<tab>" . johmue/corfu-expand)
               ("s-<tab>" . corfu-complete)))
 (add-hook 'multiple-cursors-mode-disabled-hook #'corfu-mode)
 

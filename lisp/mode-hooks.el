@@ -3,12 +3,14 @@
   :hook (prog-mode . yas-minor-mode)
   :bind
   (:map yas-minor-mode-map
-        ("<tab>" . johmue/indent-and-maybe-yas-expand))
-  ("C-<tab>" . johmue/yas-expand))
+        ("<tab>" . johmue/yas-expand)))
 
 (use-package yasnippet-snippets)
 
+(use-package yasnippet-capf)
+
 (require 'ansi-color)
+
 
 (defun johmue/colorize-compilation ()
   (let ((inhibit-read-only t))
@@ -26,8 +28,8 @@
                                   (setq company-backends '(company-capf))
                                   (setq indent-tabs-mode nil)
                                   (setq-local completion-at-point-functions
-                                              (list (cape-capf-super #'elisp-completion-at-point #'cape-dabbrev)
-                                                    #'cape-file))))
+                                              (list (cape-capf-super #'elisp-completion-at-point #'cape-dabbrev #'yasnippet-capf)
+                                                    'cape-file))))
 
 (use-package flycheck-package)
 (eval-after-load 'flycheck
@@ -60,12 +62,14 @@
   (show-paren-mode)
   (setq fill-column 88)
   (setq-local corfu-auto-delay 0.2)
+  (add-to-list 'completion-at-point-functions #'yasnippet-capf)
   (setq company-backends '(company-capf
                            (company-dabbrev-code company-keywords)
                            company-dabbrev)))
 
 
 (defun johmue/text-mode-hook ()
+  (message "prog-mode=hook %s" (bound-and-true-p yas-minor-mode))
   (turn-on-auto-fill)
   (set-fill-column 79)
   (setq indent-tabs-mode nil)
@@ -156,7 +160,14 @@
                                      )
                            ))))
 
-(add-hook 'python-ts-mode-hook #'eglot-ensure)
+
+(add-hook 'python-ts-mode-hook (lambda () (message "python-ts-mode %s" (bound-and-true-p yas-minor-mode))))
+(add-hook 'python-ts-mode-hook (lambda ()
+                                 (eglot-ensure)
+                                 (setq-local completion-at-point-functions
+                                             (list (cape-capf-super #'eglot-completion-at-point #'yasnippet-capf)
+                                                    #'cape-file
+                                                    #'python-completion-at-point))))
 
 (add-hook 'window-selection-change-functions #'johmue/auto-activate-virtualenv)
 
