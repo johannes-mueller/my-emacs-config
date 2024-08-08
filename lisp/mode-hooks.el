@@ -21,7 +21,19 @@
           #'johmue/colorize-compilation)
 
 (use-package string-inflection
-  :bind ("<f4>" . string-inflection-all-cycle))
+  :bind
+  ("<f4>" . johmue/string-inflection-cycle-auto)
+  ("S-<f4>" . string-inflection-all-cycle))
+
+
+(defun johmue/string-inflection-cycle-auto ()
+  "switching by major-mode"
+  (interactive)
+  (cond
+   ((eq major-mode 'emacs-lisp-mode)
+    (string-inflection-all-cycle))
+   (t
+    (string_inflection_python_style_cycle))))
 
 
 (add-hook 'emacs-lisp-mode-hook (lambda ()
