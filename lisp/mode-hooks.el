@@ -50,8 +50,8 @@
                 prog-mode-hook))
   (add-hook mode (lambda() (display-fill-column-indicator-mode t))))
 
-(add-hook 'mmm-python-mode-rst-mode-hook #'johmue/enter-text-submode)
-(add-hook 'mmm-rst-mode-python-mode-hook #'johmue/exit-text-submode)
+(add-hook 'mmm-python-ts-mode-rst-mode-hook #'johmue/enter-text-submode)
+(add-hook 'mmm-rst-mode-python-ts-mode-hook #'johmue/exit-text-submode)
 
 (setq johmue/completion-at-point-functions '())
 

@@ -434,7 +434,7 @@ Position is calculated base on WIDTH and HEIGHT of childframe text window"
       ;; :back rst-python-docstrings-find-back
       :insert ((?d embdocstring nil @ "u\"\"\"" @ _ @ "\"\"\"" @))
       :delimiter-mode nil)))
-  (mmm-add-mode-ext-class 'python-mode nil 'python-rst)
+  (mmm-add-mode-ext-class 'python-ts-mode nil 'python-rst)
                                         ;(add-hook 'mmm-python-rst-hook )
   )
 
