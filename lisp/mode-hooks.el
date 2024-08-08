@@ -37,7 +37,6 @@
 
 
 (add-hook 'emacs-lisp-mode-hook (lambda ()
-                                  (setq company-backends '(company-capf))
                                   (setq indent-tabs-mode nil)
                                   (setq-local completion-at-point-functions
                                               (list (cape-capf-super #'elisp-completion-at-point #'cape-dabbrev #'yasnippet-capf)
@@ -50,8 +49,6 @@
 (dolist (mode '(text-mode-hook
                 prog-mode-hook))
   (add-hook mode (lambda() (display-fill-column-indicator-mode t))))
-
-
 
 (add-hook 'mmm-python-mode-rst-mode-hook #'johmue/enter-text-submode)
 (add-hook 'mmm-rst-mode-python-mode-hook #'johmue/exit-text-submode)
@@ -74,10 +71,7 @@
   (show-paren-mode)
   (setq fill-column 88)
   (setq-local corfu-auto-delay 0.2)
-  (add-to-list 'completion-at-point-functions #'yasnippet-capf)
-  (setq company-backends '(company-capf
-                           (company-dabbrev-code company-keywords)
-                           company-dabbrev)))
+  (add-to-list 'completion-at-point-functions #'yasnippet-capf))
 
 
 (defun johmue/text-mode-hook ()
@@ -87,9 +81,7 @@
   (setq indent-tabs-mode nil)
   (setq-local completion-at-point-functions '(capf-wordfreq-completion-at-point-function))
   (setq-local corfu-sort-function 'identity)
-  (setq-local corfu-auto-delay 0.8)
-  (setq-local company-backends '(company-wordfreq))
-  (setq-local company-transformers nil))
+  (setq-local corfu-auto-delay 0.8))
 
 (add-hook 'prog-mode-hook #'johmue/prog-mode-hook)
 (add-hook 'text-mode-hook #'johmue/text-mode-hook)
