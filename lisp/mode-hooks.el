@@ -75,9 +75,7 @@
   (auto-fill-mode -1)
   (show-paren-mode)
   (setq fill-column 88)
-  (setq-local corfu-auto-delay 0.2)
-  (add-to-list 'completion-at-point-functions #'yasnippet-capf))
-
+  (setq-local corfu-auto-delay 0.2))
 
 (defun johmue/text-mode-hook ()
   (message "prog-mode=hook %s" (bound-and-true-p yas-minor-mode))
