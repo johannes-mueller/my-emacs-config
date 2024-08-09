@@ -25,6 +25,11 @@
   ("<f4>" . johmue/string-inflection-cycle-auto)
   ("S-<f4>" . string-inflection-all-cycle))
 
+(defun johmue/eglot-string-inflection ()
+  (interactive)
+  (let ((current-word (symbol-name (symbol-at-point))))
+    (message "symbol %s %s" current-word (type-of current-word))
+    (eglot-rename (string-inflection-python-style-cycle-function current-word))))
 
 (defun johmue/string-inflection-cycle-auto ()
   "switching by major-mode"
@@ -33,7 +38,7 @@
    ((eq major-mode 'emacs-lisp-mode)
     (string-inflection-all-cycle))
    (t
-    (string_inflection_python_style_cycle))))
+    (string-inflection-python-style-cycle))))
 
 
 (add-hook 'emacs-lisp-mode-hook (lambda ()
