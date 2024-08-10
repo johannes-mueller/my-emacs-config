@@ -118,9 +118,11 @@
 
 (defun johmue/yas-expand ()
   (interactive)
-  (or (and (yas-active-snippets) (progn (yas-next-field) t))
-      (yas-expand)
-      (indent-for-tab-command)))
+  (let* ((keys (recent-keys))
+         (last-key (aref keys (- (length keys) 2))))
+    (or (and (yas-active-snippets) (progn (yas-next-field) t))
+        (when (integerp last-key) (yas-expand))
+        (indent-for-tab-command))))
 
 (defun johmue/corfu-expand ()
   (interactive)
