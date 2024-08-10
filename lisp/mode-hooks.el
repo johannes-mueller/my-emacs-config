@@ -27,9 +27,8 @@
 
 (defun johmue/eglot-string-inflection ()
   (interactive)
-  (let ((current-word (symbol-name (symbol-at-point))))
-    (message "symbol %s %s" current-word (type-of current-word))
-    (eglot-rename (string-inflection-python-style-cycle-function current-word))))
+  (eglot-rename
+   (string-inflection-python-style-cycle-function (symbol-name (symbol-at-point)))))
 
 (defun johmue/string-inflection-cycle-auto ()
   "switching by major-mode"
