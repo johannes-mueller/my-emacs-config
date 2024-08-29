@@ -21,7 +21,6 @@
   ;; This is recommended since dabbrev can be used globally (M-/).
   :init
   (global-corfu-mode)
-  (corfu-prescient-mode -1)
   :hook ((multiple-cursors-mode . (lambda () (corfu-mode -1)))
          (corfu-mode . corfu-popupinfo-mode))
   :bind (:map corfu-map
