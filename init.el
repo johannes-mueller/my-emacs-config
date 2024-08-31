@@ -279,6 +279,7 @@
 
 (use-package projectile
   :init
+  (setq projectile-completion-system 'default)
   (setq projectile-keymap-prefix (kbd "C-c C-p"))
   (setq projectile-switch-project-action 'projectile-commander)
   (setq projectile-mode-line-function '(lambda () (format " <%s>" (projectile-project-name))))
