@@ -429,7 +429,7 @@ Position is calculated base on WIDTH and HEIGHT of childframe text window"
       :face mmm-comment-submode-face
       :front "[ru]?\\(\"\"\"\\|\'\'\'\\)"
       :front-verify rst-python-front-verify
-      :back "~1"
+      :back "\\(\"\"\"\\|\'\'\'\\)"
       :end-not-begin t
       :save-matches 1
       ;; :front rst-python-docstrings-find-front
