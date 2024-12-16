@@ -352,6 +352,7 @@
   :bind (:map eglot-mode-map
               ("C-c r" . eglot-rename)
               ("C-c a" . eglot-code-actions)
+              ("C-c I" . eglot-inlay-hints-mode)
               ("C-c c" . johmue/eglot-string-inflection))
   :config
   (add-to-list 'eglot-server-programs `((elixir-ts-mode elixir-mode) . ("elixir-ls")))

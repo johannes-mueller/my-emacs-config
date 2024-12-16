@@ -134,6 +134,7 @@
 
 (setq major-mode-remap-alist
       '((python-mode . python-ts-mode)
+        (rust-mode . rust-ts-mode)
         (json-mode . json-ts-mode)
         (elixir-mode . elixir-ts-mode)
         ))
