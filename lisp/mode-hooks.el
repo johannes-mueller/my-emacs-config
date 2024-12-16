@@ -138,8 +138,10 @@
         (elixir-mode . elixir-ts-mode)
         ))
 
+
 (setq-default eglot-workspace-configuration
-              '((:pylsp . (:configurationSources
+              '(
+                :pylsp  (:configurationSources
                            ["flake8"]
                            :plugins (
                                      :pycodestyle (:enabled :json-false)
@@ -160,7 +162,10 @@
                                                                 :fuzzy t)
                                      ;:rope_autoimport (:enabled t)
                                      )
-                           ))))
+                         )
+                :rust-analyzer (:editor (:formatOnType (:enebled :json-false)))
+               )
+              )
 
 
 (add-hook 'python-ts-mode-hook (lambda () (message "python-ts-mode %s" (bound-and-true-p yas-minor-mode))))
