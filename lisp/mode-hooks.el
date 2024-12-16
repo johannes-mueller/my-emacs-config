@@ -46,10 +46,6 @@
                                               (list (cape-capf-super #'elisp-completion-at-point #'cape-dabbrev #'yasnippet-capf)
                                                     'cape-file))))
 
-(use-package flycheck-package)
-(eval-after-load 'flycheck
-  '(flycheck-package-setup))
-
 (dolist (mode '(text-mode-hook
                 prog-mode-hook))
   (add-hook mode (lambda() (display-fill-column-indicator-mode t))))
