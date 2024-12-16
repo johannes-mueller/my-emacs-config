@@ -409,15 +409,43 @@ Position is calculated base on WIDTH and HEIGHT of childframe text window"
   (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●"))
 )
 
+(defun -python-nav-beginning-of-statement ()
+  "Move to start of current statement."
+  (interactive "^")
+  (forward-line 0)
+  (let* ((ppss (syntax-ppss))
+         (context-point
+          (or
+           (python-syntax-context 'paren ppss)
+           (python-syntax-context 'string ppss))))
+    (message "context-point %s %s %s %s" context-point (python-syntax-context 'paren ppss) (python-syntax-context 'string ppss) ppss)
+    (cond ((bobp))
+          (context-point
+           (goto-char context-point)
+           (python-nav-beginning-of-statement))
+          ((save-excursion
+             (forward-line -1)
+             (python-info-line-ends-backslash-p))
+           (forward-line -1)
+           (python-nav-beginning-of-statement))))
+  (message "now at %s" (point))
+  (back-to-indentation)
+  (point-marker))
+
+
 (defun rst-python-statement-is-docstring (begin)
   "Return true if beginning of statiment is :begin"
   (save-excursion
     (save-match-data
+      ;(message "point before %s %s %s" (point) (thing-at-point 'word 'no-properties) begin)
       (python-nav-beginning-of-statement)
+      ;(message "point after %s %s" (point) (thing-at-point 'word 'no-properties) )
       (looking-at-p begin))))
 
 (defun rst-python-front-verify ()
-  (rst-python-statement-is-docstring (match-string 0)))
+  (let ((result (rst-python-statement-is-docstring (match-string 0))))
+    ;(message "match-string %s %s %s %s" (match-string 0) (point) (line-number-at-pos) result)
+    result))
 
 
 (use-package mmm-mode
@@ -427,14 +455,14 @@ Position is calculated base on WIDTH and HEIGHT of childframe text window"
    '((python-rst
       :submode rst-mode
       :face mmm-comment-submode-face
-      :front "[ru]?\\(\"\"\"\\|\'\'\'\\)"
-      :front-verify rst-python-front-verify
-      :back "\\(\"\"\"\\|\'\'\'\\)"
+      :front "r?\\(\"\"\"\\|'''\\)"
+      :front-verify (lambda () t)
+      :back "\\(\"\"\"\\|'''\\)"
       :end-not-begin t
       :save-matches 1
       ;; :front rst-python-docstrings-find-front
       ;; :back rst-python-docstrings-find-back
-      :insert ((?d embdocstring nil @ "u\"\"\"" @ _ @ "\"\"\"" @))
+      :insert ((?d embdocstring nil @ "r\"\"\"" @ _ @ "\"\"\"" @))
       :delimiter-mode nil)))
   (mmm-add-mode-ext-class 'python-ts-mode nil 'python-rst)
                                         ;(add-hook 'mmm-python-rst-hook )
