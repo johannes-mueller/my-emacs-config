@@ -342,4 +342,7 @@
   (setq dape-cwd-fn 'projectile-project-root)
   )
 
+(use-package prisma-ts-mode
+  :config
+  (setq prisma-ts-mode-indent-level 4))
 ;;; mode-hooks.el ends here

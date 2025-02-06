@@ -356,6 +356,7 @@
               ("C-c c" . johmue/eglot-string-inflection))
   :config
   (add-to-list 'eglot-server-programs `((elixir-ts-mode elixir-mode) . ("elixir-ls")))
+  (add-to-list 'eglot-server-programs `((prisma-ts-mode) . ("prisma-language-server" "--stdio")))
   (setq eglot-report-progress nil)
   (setq eglot-events-buffer-config '(:size 0 :format full)))
 
