@@ -170,6 +170,7 @@
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
 (require 'dired)
+(require 'dired-x)
 
 (setq dired-listing-switches "-agho --group-directories-first")
 (setq dired-kill-when-opening-new-dired-buffer t)
