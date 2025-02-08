@@ -344,5 +344,12 @@
 
 (use-package prisma-ts-mode
   :config
-  (setq prisma-ts-mode-indent-level 4))
+  (setq prisma-ts-mode-indent-level 4)
+  :bind
+  (:map prisma-ts-mode-map
+        ("M-q" . eglot-format)))
+
+(add-hook 'prisma-ts-mode-hook (lambda ()
+                                 (setq-local tab-width 4)
+                                 (eglot-ensure)))
 ;;; mode-hooks.el ends here
