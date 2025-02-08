@@ -504,6 +504,12 @@ Position is calculated base on WIDTH and HEIGHT of childframe text window"
 
 (use-package ssh-agency)
 
+(use-package auth-source-kwallet
+  :config
+  (setq auth-source-kwallet-executable "kwallet-query-wrapper.sh")
+  (setq auth-source-kwallet-wallet "kdewallet")
+  (auth-source-kwallet-enable))
+
 (use-package tramp
   :config
   (setq tramp-default-method "ssh"))
