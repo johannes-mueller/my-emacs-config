@@ -241,7 +241,8 @@
 (use-package test-cockpit-npm-jest
   :straight (test-cockpit :type git :host github :repo "johannes-mueller/test-cockpit.el"))
 
-(test-cockpit-add-custom-action 'python-toml '("D" "build docs" "sphinx-build -b html docs build/html"))
+(test-cockpit-add-custom-action 'python-toml "D" "build docs" "sphinx-build -b html docs build/html")
+(test-cockpit-add-dynamic-custom-action 'python-toml "t" "mypy this file" "mypy %f")
 
 (use-package web-mode
   :config
