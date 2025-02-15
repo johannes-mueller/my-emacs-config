@@ -362,6 +362,9 @@
   (:map prisma-ts-mode-map
         ("M-q" . eglot-format)))
 
+(add-to-list
+ 'treesit-language-source-alist
+ '(prisma "https://github.com/victorhqc/tree-sitter-prisma"))
 
 
 ;;; mode-hooks.el ends here
