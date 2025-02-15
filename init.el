@@ -183,9 +183,6 @@
 (dired-gitignore-global-mode)
 
 (use-package all-the-icons)
-(use-package magit-file-icons
-  :after magit
-  :init (magit-file-icons-mode))
 
 (use-package all-the-icons-dired
   :hook (dired-mode . all-the-icons-dired-mode))
@@ -300,12 +297,12 @@
 ;(load "ivy-counsel")
 (load "vertico-consult")
 
-
 (use-package magit
   :commands magit-status
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
   (magit-diff-refine-hunk (quote all))
+  (magit-format-file-function #'magit-format-file-all-the-icons)
   :config
   (setq magit-git-environment (cons "LANG=en" magit-git-environment))
   :hook (git-commit-setup . (lambda () (adict-change-dictionary "english"))))
