@@ -310,8 +310,8 @@
 (use-package git-timemachine :after magit)
 
 (use-package forge)
-(use-package code-review
-  :straight (code-review :type git :host github :repo "doomelpa/code-review"))
+;; (use-package code-review
+;;   :straight (code-review :type git :host github :repo "doomelpa/code-review"))
 
 (use-package git-modes)
 
