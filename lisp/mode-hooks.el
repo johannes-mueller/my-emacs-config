@@ -360,7 +360,8 @@
 
   :bind
   (:map prisma-ts-mode-map
-        ("M-q" . eglot-format)))
+        ("M-q" . prisma-format-model)
+        ("C-M-q" . eglot-format)))
 
 (add-to-list
  'treesit-language-source-alist
