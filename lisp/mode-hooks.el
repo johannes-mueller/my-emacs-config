@@ -14,8 +14,7 @@
 
 (defun johmue/colorize-compilation ()
   (let ((inhibit-read-only t))
-    (ansi-color-apply-on-region
-     compilation-filter-start (point))))
+    (ansi-color-apply-on-region compilation-filter-start (point))))
 
 (add-hook 'compilation-filter-hook
           #'johmue/colorize-compilation)

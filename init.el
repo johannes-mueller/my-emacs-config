@@ -283,6 +283,11 @@
   (setq projectile-keymap-prefix (kbd "C-c C-p"))
   (setq projectile-switch-project-action 'projectile-commander)
   (setq projectile-mode-line-function '(lambda () (format " <%s>" (projectile-project-name))))
+  (setq projectile-project-root-functions '(projectile-root-local
+                                            projectile-root-marked
+                                            projectile-root-top-down
+                                            projectile-root-top-down-recurring
+                                            projectile-root-bottom-up))
   :config
   (projectile-global-mode)
   (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
