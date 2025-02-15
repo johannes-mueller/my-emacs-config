@@ -210,7 +210,7 @@
             (setq-default c-basic-offset 8 c-default-style "linux")
             (setq-default c-indentation-style "linux")
             (setq-default tab-width 8 indent-tabs-mode t)
-            (setq indent-tabs-mode t)
+            (setq-local indent-tabs-mode t)
             (define-key c-mode-base-map (kbd "RET") 'newline-and-indent)
             (eglot-ensure)))
 
@@ -343,13 +343,25 @@
   )
 
 (use-package prisma-ts-mode
+  :ensure t
+  :straight (prisma-ts-mode :type git
+                            :host github
+                            :repo "johannes-mueller/prisma-ts-mode"
+                            :branch "johmue-merges")
+
   :config
   (setq prisma-ts-mode-indent-level 4)
+
+  :hook
+  (prisma-ts-mode . (lambda ()
+                      (setq-local tab-width 4)
+                      (setq-local indent-tabs-mode nil)
+                      (eglot-ensure)))
+
   :bind
   (:map prisma-ts-mode-map
         ("M-q" . eglot-format)))
 
-(add-hook 'prisma-ts-mode-hook (lambda ()
-                                 (setq-local tab-width 4)
-                                 (eglot-ensure)))
+
+
 ;;; mode-hooks.el ends here
