@@ -203,7 +203,8 @@
 
 (defun johmue/auto-activate-virtualenv (_buffer)
   (interactive)
-  (let ((current-project-root (project-root (project-current))))
+  (if-let ((current-project (project-current))
+           (current-project-root (project-root current-project)))
     (unless (equal current-project-root johmue/last-projectile-project-root)
       (johmue/activate-or-deactivate-venv)
       (setq johmue/last-projectile-project-root current-project-root))))
