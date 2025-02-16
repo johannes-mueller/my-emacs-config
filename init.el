@@ -10,6 +10,8 @@
 
 (setq native-comp-async-report-warnings-errors nil)
 
+(pgtk-use-im-context nil)
+
 (require 'package)
 
 (with-eval-after-load 'package
@@ -241,7 +243,7 @@
   ("C-k" . crux-smart-kill-line)
   ("C-S-<backspace>" . crux-kill-whole-line)
   ("C-S-<return>" . crux-smart-open-line-above)
-  ("S-<return>" . crux-smart-open-line)
+  ("C-<return>" . crux-smart-open-line)
   ("C-c D" . crux-delete-file-and-buffer)
   ("C-c w" . crux-rename-file-and-buffer)
   ("C-c M-d" . crux-duplicate-and-comment-current-line-or-region)

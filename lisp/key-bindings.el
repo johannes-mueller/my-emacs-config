@@ -1,6 +1,9 @@
 
 (global-unset-key (kbd "C-\\"))
 
+(define-key prog-mode-map (kbd "S-SPC") 'johmue/space-after-sexp)
+(define-key prog-mode-map (kbd "S-<return>") 'johmue/return-after-sexp)
+
 (global-set-key (kbd "<S-backspace>") 'johmue/delete-whitespace-backward)
 (global-set-key (kbd "<S-delete>") 'johmue/delete-whitespace-forward)
 (global-set-key (kbd "<S-left>") 'johmue/jump-whitespace-backward)

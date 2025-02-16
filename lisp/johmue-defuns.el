@@ -1,10 +1,17 @@
 (require 'project)
 
-(defun backward-kill-line (arg)
-  "Kill ARG lines backward."
-  (interactive "p")
-  (kill-line (- 1 arg)))
+(defun johmue/space-after-sexp ()
+  (interactive)
+  (sp-end-of-sexp)
+  (forward-char)
+  (insert " "))
 
+(defun johmue/return-after-sexp ()
+  (interactive)
+  (sp-end-of-sexp)
+  (forward-char)
+  (newline)
+  (indent-for-tab-command))
 
 (defun johmue/detect-ws-backward ()
   "Delete whitespace until the previous non whitespace."
