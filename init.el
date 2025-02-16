@@ -539,5 +539,5 @@ Position is calculated base on WIDTH and HEIGHT of childframe text window"
 (when (file-exists-p (concat (file-name-as-directory "~/.emacs.d/lisp") "local-lisp.el"))
   (load "local-lisp"))
 
-(use-package devcontainer
-  :straight (devcontainer :type git :host github :repo "johannes-mueller/devcontainer.el"))
+(use-package devcontainer-mode
+  :straight (devcontainer-mode :type git :host github :repo "johannes-mueller/devcontainer-mode"))
