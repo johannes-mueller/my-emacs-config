@@ -374,6 +374,12 @@
   (setq eldoc-display-functions '(eldoc-display-in-buffer))
 )
 
+(use-package eglot-booster
+  :straight (eglot-booster :type git :host github :repo "jdtsmith/eglot-booster")
+  :after eglot
+  :config
+  (eglot-booster-mode))
+
 (use-package editorconfig
   :ensure t
   :diminish
