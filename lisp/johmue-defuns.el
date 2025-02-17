@@ -3,8 +3,7 @@
 (defun johmue/space-after-sexp ()
   (interactive)
   (sp-end-of-sexp)
-  (forward-char)
-  (insert " "))
+  (forward-char))
 
 (defun johmue/return-after-sexp ()
   (interactive)

@@ -10,7 +10,9 @@
 
 (setq native-comp-async-report-warnings-errors nil)
 
-(pgtk-use-im-context nil)
+(when (fboundp #'pgtk-use-im-context)
+  (remove-hook 'after-init-hook #'pgtk-use-im-context-handler)
+  (pgtk-use-im-context nil))
 
 (require 'package)
 
