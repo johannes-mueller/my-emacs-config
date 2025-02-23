@@ -10,7 +10,7 @@
 
 (setq native-comp-async-report-warnings-errors nil)
 
-(when (fboundp #'pgtk-use-im-context)
+(when (equal (window-system) 'pgtk)
   (remove-hook 'after-init-hook #'pgtk-use-im-context-handler)
   (pgtk-use-im-context nil))
 
