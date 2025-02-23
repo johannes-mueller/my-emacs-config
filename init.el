@@ -73,6 +73,7 @@
   (diminish 'whitespace-mode)
   (diminish 'eldoc-box-hover-at-point-mode)
   (diminish 'goggles-mode)
+  (diminish 'all-the-icons-dired-mode)
 )
 
 (use-package doom-modeline
