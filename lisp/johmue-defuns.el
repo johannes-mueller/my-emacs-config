@@ -175,7 +175,7 @@
   (johmue/adjust-python-shell-interpreter)
   (message "Deactivated python environment."))
 
-(defvar johmue/last-projectile-project-root nil)
+(defvar johmue/last-project nil)
 
 (defun johmue/check-for-poetry-env ()
   (let ((venv (shell-command-to-string "poetry env info -p 2>/dev/null")))
@@ -207,18 +207,18 @@
     (johmue/adjust-python-shell-interpreter)
     (message "Deactivated python environment")))
 
-(defun johmue/auto-activate-virtualenv (_buffer)
+(defun johmue/auto-activate-virtualenv (_frame)
   (interactive)
-  (if-let ((current-project (project-current))
-           (current-project-root (project-root current-project)))
-    (unless (equal current-project-root johmue/last-projectile-project-root)
+  (when-let (((not (equal (substring (buffer-name (current-buffer)) 0 1) "*")))
+             (current-project (project-current))
+             ((not (equal current-project johmue/last-project))))
       (johmue/activate-or-deactivate-venv)
-      (setq johmue/last-projectile-project-root current-project-root))))
+      (setq johmue/last-project current-project)))
 
 (defun johmue/unfill-paragraph (&optional region)
-      (interactive)
-      (let ((fill-column (point-max)))
-        (fill-paragraph nil region)))
+(interactive)
+(let ((fill-column (point-max)))
+  (fill-paragraph nil region)))
 
 (defun johmue/fill-paragraph-79 ()
   "Formats the paragraph to 79 characters independently of the fill-column setting."
