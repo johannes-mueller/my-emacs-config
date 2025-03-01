@@ -5,7 +5,8 @@
   :bind (:map minibuffer-local-map
               ("<backspace>" . johmue/consult-find-file-backward-kill)
 	      ("S-<down>" . forward-paragraph)
-	      ("S-<up>" . backward-paragraph)))
+	      ("S-<up>" . backward-paragraph)
+              ("RET" . +vertico-exit-minibuffer)))
 
 (defun +vertico-restrict-to-matches ()
   (interactive)
@@ -14,6 +15,11 @@
     (insert " ")
     (add-text-properties (minibuffer-prompt-end) (point-max)
                          '(invisible t read-only t cursor-intangible t rear-nonsticky t))))
+
+(defun +vertico-exit-minibuffer ()
+  (interactive)
+  (let ((inhibit-read-only t))
+    (vertico-exit)))
 
 (define-key vertico-map (kbd "S-SPC") #'+vertico-restrict-to-matches)
 
