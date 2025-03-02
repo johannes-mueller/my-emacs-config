@@ -360,7 +360,7 @@
 
   :bind
   (:map prisma-ts-mode-map
-        ("M-q" . prisma-format-model)
+        ("M-q" . prisma-format-declaration)
         ("C-M-q" . eglot-format)))
 
 (add-to-list
