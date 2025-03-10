@@ -8,6 +8,12 @@
 	      ("S-<up>" . backward-paragraph)
               ("RET" . +vertico-exit-minibuffer)))
 
+(use-package orderless
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-defaults nil)
+  (completion-category-overrides '((file (styles partial-completion)))))
+
 (defun +vertico-restrict-to-matches ()
   (interactive)
   (let ((inhibit-read-only t))
@@ -25,9 +31,6 @@
 
 (add-hook 'minibuffer-setup-hook #'vertico-repeat-save)
 (keymap-global-set "M-r" #'vertico-repeat)
-
-(use-package vertico-prescient
-  :init (vertico-prescient-mode))
 
 (use-package marginalia
   :after vertico

@@ -44,7 +44,6 @@
 (add-to-list 'completion-styles-alist
              '(tab completion-basic-try-completion ignore
                "Completion style which provides TAB completion only."))
-(setq completion-styles '(tab prescient basic))
 
 
 (use-package cape

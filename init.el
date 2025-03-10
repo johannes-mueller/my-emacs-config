@@ -269,10 +269,6 @@
   ([remap describe-variable] . helpful-variable)
   ([remap describe-key] . helpful-key))
 
-(use-package prescient
-  :config
-  (prescient-persist-mode 1))
-
 (use-package imenu-list
   :bind (("C-'" . imenu-list-smart-toggle))
   :config
