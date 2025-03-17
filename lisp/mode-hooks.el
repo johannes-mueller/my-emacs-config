@@ -69,6 +69,7 @@
   (auto-fill-mode -1)
   (show-paren-mode)
   (setq fill-column 88)
+  (setq-local completion-ignore-case nil)
   (setq-local corfu-auto-delay 0.2))
 
 (defun johmue/text-mode-hook ()
