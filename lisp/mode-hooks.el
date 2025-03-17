@@ -105,6 +105,9 @@
 (use-package pyvenv
   :after python-mode)
 
+(use-package uv
+  :straight (uv :type git :host github :repo "johannes-mueller/uv.el"))
+
 (use-package cython-mode
   :straight (cython-mode :type git :host github :repo "johannes-mueller/emacs-cython-mode" :branch "updates"))
 
