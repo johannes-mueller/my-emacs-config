@@ -367,9 +367,7 @@
         ("M-q" . prisma-format-declaration)
         ("C-M-q" . eglot-format)))
 
-(add-to-list
- 'treesit-language-source-alist
- '(prisma "https://github.com/victorhqc/tree-sitter-prisma"))
-
+(add-to-list 'treesit-language-source-alist '(prisma "https://github.com/victorhqc/tree-sitter-prisma"))
+(add-to-list 'treesit-language-source-alist '(dockerfile "https://github.com/camdencheek/tree-sitter-dockerfile"))
 
 ;;; mode-hooks.el ends here
