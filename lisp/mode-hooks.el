@@ -12,12 +12,15 @@
 (require 'ansi-color)
 
 
-(defun johmue/colorize-compilation ()
-  (let ((inhibit-read-only t))
-    (ansi-color-apply-on-region compilation-filter-start (point))))
+(use-package compile
+  :ensure nil
+  :custom
+  (compilation-always-kill t)
+  (compilation-scroll-output t)
+  (ansi-color-for-compilation-mode t)
+  :config
+  (add-hook 'compilation-filter-hook #'ansi-color-compilation-filter))
 
-(add-hook 'compilation-filter-hook
-          #'johmue/colorize-compilation)
 
 (use-package string-inflection
   :bind
