@@ -567,7 +567,8 @@ Position is calculated base on WIDTH and HEIGHT of childframe text window"
   (load "local-lisp"))
 
 (use-package devcontainer-mode
-  :straight (devcontainer-mode :type git :host github :repo "johannes-mueller/devcontainer-mode"))
+  :straight (devcontainer-mode :type git :host github :repo "johannes-mueller/devcontainer-mode")
+  :config (devcontainer-mode 1))
 
 
 (put 'package-lint-main-file 'safe-local-variable #'stringp)
