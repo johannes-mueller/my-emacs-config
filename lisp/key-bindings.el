@@ -9,6 +9,9 @@
 (global-set-key (kbd "<S-left>") 'johmue/jump-whitespace-backward)
 (global-set-key (kbd "<S-right>") 'johmue/jump-whitespace-forward)
 
+(global-set-key (kbd "S-<home>") 'sp-backward-up-sexp)
+(global-set-key (kbd "S-<end>") 'sp-up-sexp)
+
 (global-set-key [(shift up)] 'beginning-of-defun)
 (global-set-key [(shift down)] 'end-of-defun)
 
@@ -57,8 +60,8 @@
 (define-key text-mode-map (kbd "M-q") 'johmue/fill-paragraph-79)
 (define-key python-ts-mode-map (kbd "M-q") (lambda () (interactive) (python-black-partial-dwim nil)))
 (define-key python-ts-mode-map (kbd "<f5>") 'johmue/python-black-format-defun)
-(define-key python-ts-mode-map (kbd "S-<end>") 'python-nav-forward-statement)
-(define-key python-ts-mode-map (kbd "S-<home>") 'python-nav-backward-statement)
+(define-key python-ts-mode-map (kbd "S-<end>") 'sp-up-sexp)
+(define-key python-ts-mode-map (kbd "S-<home>") 'sp-backward-up-sexp)
 
 
 (global-set-key [f6] 'johmue/toggle-soft-wrap)

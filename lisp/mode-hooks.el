@@ -301,6 +301,22 @@
 (use-package json-ts-mode
   :commands json-ts-mode)
 
+(use-package dockerfile-ts-mode
+  :straight (:type built-in)
+  :defer t
+  :mode (("\\Dockerfile\\'" . dockerfile-ts-mode)
+         ("\\.dockerignore\\'" . dockerfile-ts-mode)))
+
+
+(use-package toml-ts-mode
+  :straight (:type built-in)
+  :mode "\\.toml\\'"
+  :defer t)
+
+
+(use-package yaml-ts-mode
+  :straight (:type built-in)
+  :mode "\\.ya?ml\\'")
 
 ;(use-package flycheck-elixir)
 
