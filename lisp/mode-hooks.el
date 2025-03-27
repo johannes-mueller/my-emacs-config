@@ -17,6 +17,7 @@
   :custom
   (compilation-always-kill t)
   (compilation-scroll-output t)
+  (compilation-max-output-line-length nil)
   (ansi-color-for-compilation-mode t)
   :config
   (add-hook 'compilation-filter-hook #'ansi-color-compilation-filter))
