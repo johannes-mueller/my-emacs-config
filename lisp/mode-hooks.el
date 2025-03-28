@@ -465,6 +465,5 @@ Lisp function does not specify a special indentation."
                (method
                 (funcall method indent-point state))))))))
 
-(setq lisp-indent-function #'Fuco1/Lisp-Indent-Function)
 
 ;;; mode-hooks.el ends here
