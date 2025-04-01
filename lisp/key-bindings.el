@@ -84,8 +84,8 @@
 (define-key projectile-mode-map (kbd "C-c p") #'projectile-command-map)
 
 (define-key dired-mode-map (kbd "?") #'which-key-show-major-mode)
-(define-key dired-mode-map (kbd "<left>") #'dired-single-up-directory)
-(define-key dired-mode-map (kbd "<right>") #'dired-single-buffer)
+(define-key dired-mode-map (kbd "<left>") #'dired-up-directory)
+(define-key dired-mode-map (kbd "<right>") #'dired-find-file)
 (define-key dired-mode-map (kbd "h") #'dired-gitignore-global-mode)
 
 (global-set-key (kbd "C-c C-s") #'yas-insert-snippet)
