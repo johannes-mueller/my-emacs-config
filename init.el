@@ -551,6 +551,10 @@ Position is calculated base on WIDTH and HEIGHT of childframe text window"
   :ensure t
   :bind ("C-x D" . docker))
 
+
+(use-package tomlparse
+  :straight (tomlparse :type git :host github :repo "johannes-mueller/tomlparse.el"))
+
 (load "use-corfu")
 (load "mode-hooks")
 (load "johmue-defuns")
@@ -569,10 +573,6 @@ Position is calculated base on WIDTH and HEIGHT of childframe text window"
 (use-package devcontainer-mode
   :straight (devcontainer-mode :type git :host github :repo "johannes-mueller/devcontainer-mode")
   :config (devcontainer-mode 1))
-
-
-(use-package tomlparse
-  :straight (tomlparse :type git :host github :repo "johannes-mueller/tomlparse.el"))
 
 
 (put 'package-lint-main-file 'safe-local-variable #'stringp)
