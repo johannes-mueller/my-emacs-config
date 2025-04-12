@@ -561,6 +561,7 @@ Position is calculated base on WIDTH and HEIGHT of childframe text window"
 (load "key-bindings")
 (load "look")
 (load "spelling")
+(load "latex-config")
 
 (use-package autothemer)
 (load-theme 'johmue t)
