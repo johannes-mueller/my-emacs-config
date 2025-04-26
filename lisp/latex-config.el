@@ -12,6 +12,7 @@
 
 (add-hook 'LaTeX-mode-hook
           (lambda ()
+            (reftex-mode 1)
             (setq-local completion-at-point-functions
                         (list #'cape-tex
                               (cape-capf-super
