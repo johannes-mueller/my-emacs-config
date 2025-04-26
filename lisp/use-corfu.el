@@ -64,7 +64,9 @@
          ("C-c p ^" . cape-tex)
          ("C-c p &" . cape-sgml)
          ("C-c p r" . cape-rfc1345))
-  :init
+  :config
+  (setq text-mode-ispell-word-completion nil)
+  (setq cape-dabbrev-check-other-buffers nil)
 )
 
 ;; Use dabbrev with Corfu!

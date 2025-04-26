@@ -82,7 +82,8 @@
   (turn-on-auto-fill)
   (set-fill-column 79)
   (setq indent-tabs-mode nil)
-  (setq-local completion-at-point-functions '(capf-wordfreq-completion-at-point-function))
+  (setq-local completion-at-point-functions
+              '(cape-capf-super #'capf-wordfreq-completion-at-point-function #'cape-dabbrev))
   (setq-local corfu-sort-function 'identity)
   (setq-local corfu-auto-delay 0.8))
 
