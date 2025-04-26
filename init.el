@@ -398,6 +398,7 @@
   :straight (eglot-booster :type git :host github :repo "jdtsmith/eglot-booster")
   :after eglot
   :config
+  (setq eglot-booster-io-only t)
   (eglot-booster-mode))
 
 (use-package editorconfig
