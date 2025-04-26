@@ -27,6 +27,8 @@
 (global-set-key (kbd "C-M-'") 'johmue/wrap-single-quote)
 (global-set-key (kbd "<C-S-delete>") 'sp-unwrap-sexp)
 
+(global-set-key (kbd "M-t") 'transpose-sexps)
+
 (global-set-key (kbd "C-s-[") 'johmue/python-toggle-dict-attr)
 
 (global-set-key (kbd "C-M-c") 'johmue/toggle-case)
