@@ -8,6 +8,7 @@
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
 (setq-default TeX-master nil)
+(setq-default TeX-engine 'luatex)
 
 (add-hook 'LaTeX-mode-hook
           (lambda ()
