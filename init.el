@@ -533,7 +533,7 @@ Position is calculated base on WIDTH and HEIGHT of childframe text window"
   (setq vterm-shell "zsh")
   (setq vterm-max-scrollback 10000)
   (add-hook 'vterm-mode-hook (lambda () (setq-local global-hl-line-mode nil)))
-  )
+  (define-key vterm-mode-map [return] nil t))
 
 (use-package ssh-agency)
 
