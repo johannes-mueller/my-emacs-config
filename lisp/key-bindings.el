@@ -34,8 +34,11 @@
 
 (global-set-key (kbd "M-d") 'duplicate-dwim)
 
-(define-key global-map [(meta up)] 'johmue/scroll-other-window-one-up)
-(define-key global-map [(meta down)] 'johmue/scroll-other-window-one-down)
+(define-key global-map (kbd "M-S-<up>") 'johmue/scroll-other-window-one-up)
+(define-key global-map (kbd "M-S-<down>") 'johmue/scroll-other-window-one-down)
+
+(define-key global-map (kbd "M-<up>") (lambda () (interactive) (save-excursion (scroll-up-line 1))))
+(define-key global-map (kbd "M-<down>") (lambda () (interactive) (save-excursion (scroll-down-line 1))))
 
 (define-key global-map [f9]          'copy-for-paste)
 (define-key global-map [f10]         'paste-copied)
