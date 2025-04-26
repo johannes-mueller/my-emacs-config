@@ -511,7 +511,6 @@ Position is calculated base on WIDTH and HEIGHT of childframe text window"
   :config
   (setq explicit-shell-file-name "zsh")
   (setq term-prompt-regexp "^[a-z]*@[a-z]* [^<]* <[0-9]*> %")
-  (term-set-escape-char ?\C-x)
   )
 
 ;(use-package eterm-256color
