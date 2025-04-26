@@ -179,13 +179,14 @@
 
 (add-hook 'python-ts-mode-hook (lambda () (message "python-ts-mode %s" (bound-and-true-p yas-minor-mode))))
 (add-hook 'python-ts-mode-hook (lambda ()
+                                 (uv-activate-venv)
                                  (eglot-ensure)
                                  (setq-local completion-at-point-functions
                                              (list (cape-capf-super #'eglot-completion-at-point #'yasnippet-capf)
                                                     #'cape-file
                                                     #'python-completion-at-point))))
 
-(add-hook 'window-selection-change-functions #'johmue/auto-activate-virtualenv)
+(add-hook 'window-selection-change-functions (lambda (_frame) (uv-activate-venv)))
 
 (use-package ein
   :hook (ein:ipynb-mode . (lambda () (johmue/auto-activate-virtualenv)))
