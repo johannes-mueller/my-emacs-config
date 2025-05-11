@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 
 ;(set-face-attribute 'default nil :background "LightYellow" :foreground "black" :font "Meslo LG M" :height 110)
 ;(set-face-attribute 'default nil :background "LightYellow" :foreground "black" :font "Roboto Mono" :height 110)

@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 
 (require 'autothemer)
 (require 'rainbow-delimiters)

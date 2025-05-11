@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (require 'project)
 
 (defun johmue/space-after-sexp ()

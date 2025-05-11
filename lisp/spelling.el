@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 ;;; spelling.el --- Settings for hunspell
 
 ;;; Commentary:
