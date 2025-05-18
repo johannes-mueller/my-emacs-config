@@ -554,7 +554,6 @@ Position is calculated base on WIDTH and HEIGHT of childframe text window"
 (require 'treesit)
 
 (use-package tomlparse
-  :straight (tomlparse :type git :host github :repo "johannes-mueller/tomlparse.el")
   :init
   (add-to-list 'treesit-language-source-alist '(toml "https://github.com/tree-sitter-grammars/tree-sitter-toml"))
   (unless (treesit-language-available-p 'toml)
