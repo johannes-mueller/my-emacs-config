@@ -578,7 +578,9 @@ Position is calculated base on WIDTH and HEIGHT of childframe text window"
 
 (use-package devcontainer
   :straight (devcontainer :type git :host github :repo "johannes-mueller/devcontainer.el")
-  :config (devcontainer-mode 1))
+  :config
+  (devcontainer-mode 1)
+  (setq devcontainer-term-environment '(("TERM" . "xterm-256color"))))
 
 
 (put 'package-lint-main-file 'safe-local-variable #'stringp)
