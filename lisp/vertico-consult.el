@@ -80,13 +80,15 @@
   :bind
   (("C-." . embark-act)
    ("M-." . embark-dwim)
-   ("C-h B" . embark-bindings)))
-
-(setq embark-action-indicator
-      (lambda (map _target)
-        (which-key--show-keymap "Embark" map nil nil 'no-paging)
-        #'which-key--hide-popup-ignore-command)
-      embark-become-indicator embark-action-indicator)
+   ("C-h B" . embark-bindings))
+  :config
+  (setq prefix-help-command #'embark-prefix-help-command)
+  (setq which-key-use-C-h-commands nil)
+  (setq embark-action-indicator
+        (lambda (map _target)
+          (which-key--show-keymap "Embark" map nil nil 'no-paging)
+          #'which-key--hide-popup-ignore-command)
+        embark-become-indicator embark-action-indicator))
 
 (use-package embark-consult)
 
