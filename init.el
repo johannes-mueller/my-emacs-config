@@ -321,7 +321,7 @@
   (magit-diff-refine-hunk (quote all))
   (magit-format-file-function #'magit-format-file-all-the-icons)
   :config
-  (setq magit-git-environment (cons "LANG=en" magit-git-environment))
+  (setq magit-git-environment (cons "LANG=en_US.UTF-8" magit-git-environment))
   :hook (git-commit-setup . (lambda () (adict-change-dictionary "english"))))
 
 (use-package git-timemachine :after magit)
