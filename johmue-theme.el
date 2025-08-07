@@ -74,6 +74,10 @@
 
   (eldoc-box-body (:background "white smoke"))
 
+  (flyover-error (:background "#ff8888"))
+  (flyover-warning (:background "orange"))
+  (flyover-info (:background "spring green"))
+
   (eglot-highlight-symbol-face (:background "MediumSpringGreen" :bold nil))
   )
 

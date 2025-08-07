@@ -364,11 +364,86 @@
 (use-package flycheck
   :config (global-flycheck-mode))
 
-(use-package flycheck-posframe
-  :init
-  (setq flycheck-posframe-position 'window-bottom-right-corner)
-  (setq flycheck-posframe-border-width 1)
-  (flycheck-posframe-mode))
+(use-package flyover
+  :hook
+  ;; Enable flyover when Flycheck is active
+  (flycheck-mode . flyover-mode)
+
+  :custom
+  ;; ⚠️ Which error levels to show overlays for (default is all)
+  ;; Options: 'error, 'warning, 'info
+  (flyover-levels '(error warning info))
+
+  ;; 🎨 Theme integration
+  ;; Use current theme colors for overlay faces
+  (flyover-use-theme-colors t)
+
+  ;; Adjust how dark/light overlay background should be (lower = darker)
+  (flyover-background-lightness 150)
+
+  ;; Percentage to darken the icon background relative to text
+  (flyover-percent-darker 10)
+
+  ;; Tint the overlay text relative to background
+  ;; Options: 'lighter, 'darker, or nil (no tint)
+  (flyover-text-tint 'darker)
+
+  ;; Percentage of tinting to apply to text
+  (flyover-text-tint-percent 80)
+
+  ;; ⚙️ Select backend checkers
+  ;; Options: 'flycheck, 'flymake, or both
+  (flyover-checkers '(flycheck flymake))
+
+  ;; Enable debug logging to *Messages*
+  (flyover-debug nil)
+
+  ;; ⏱ Debounce delay before updating overlays (in seconds)
+  (flyover-debounce-interval 0.2)
+
+  ;; 📐 Vertical position offset for overlay
+  ;; 0 = same line, 1 = below (default), 2 = two lines below, etc.
+  (flyover-line-position-offset 1)
+
+  ;; 📝 Message wrapping
+  ;; Wrap long messages across multiple lines
+  (flyover-wrap-messages t)
+
+  ;; Maximum line length for wrapped messages
+  (flyover-max-line-length 80)
+
+  ;; 🧩 Icon customization for each message level
+  (flyover-info-icon "ℹ")
+  (flyover-warning-icon "⚠")
+  (flyover-error-icon "✘")
+
+  ;; Padding for icons on left/right side
+  (flyover-icon-left-padding 0.9)
+  (flyover-icon-right-padding 0.9)
+
+  ;; ➤ Virtual line styles to point to error line
+  ;; See README for full table of styles
+  ;; Default: 'curved-dotted-arrow
+  (flyover-virtual-line-type 'curved-dotted-arrow)
+
+  ;; Override the line indicator with a custom string
+  ;; e.g. "╰──" or "└─►"
+  (flyover-virtual-line-icon "╰──")
+
+  ;; 🧼 UI visibility options
+  ;; Hide name of checker (e.g., eslint, gcc) in overlay
+  (flyover-hide-checker-name t)
+
+  ;; Show overlay at end-of-line instead of below
+  (flyover-show-at-eol t)
+
+  ;; Hide overlay if point is on same line (avoids clutter)
+  (flyover-hide-when-cursor-is-on-same-line t)
+
+  ;; Show line indicator (arrow) before the message
+  (flyover-show-virtual-line t)
+  )
+
 
 (use-package eglot
   :bind (:map eglot-mode-map
