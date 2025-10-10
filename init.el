@@ -14,22 +14,6 @@
   (remove-hook 'after-init-hook #'pgtk-use-im-context-handler)
   (pgtk-use-im-context nil))
 
-(require 'package)
-
-(with-eval-after-load 'package
-  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/")))
-
-(package-initialize)
-(unless package-archive-contents
-  (package-refresh-contents))
-
-;; Initialize use-package on non-Linux platforms
-(unless (package-installed-p 'use-package)
-  (package-install 'use-package))
-
-(require 'use-package)
-(setq use-package-always-ensure t)
-
 (setq-default custom-file null-device)
 
 (defvar bootstrap-version)
@@ -44,6 +28,8 @@
       (goto-char (point-max))
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
+
+(setq straight-use-package-by-default t)
 
 (setq inhibit-startup-screen t)
 (tool-bar-mode -1)
@@ -641,7 +627,7 @@ Position is calculated base on WIDTH and HEIGHT of childframe text window"
 (load "key-bindings")
 (load "look")
 (load "spelling")
-(load "latex-config")
+;(load "latex-config")
 
 (use-package autothemer)
 (load-theme 'johmue t)
