@@ -70,7 +70,6 @@
     (setq completion-at-point-functions johmue/completion-at-point-functions)))
 
 (defun johmue/prog-mode-hook ()
-  (flycheck-posframe-mode)
   (which-function-mode)
   (auto-fill-mode -1)
   (show-paren-mode)
@@ -155,23 +154,6 @@
                 :pylsp  (:configurationSources
                            ["flake8"]
                            :plugins (
-                                     :pycodestyle (:enabled :json-false)
-                                     :mccabe (:enabled t)
-                                     :pyflakes (:enabled :json-false)
-                                     :flake8 (:enabled t :maxLineLength 88)
-                                     :ruff (:enabled t :lineLength 88)
-                                     :pydocstyle (:enabled t :convention "numpy")
-                                     :yapf (:enabled :json-false)
-                                     :autopep8 (:enabled :json-false)
-                                     :black (:enabled t
-                                                      :line_length 88
-                                                      :cache_config t)
-                                     :jedi_completion (:enabled t
-                                                                :include_params t
-                                                                :eager t
-                                                                :include_class_objects t
-                                                                :fuzzy t)
-                                     ;:rope_autoimport (:enabled t)
                                      )
                          )
                 :rust-analyzer (:editor (:formatOnType (:enebled :json-false)))
