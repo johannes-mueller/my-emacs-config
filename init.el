@@ -353,7 +353,9 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (use-package flycheck
-  :config (global-flycheck-mode))
+  :config
+  (global-flycheck-mode)
+  (setq flycheck-emacs-lisp-load-path 'inherit))
 
 (use-package flyover
   :hook
