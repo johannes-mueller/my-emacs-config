@@ -12,6 +12,7 @@
 
 (require 'ansi-color)
 
+(use-package mocker)
 
 (use-package compile
   :ensure nil
