@@ -290,11 +290,13 @@
   (setq projectile-mode-line-function '(lambda () (format " <%s>" (projectile-project-name))))
   (setq projectile-project-root-functions '(projectile-root-local
                                             projectile-root-marked
+                                            (lambda (dir) (when (string-prefix-p user-emacs-directory dir)
+                                                            (projectile-root-top-down dir)))
+                                            projectile-root-bottom-up
                                             projectile-root-top-down
-                                            projectile-root-top-down-recurring
-                                            projectile-root-bottom-up))
+                                            projectile-root-top-down-recurring))
   :config
-  (projectile-global-mode)
+  (projectile-mode)
   (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
   (define-key projectile-command-map (kbd ".") #'projectile-run-vterm)
