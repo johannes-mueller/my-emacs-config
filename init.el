@@ -440,6 +440,12 @@
   )
 
 
+(use-package flycheck-eglot
+  :init
+  (global-flycheck-eglot-mode 1)
+  (setq eldoc-display-functions '(eldoc-display-in-buffer))
+)
+
 (use-package eglot
   :bind (:map eglot-mode-map
               ("C-c r" . eglot-rename)
@@ -451,18 +457,14 @@
   (add-to-list 'eglot-server-programs `((prisma-ts-mode) . ("prisma-language-server" "--stdio")))
   ;(add-to-list 'eglot-server-programs `((python-ts-mode) . ("basedpyright-langserver" "--stdio")))
   (add-to-list 'eglot-server-programs `((dockerfile-ts-mode) . ("docker-langserver" "--stdio")))
+  (add-to-list 'eglot-server-programs `((rut-ts-mode) . ("rust-analyzer")))
   (setq eglot-report-progress nil)
   (setq eglot-events-buffer-config '(:size 0 :format full))
   (setq eglot-prefer-plaintext t)
   (setq jsonrpc-event-hook nil)
+  (add-hook 'eglot-managed-mode-hook (lambda () (eglot-semantic-tokens-mode -1)))
   :hook
   ((dockerfile-ts-mode . #'eglot-ensure)))
-
-(use-package flycheck-eglot
-  :init
-  (global-flycheck-eglot-mode 1)
-  (setq eldoc-display-functions '(eldoc-display-in-buffer))
-)
 
 (use-package eglot-booster
   :straight (eglot-booster :type git :host github :repo "jdtsmith/eglot-booster")
