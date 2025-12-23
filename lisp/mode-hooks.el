@@ -179,9 +179,16 @@
   :config
   (setq ein:output-area-inlined-images t))
 
+(use-package rust-mode
+  :ensure t
+  :init
+  (setq rust-mode-treesitter-derive t)
+  (setq rustic-lsp-client 'eglot))
+
 (use-package rustic
   :commands rustic-mode
   :config
+  :after rust-mode
   (setq rustic-lsp-client 'eglot))
 
 (add-hook 'rustic-mode-hook
