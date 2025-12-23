@@ -157,7 +157,8 @@
                            :plugins (
                                      )
                          )
-                :rust-analyzer (:editor (:formatOnType (:enebled :json-false)))
+                :rust-analyzer (:editor (:formatOnType (:enabled :json-false))
+                                :check (:allTargets :json-false))
                )
               )
 
