@@ -84,7 +84,7 @@
   (set-fill-column 79)
   (setq indent-tabs-mode nil)
   (setq-local completion-at-point-functions
-              '(cape-capf-super #'capf-wordfreq-completion-at-point-function #'cape-dabbrev))
+              (list (cape-capf-super #'capf-wordfreq-completion-at-point-function #'cape-dabbrev)))
   (setq-local corfu-sort-function 'identity)
   (setq-local corfu-auto-delay 0.8))
 
@@ -131,7 +131,7 @@
 (add-hook 'cython-mode-hook (lambda () (setq electric-indent-inhibit t)))
 
 (defun johmue/python-black-format-defun ()
-    (interactive)
+  (interactive)
   (save-excursion
     (beginning-of-defun)
     (let ((beg (point)))
