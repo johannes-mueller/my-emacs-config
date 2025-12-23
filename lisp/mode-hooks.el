@@ -76,10 +76,10 @@
   (show-paren-mode)
   (setq fill-column 88)
   (setq-local completion-ignore-case nil)
-  (setq-local corfu-auto-delay 0.2))
+  (setq-local corfu-auto-delay 0.2)
+  (smartparens-mode 1))
 
 (defun johmue/text-mode-hook ()
-  (message "prog-mode=hook %s" (bound-and-true-p yas-minor-mode))
   (turn-on-auto-fill)
   (set-fill-column 79)
   (setq indent-tabs-mode nil)
