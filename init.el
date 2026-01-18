@@ -466,6 +466,12 @@
   :hook
   ((dockerfile-ts-mode . #'eglot-ensure)))
 
+(use-package flycheck-eglot
+  :init
+  (global-flycheck-eglot-mode 1)
+  (setq eldoc-display-functions '(eldoc-display-in-buffer))
+)
+
 (use-package eglot-booster
   :straight (eglot-booster :type git :host github :repo "jdtsmith/eglot-booster")
   :after eglot
