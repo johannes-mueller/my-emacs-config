@@ -455,13 +455,12 @@
   :config
   (add-to-list 'eglot-server-programs `((elixir-ts-mode elixir-mode) . ("elixir-ls")))
   (add-to-list 'eglot-server-programs `((prisma-ts-mode) . ("prisma-language-server" "--stdio")))
-  ;(add-to-list 'eglot-server-programs `((python-ts-mode) . ("basedpyright-langserver" "--stdio")))
+  (add-to-list 'eglot-server-programs `((python-ts-mode) . ("rass" "python")))
   (add-to-list 'eglot-server-programs `((dockerfile-ts-mode) . ("docker-langserver" "--stdio")))
-  (add-to-list 'eglot-server-programs `((rut-ts-mode) . ("rust-analyzer")))
+  (add-to-list 'eglot-server-programs `((rust-ts-mode) . ("rust-analyzer")))
   (setq eglot-report-progress nil)
   (setq eglot-events-buffer-config '(:size 0 :format full))
   (setq eglot-prefer-plaintext t)
-  (setq eglot-advertise-cancellation t)
   (setq jsonrpc-event-hook nil)
   (add-hook 'eglot-managed-mode-hook (lambda () (eglot-semantic-tokens-mode -1)))
   :hook
