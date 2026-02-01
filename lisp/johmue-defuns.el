@@ -303,6 +303,17 @@
   (eldoc)
   (switch-to-buffer eldoc--doc-buffer))
 
+
+(defun johmue/flycheck-next-error-and-flash-flyover ()
+  (interactive)
+  (flycheck-next-error)
+  (flyover-flash-error-at-point))
+
+(defun johmue/flycheck-prev-error-and-flash-flyover ()
+  (interactive)
+  (flycheck-previous-error)
+  (flyover-flash-error-at-point))
+
 (provide 'johmue-defuns)
 
 ;;; johmue-defuns.el ends here

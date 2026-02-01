@@ -360,9 +360,16 @@
   (setq flycheck-emacs-lisp-load-path 'inherit))
 
 (use-package flyover
+  :straight (dired-gitignore :type git
+                             :host github
+                             :repo "johannes-mueller/flyover.el"
+                             :branch "show-on-demand")
+
   :hook
   ;; Enable flyover when Flycheck is active
   (flycheck-mode . flyover-mode)
+
+  :bind (("C-c e" . flyover-flash-error-at-point))
 
   :custom
   ;; ⚠️ Which error levels to show overlays for (default is all)
@@ -433,7 +440,7 @@
   (flyover-show-at-eol t)
 
   ;; Hide overlay if point is on same line (avoids clutter)
-  (flyover-hide-when-cursor-is-on-same-line t)
+  (flyover-display-mode 'show-only-on-request)
 
   ;; Show line indicator (arrow) before the message
   (flyover-show-virtual-line t)

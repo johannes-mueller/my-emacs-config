@@ -95,4 +95,7 @@
 (define-key dired-mode-map (kbd "h") #'dired-gitignore-global-mode)
 
 (global-set-key (kbd "C-c C-s") #'yas-insert-snippet)
+
+(global-set-key (kbd "C-c ! N") #'johmue/flycheck-next-error-and-flash-flyover)
+(global-set-key (kbd "C-c ! P") #'johmue/flycheck-prev-error-and-flash-flyover)
 ;;; keys.el ends here
