@@ -360,10 +360,10 @@
   (setq flycheck-emacs-lisp-load-path 'inherit))
 
 (use-package flyover
-  :straight (dired-gitignore :type git
-                             :host github
-                             :repo "johannes-mueller/flyover.el"
-                             :branch "show-on-demand")
+  :straight (flyover :type git
+                     :host github
+                     :repo "johannes-mueller/flyover"
+                     :branch "show-on-demand")
 
   :hook
   ;; Enable flyover when Flycheck is active
@@ -463,7 +463,11 @@
   :config
   (add-to-list 'eglot-server-programs `((elixir-ts-mode elixir-mode) . ("elixir-ls")))
   (add-to-list 'eglot-server-programs `((prisma-ts-mode) . ("prisma-language-server" "--stdio")))
-  (add-to-list 'eglot-server-programs `((python-ts-mode) . ("rass" "python")))
+
+  (add-to-list 'eglot-server-programs `((python-ts-mode) . ("rass" "python")));                                                          :initializationOptions
+     ;                                                       (:ruff (:lint (:select ["E" "F"]))))))
+  ;(add-to-list 'eglot-server-programs `((python-ts-mode) . ("ty" "server")))
+  ;(add-to-list 'eglot-server-programs `((python-ts-mode) . ("ruff" "server")))
   (add-to-list 'eglot-server-programs `((dockerfile-ts-mode) . ("docker-langserver" "--stdio")))
   (add-to-list 'eglot-server-programs `((rust-ts-mode) . ("rust-analyzer")))
   (setq eglot-report-progress nil)
