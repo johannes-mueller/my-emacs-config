@@ -458,6 +458,7 @@
               ("C-c r" . eglot-rename)
               ("C-c a" . eglot-code-actions)
               ("C-c I" . eglot-inlay-hints-mode)
+              ("C-c h" . eldoc-box-help-at-point)
               ("C-c c" . johmue/eglot-string-inflection))
   :config
   (add-to-list 'eglot-server-programs `((elixir-ts-mode elixir-mode) . ("elixir-ls")))
@@ -469,7 +470,10 @@
   (setq eglot-events-buffer-config '(:size 0 :format full))
   (setq eglot-prefer-plaintext t)
   (setq jsonrpc-event-hook nil)
-  (add-hook 'eglot-managed-mode-hook (lambda () (eglot-semantic-tokens-mode -1)))
+  (add-hook 'eglot-managed-mode-hook
+            (lambda ()
+              (eglot-semantic-tokens-mode -1)
+              (eglot-inlay-hints-mode -1)))
   :hook
   ((dockerfile-ts-mode . #'eglot-ensure)))
 
@@ -504,9 +508,10 @@ Position is calculated base on WIDTH and HEIGHT of childframe text window"
      offset-t)))
 
 (use-package eldoc-box
-  :init
-  (setq eldoc-box-position-function #'johmue/eldoc-box--upper-right-window-corner-position-function)
-  (setq eldoc-box-offset '(32 48 16)))
+  :config
+  (eldoc-box-mouse-mode 1)
+  (eldoc-box-hover-mode -1)
+  )
 
 (global-eldoc-mode nil)
 
