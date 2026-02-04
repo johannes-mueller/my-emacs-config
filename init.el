@@ -360,10 +360,6 @@
   (setq flycheck-emacs-lisp-load-path 'inherit))
 
 (use-package flyover
-  :straight (flyover :type git
-                     :host github
-                     :repo "johannes-mueller/flyover"
-                     :branch "show-on-demand")
 
   :hook
   ;; Enable flyover when Flycheck is active
