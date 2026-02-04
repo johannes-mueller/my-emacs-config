@@ -433,13 +433,13 @@
   (flyover-hide-checker-name t)
 
   ;; Show overlay at end-of-line instead of below
-  (flyover-show-at-eol t)
+  (flyover-show-at-eol nil)
 
   ;; Hide overlay if point is on same line (avoids clutter)
   (flyover-display-mode 'show-only-on-request)
 
   ;; Show line indicator (arrow) before the message
-  (flyover-show-virtual-line t)
+  (flyover-show-virtual-line nil)
   )
 
 
