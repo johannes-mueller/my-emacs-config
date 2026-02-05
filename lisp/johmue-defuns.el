@@ -188,7 +188,7 @@
     (when (file-regular-p dot-git-path)
       (with-temp-buffer
         (insert-file-contents dot-git-path)
-        (when-let (endpoint (and (string-prefix-p "gitdir: " (buffer-string))
+        (when-let* (endpoint (and (string-prefix-p "gitdir: " (buffer-string))
                                  (search-forward ".git" nil t)
                                  (match-beginning 0)))
           (buffer-substring 9 endpoint))))))
@@ -201,7 +201,7 @@
 
 (defun johmue/activate-or-deactivate-venv ()
   (pyvenv-deactivate)
-  (if-let ((possible-env-dir (or (johmue/check-for-venv)
+  (if-let* ((possible-env-dir (or (johmue/check-for-venv)
                                  (johmue/check-for-poetry-env)
                                  (johmue/check-for-venv (johmue/find-worktree-source)))))
       (johmue/activate-python-venv possible-env-dir)
@@ -210,7 +210,7 @@
 
 (defun johmue/auto-activate-virtualenv (_frame)
   (interactive)
-  (when-let (((not (equal (substring (buffer-name (current-buffer)) 0 1) "*")))
+  (when-let* (((not (equal (substring (buffer-name (current-buffer)) 0 1) "*")))
              (current-project (project-current))
              ((not (equal current-project johmue/last-project))))
       (johmue/activate-or-deactivate-venv)
