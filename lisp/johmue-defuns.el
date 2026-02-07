@@ -188,9 +188,9 @@
     (when (file-regular-p dot-git-path)
       (with-temp-buffer
         (insert-file-contents dot-git-path)
-        (when-let* (endpoint (and (string-prefix-p "gitdir: " (buffer-string))
-                                 (search-forward ".git" nil t)
-                                 (match-beginning 0)))
+        (when-let* ((endpoint (and (string-prefix-p "gitdir: " (buffer-string))
+                                   (search-forward ".git" nil t)
+                                   (match-beginning 0))))
           (buffer-substring 9 endpoint))))))
 
 (defun johmue/check-for-venv (&optional project-root-dir)
