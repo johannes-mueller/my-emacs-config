@@ -127,7 +127,7 @@
 (use-package python-black
   :config
   (setq python-black-command "~/.pyenvs/pylsp/bin/black")
-  (setq python-black-macchiato-command "~/.pyenvs/pylsp/bin/black-macchiato")
+  (setq python-black-macchiato-command "black-macchiato")
   (setq python-black-extra-args '("--skip-string-normalization")))
 
 (add-hook 'python-mode-hook (lambda () (setq electric-indent-inhibit nil)))
