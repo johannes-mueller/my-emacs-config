@@ -91,6 +91,9 @@
 (add-hook 'prog-mode-hook #'johmue/prog-mode-hook)
 (add-hook 'text-mode-hook #'johmue/text-mode-hook)
 
+(add-hook 'prog-mode-hook #'flymake-mode)
+(add-hook 'flymake-mode-hook #'flyover-mode)
+
 (use-package wc-mode
   :hook (text-mode . (lambda () (wc-mode 1))))
 

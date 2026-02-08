@@ -356,7 +356,7 @@
 
 (use-package flycheck
   :config
-  (global-flycheck-mode)
+  ;(global-flycheck-mode)
   (setq flycheck-emacs-lisp-load-path 'inherit))
 
 (use-package flyover
@@ -443,11 +443,11 @@
   )
 
 
-(use-package flycheck-eglot
-  :init
-  (global-flycheck-eglot-mode 1)
-  (setq eldoc-display-functions '(eldoc-display-in-buffer))
-)
+;; (use-package flycheck-eglot
+;;   :init
+;;   (global-flycheck-eglot-mode 1)
+;;   (setq eldoc-display-functions '(eldoc-display-in-buffer))
+;; )
 
 (use-package eglot
   :bind (:map eglot-mode-map
@@ -460,7 +460,12 @@
   (add-to-list 'eglot-server-programs `((elixir-ts-mode elixir-mode) . ("elixir-ls")))
   (add-to-list 'eglot-server-programs `((prisma-ts-mode) . ("prisma-language-server" "--stdio")))
 
-  (add-to-list 'eglot-server-programs `((python-ts-mode) . ("rass" "python")));                                                          :initializationOptions
+  (add-to-list 'eglot-server-programs `((python-ts-mode) . ("rass" "python")))
+  ;(add-to-list 'eglot-server-programs `((python-ts-mode) . ("ty" "server")))
+
+  ;(add-to-list 'eglot-server-programs `((python-ts-mode) . ("pyrefly" "lsp")))
+                                        ;
+  ;:initializationOptions
      ;                                                       (:ruff (:lint (:select ["E" "F"]))))))
   ;(add-to-list 'eglot-server-programs `((python-ts-mode) . ("ty" "server")))
   ;(add-to-list 'eglot-server-programs `((python-ts-mode) . ("ruff" "server")))
@@ -469,6 +474,7 @@
   (setq eglot-report-progress nil)
   (setq eglot-events-buffer-config '(:size 0 :format full))
   (setq eglot-prefer-plaintext t)
+  (setq eldoc-display-functions '(eldoc-display-in-buffer))
   (setq jsonrpc-event-hook nil)
   (add-hook 'eglot-managed-mode-hook
             (lambda ()
@@ -476,12 +482,6 @@
               (eglot-inlay-hints-mode -1)))
   :hook
   ((dockerfile-ts-mode . #'eglot-ensure)))
-
-(use-package flycheck-eglot
-  :init
-  (global-flycheck-eglot-mode 1)
-  (setq eldoc-display-functions '(eldoc-display-in-buffer))
-)
 
 (use-package eglot-booster
   :straight (eglot-booster :type git :host github :repo "jdtsmith/eglot-booster")
