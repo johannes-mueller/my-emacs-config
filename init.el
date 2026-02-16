@@ -282,6 +282,12 @@
   (setq imenu-list-focus-after-activation t
         imenu-list-auto-resize nil))
 
+(defun johmue/git-submodule-superproject-path (dir)
+  (let* ((default-directory dir)
+         (path (string-trim (shell-command-to-string "git rev-parse --show-superproject-working-tree 2> /dev/null"))))
+    (when (length> path 0)
+      (file-name-as-directory path))))
+
 (use-package projectile
   :init
   (setq projectile-completion-system 'default)
@@ -292,6 +298,7 @@
                                             projectile-root-marked
                                             (lambda (dir) (when (string-prefix-p user-emacs-directory dir)
                                                             (projectile-root-top-down dir)))
+                                            johmue/git-submodule-superproject-path
                                             projectile-root-bottom-up
                                             projectile-root-top-down
                                             projectile-root-top-down-recurring))
