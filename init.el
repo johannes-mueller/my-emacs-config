@@ -356,7 +356,7 @@
 
 (use-package flycheck
   :config
-  ;(global-flycheck-mode)
+  (global-flycheck-mode)
   (setq flycheck-emacs-lisp-load-path 'inherit))
 
 (use-package flyover
@@ -482,6 +482,12 @@
               (eglot-inlay-hints-mode -1)))
   :hook
   ((dockerfile-ts-mode . #'eglot-ensure)))
+
+(use-package flycheck-eglot
+  :init
+  (global-flycheck-eglot-mode 1)
+  (setq eldoc-display-functions '(eldoc-display-in-buffer))
+)
 
 (use-package eglot-booster
   :straight (eglot-booster :type git :host github :repo "jdtsmith/eglot-booster")
