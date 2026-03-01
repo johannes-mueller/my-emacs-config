@@ -449,6 +449,13 @@
   (flyover-show-virtual-line nil)
   )
 
+(use-package devcontainer
+  :straight (devcontainer :type git :host github :repo "johannes-mueller/devcontainer.el")
+  :config
+  (devcontainer-mode 1)
+  (setq devcontainer-term-environment '(("TERM" . "xterm-256color")))
+  (setq devcontainer-startup-secrets-file ".secrets.json"))
+
 
 ;; (use-package flycheck-eglot
 ;;   :init
@@ -467,8 +474,14 @@
   (add-to-list 'eglot-server-programs `((elixir-ts-mode elixir-mode) . ("elixir-ls")))
   (add-to-list 'eglot-server-programs `((prisma-ts-mode) . ("prisma-language-server" "--stdio")))
 
-  (add-to-list 'eglot-server-programs `((python-ts-mode) . ("rass" "python")))
+  '(add-to-list 'eglot-server-programs `((python-ts-mode) . ("rass" "python")))
   ;(add-to-list 'eglot-server-programs `((python-ts-mode) . ("ty" "server")))
+  (add-to-list 'eglot-server-programs `((python-ts-mode) . ,(devcontainer-eglot-server '("rass" "python") :initializationOptions '(:ruff (:lint (:select ["ALL"]))))))
+  (add-to-list 'eglot-server-programs `((python-ts-mode) . ("ruff" "server" :initializationOptions '(:ruff (:configuration (:lint (:select ["ALL"])))))))
+
+  ;(add-to-list 'eglot-server-programs `((python-ts-mode) . ("ty" "server")))
+
+  (add-to-list 'eglot-server-programs `((python-ts-mode) . ("rass" "python"))); :initializationOptions '(:ruff (:settings (:configuration (:lint (:select ["ALL"]))))))))
 
   ;(add-to-list 'eglot-server-programs `((python-ts-mode) . ("pyrefly" "lsp")))
                                         ;
@@ -496,12 +509,12 @@
   (setq eldoc-display-functions '(eldoc-display-in-buffer))
 )
 
-(use-package eglot-booster
-  :straight (eglot-booster :type git :host github :repo "jdtsmith/eglot-booster")
-  :after eglot
-  :config
-  (setq eglot-booster-io-only t)
-  (eglot-booster-mode))
+;; (use-package eglot-booster
+;;   :straight (eglot-booster :type git :host github :repo "jdtsmith/eglot-booster")
+;;   :after eglot
+;;   :config
+;;   (setq eglot-booster-io-only t)
+;;   (eglot-booster-mode))
 
 (use-package editorconfig
   :ensure t
@@ -679,12 +692,6 @@ Position is calculated base on WIDTH and HEIGHT of childframe text window"
 (when (file-exists-p (concat (file-name-as-directory "~/.emacs.d/lisp") "local-lisp.el"))
   (load "local-lisp"))
 
-(use-package devcontainer
-  :straight (devcontainer :type git :host github :repo "johannes-mueller/devcontainer.el")
-  :config
-  (devcontainer-mode 1)
-  (setq devcontainer-term-environment '(("TERM" . "xterm-256color")))
-  (setq devcontainer-startup-secrets-file ".secrets.json"))
 
 
 (put 'package-lint-main-file 'safe-local-variable #'stringp)
