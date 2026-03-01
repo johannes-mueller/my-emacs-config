@@ -12,7 +12,7 @@
 (use-package orderless
   :custom
   (completion-styles '(orderless basic))
-  (completion-category-defaults nil)
+  ;(completion-category-defaults nil)
   (completion-category-overrides '((file (styles partial-completion)))))
 
 (defun +vertico-restrict-to-matches ()
@@ -142,3 +142,19 @@
                  (put 'quit 'error-message "Quit")
                  (consult-line ctrlf--last-input)))
   (abort-recursive-edit))
+
+
+(vertico-multiform-mode)
+
+(defun johmue/vertico-sort-files-directories-first-dotfiles-last (list)
+  (setq list (vertico-sort-directories-first list))
+  (nconc (cl-loop for x in list if (not (string-prefix-p "." x)) collect x)
+         (cl-loop for x in list if (string-prefix-p "." x) collect x)))
+
+(setopt vertico-multiform-categories
+        '((file (vertico-sort-function . johmue/vertico-sort-files-directories-first-dotfiles-last))))
+
+(setopt vertico-multiform-commands
+        '((execute-extended-command (vertico-sort-function . vertico-sort-history-length-alpha))))
+
+(setopt vertico-sort-history-decay 1)
