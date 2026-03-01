@@ -24,6 +24,7 @@
   :config
   (add-hook 'compilation-filter-hook #'ansi-color-compilation-filter))
 
+;(use-package package-lint)
 
 (use-package string-inflection
   :bind
@@ -152,11 +153,9 @@
 
 (setq-default eglot-workspace-configuration
               '(
-                :pylsp  (:configurationSources
-                           ["flake8"]
-                           :plugins (
-                                     )
-                         )
+                :ty (:inlayHints (:variableTypes t :callArgumentNames t))
+                :ruff (:settings (:configuration (:lint (:select ["ALL"]))))
+                :ruff.lint.select ["ALL"]
                 :rust-analyzer (:editor (:formatOnType (:enabled :json-false))
                                 :check (:allTargets :json-false))
                )
