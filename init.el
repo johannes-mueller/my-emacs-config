@@ -172,11 +172,10 @@
 (setq dired-kill-when-opening-new-dired-buffer t)
 
 (use-package dired-gitignore
-  :straight (dired-gitignore :type git
-                             :host github
-                             :repo "johannes-mueller/dired-gitignore.el"))
+  :config
+  (dired-gitignore-global-mode))
 
-(dired-gitignore-global-mode)
+
 
 (use-package proced
   :ensure nil
@@ -364,7 +363,8 @@
 (use-package flycheck
   :config
   (global-flycheck-mode)
-  (setq flycheck-emacs-lisp-load-path 'inherit))
+  (setq flycheck-emacs-lisp-load-path 'inherit)
+  (setq checkdoc-verb-check-experimental-flag nil))
 
 (use-package flyover
 
@@ -449,12 +449,6 @@
   (flyover-show-virtual-line nil)
   )
 
-
-;; (use-package flycheck-eglot
-;;   :init
-;;   (global-flycheck-eglot-mode 1)
-;;   (setq eldoc-display-functions '(eldoc-display-in-buffer))
-;; )
 
 (use-package eglot
   :bind (:map eglot-mode-map
