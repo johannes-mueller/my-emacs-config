@@ -232,9 +232,20 @@
   (require 'test-cockpit-python)
   (require 'test-cockpit-cask)
   (setq test-cockpit-projectile-fallback t)
+  (test-cockpit-add-additional-switch 'python-toml "--cov --cov-report=json --cov-append")
   (test-cockpit-preselect-switch 'python-toml "use-uv")
   (test-cockpit-add-custom-action 'python-toml "D" "build docs" "sphinx-build -W -b html docs build/html")
   (test-cockpit-add-dynamic-custom-action 'python-toml "t" "typecheck this file" "ty --check %f"))
+
+
+(use-package cov
+  :config
+  (set-face-foreground 'cov-heavy-face "white")
+  (set-face-foreground 'cov-med-face "yellow")
+  (set-face-foreground 'cov-light-face "orange")
+  (set-face-foreground 'cov-none-face "red")
+  :hook
+  (python-ts-mode . #'cov-turn-on))
 
 
 (use-package web-mode
