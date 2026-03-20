@@ -239,6 +239,7 @@
 
 
 (use-package cov
+  :straight (cov :type git :host github :repo "johannes-mueller/cov")
   :config
   (set-face-foreground 'cov-heavy-face "white")
   (set-face-foreground 'cov-med-face "yellow")
