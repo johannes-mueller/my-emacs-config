@@ -291,7 +291,7 @@
   :init
   (setq projectile-completion-system 'default)
   (setq projectile-keymap-prefix (kbd "C-c C-p"))
-  (setq projectile-switch-project-action 'projectile-commander)
+  (setq projectile-switch-project-action 'projectile-dispatch)
   (setq projectile-mode-line-function '(lambda () (format " <%s>" (projectile-project-name))))
   (setq projectile-project-root-functions '(projectile-root-local
                                             projectile-root-marked
@@ -509,6 +509,8 @@
 ;;   :config
 ;;   (setq eglot-booster-io-only t)
 ;;   (eglot-booster-mode))
+
+(use-package eca)
 
 (use-package editorconfig
   :ensure t
