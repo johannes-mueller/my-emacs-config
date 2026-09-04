@@ -230,6 +230,7 @@
   (sp-pair "(" ")" :unless '(sp-point-before-word-p))
   (sp-pair "[" "]" :unless '(sp-point-before-word-p))
   (sp-pair "{" "}" :unless '(sp-point-before-word-p))
+  ;(sp-pair "_" "_" :when 'ignore)
   (smartparens-global-mode t)
   :bind
   ("M-<right>" . 'sp-forward-sexp)
@@ -468,14 +469,15 @@
   (add-to-list 'eglot-server-programs `((elixir-ts-mode elixir-mode) . ("elixir-ls")))
   (add-to-list 'eglot-server-programs `((prisma-ts-mode) . ("prisma-language-server" "--stdio")))
 
-  '(add-to-list 'eglot-server-programs `((python-ts-mode) . ("rass" "python")))
+  ;(add-to-list 'eglot-server-programs `((python-ts-mode) . ("rass" "python")))
   ;(add-to-list 'eglot-server-programs `((python-ts-mode) . ("ty" "server")))
-  (add-to-list 'eglot-server-programs `((python-ts-mode) . ,(devcontainer-eglot-server '("rass" "python") :initializationOptions '(:ruff (:lint (:select ["ALL"]))))))
-  (add-to-list 'eglot-server-programs `((python-ts-mode) . ("ruff" "server" :initializationOptions '(:ruff (:configuration (:lint (:select ["ALL"])))))))
+  (add-to-list 'eglot-server-programs `((python-ts-mode) . ("rass" "python" "--quiet-server" :initializationOptions '(:ruff (:lint (:select ["ALL"]))))))
+  ;(add-to-list 'eglot-server-programs `((python-ts-mode) . ("rass" "python" "--quiet-server" :initializationOptions '(:ruff (:lint (:select ["ALL"]))))))
+  ;(add-to-list 'eglot-server-programs `((python-ts-mode) . ("ruff" "server" :initializationOptions '(:ruff (:configuration (:lint (:select ["ALL"])))))))
 
   ;(add-to-list 'eglot-server-programs `((python-ts-mode) . ("ty" "server")))
 
-  (add-to-list 'eglot-server-programs `((python-ts-mode) . ("rass" "python"))); :initializationOptions '(:ruff (:settings (:configuration (:lint (:select ["ALL"]))))))))
+  ;(add-to-list 'eglot-server-programs `((python-ts-mode) . ("rass" "python"))); :initializationOptions '(:ruff (:settings (:configuration (:lint (:select ["ALL"]))))))))
 
   ;(add-to-list 'eglot-server-programs `((python-ts-mode) . ("pyrefly" "lsp")))
                                         ;
@@ -488,7 +490,7 @@
   (setq eglot-report-progress nil)
   (setq eglot-events-buffer-config '(:size 0 :format full))
   (setq eglot-prefer-plaintext t)
-  (setq eldoc-display-functions '(eldoc-display-in-buffer))
+  (setq eldoc-display-functions '(eldoc-display-in-echo-area))
   (setq jsonrpc-event-hook nil)
   (add-hook 'eglot-managed-mode-hook
             (lambda ()
@@ -500,7 +502,7 @@
 (use-package flycheck-eglot
   :init
   (global-flycheck-eglot-mode 1)
-  (setq eldoc-display-functions '(eldoc-display-in-buffer))
+  ;(setq eldoc-display-functions )
 )
 
 ;; (use-package eglot-booster
@@ -518,22 +520,21 @@
   :config
   (editorconfig-mode 1))
 
-(defun johmue/eldoc-box--upper-right-window-corner-position-function (width _)
-  "The default function to set childframe position.
-Used by `eldoc-box-position-function'.
-Position is calculated base on WIDTH and HEIGHT of childframe text window"
-  (pcase-let ((`(,offset-l ,offset-r ,offset-t) eldoc-box-offset))
-    (cons
-     (- (+ (window-pixel-left (selected-window))
-           (window-pixel-width (selected-window)))
-        width offset-r)
-     offset-t)))
+;; (defun johmue/eldoc-box--upper-right-window-corner-position-function (width _)
+;;   "The default function to set childframe position.
+;; Used by `eldoc-box-position-function'.
+;; Position is calculated base on WIDTH and HEIGHT of childframe text window"
+;;   (pcase-let ((`(,offset-l ,offset-r ,offset-t) eldoc-box-offset))
+;;     (cons
+;;      (- (+ (window-pixel-left (selected-window))
+;;            (window-pixel-width (selected-window)))
+;;         width offset-r)
+;;      offset-t)))
 
 (use-package eldoc-box
   :config
   (eldoc-box-mouse-mode 1)
-  (eldoc-box-hover-mode -1)
-  )
+  (eldoc-box-hover-mode -1))
 
 (global-eldoc-mode nil)
 
@@ -612,7 +613,7 @@ Position is calculated base on WIDTH and HEIGHT of childframe text window"
       ;; :back rst-python-docstrings-find-back
       :insert ((?d embdocstring nil @ "r\"\"\"" @ _ @ "\"\"\"" @))
       :delimiter-mode nil)))
-  (mmm-add-mode-ext-class 'python-ts-mode nil 'python-rst)
+  ;(mmm-add-mode-ext-class 'python-ts-mode nil 'python-rst)
                                         ;(add-hook 'mmm-python-rst-hook )
   )
 
@@ -671,6 +672,9 @@ Position is calculated base on WIDTH and HEIGHT of childframe text window"
   (unless (treesit-language-available-p 'toml)
     (treesit-install-language-grammar 'toml)))
 
+(use-package gh-copilot-chat
+  :straight (:host github :repo "chep/gh-copilot-chat.el" :files ("*.el"))
+  :after (request org markdown-mode))
 
 (load "use-corfu")
 (load "mode-hooks")
