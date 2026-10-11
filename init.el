@@ -678,6 +678,10 @@
   :straight (:host github :repo "chep/gh-copilot-chat.el" :files ("*.el"))
   :after (request org markdown-mode))
 
+(use-package emacs-opencode
+  :straight
+  (:type git :host github :repo "johannes-mueller/emacs-opencode" :branch "opencode-v2"))
+
 (load "use-corfu")
 (load "mode-hooks")
 (load "johmue-defuns")
