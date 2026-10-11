@@ -457,6 +457,8 @@
   (setq devcontainer-term-environment '(("TERM" . "xterm-256color")))
   (setq devcontainer-startup-secrets-file ".secrets.json"))
 
+(use-package pre-commit
+  :straight (pre-commit :type git :host github :repo "johannes-mueller/pre-commit.el"))
 
 (use-package eglot
   :bind (:map eglot-mode-map
