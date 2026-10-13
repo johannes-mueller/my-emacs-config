@@ -162,7 +162,8 @@
                 eshell-mode-hook
                 treemacs-mode-hook
                 helpful-mode-hook
-                compilation-mode-hook))
+                compilation-mode-hook
+                opencode-session-mode))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
 (require 'dired)
@@ -468,12 +469,12 @@
               ("C-c h" . eldoc-box-help-at-point)
               ("C-c c" . johmue/eglot-string-inflection))
   :config
-  (add-to-list 'eglot-server-programs `((elixir-ts-mode elixir-mode) . ("elixir-ls")))
-  (add-to-list 'eglot-server-programs `((prisma-ts-mode) . ("prisma-language-server" "--stdio")))
+  (add-to-list 'eglot-server-programs '((elixir-ts-mode elixir-mode) . ("elixir-ls")))
+  (add-to-list 'eglot-server-programs '((prisma-ts-mode) . ("prisma-language-server" "--stdio")))
 
   ;(add-to-list 'eglot-server-programs `((python-ts-mode) . ("rass" "python")))
   ;(add-to-list 'eglot-server-programs `((python-ts-mode) . ("ty" "server")))
-  (add-to-list 'eglot-server-programs `((python-ts-mode) . ("rass" "python" "--quiet-server" :initializationOptions '(:ruff (:lint (:select ["ALL"]))))))
+  (add-to-list 'eglot-server-programs '((python-ts-mode) . ("rass" "python" "--quiet-server" :initializationOptions '(:ruff (:lint (:select ["ALL"]))))))
   ;(add-to-list 'eglot-server-programs `((python-ts-mode) . ("rass" "python" "--quiet-server" :initializationOptions '(:ruff (:lint (:select ["ALL"]))))))
   ;(add-to-list 'eglot-server-programs `((python-ts-mode) . ("ruff" "server" :initializationOptions '(:ruff (:configuration (:lint (:select ["ALL"])))))))
 
@@ -487,8 +488,8 @@
      ;                                                       (:ruff (:lint (:select ["E" "F"]))))))
   ;(add-to-list 'eglot-server-programs `((python-ts-mode) . ("ty" "server")))
   ;(add-to-list 'eglot-server-programs `((python-ts-mode) . ("ruff" "server")))
-  (add-to-list 'eglot-server-programs `((dockerfile-ts-mode) . ("docker-langserver" "--stdio")))
-  (add-to-list 'eglot-server-programs `((rust-ts-mode) . ("rust-analyzer")))
+  (add-to-list 'eglot-server-programs '((dockerfile-ts-mode) . ("docker-langserver" "--stdio")))
+  (add-to-list 'eglot-server-programs '((rustic-mode rust-ts-mode rust-mode) . ("~/.cargo/bin/rust-analyzer")))
   (setq eglot-report-progress nil)
   (setq eglot-events-buffer-config '(:size 0 :format full))
   (setq eglot-prefer-plaintext t)
