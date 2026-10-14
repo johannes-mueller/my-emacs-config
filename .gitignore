@@ -31,3 +31,6 @@ tree-sitter/
 /url
 /multisession
 snippets
+temp-elpa
+*.eld
+eca
