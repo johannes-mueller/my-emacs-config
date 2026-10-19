@@ -163,7 +163,7 @@
                 treemacs-mode-hook
                 helpful-mode-hook
                 compilation-mode-hook
-                opencode-session-mode))
+                agent-shell-mode))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
 (require 'dired)
@@ -655,7 +655,7 @@
 
 (use-package auth-source-kwallet
   :config
-  (setq auth-source-kwallet-executable "kwallet-query-wrapper.sh")
+  (setq auth-source-kwallet-executable "kwallet-query")
   (setq auth-source-kwallet-wallet "kdewallet")
   (auth-source-kwallet-enable))
 
@@ -675,13 +675,16 @@
   (unless (treesit-language-available-p 'toml)
     (treesit-install-language-grammar 'toml)))
 
-(use-package gh-copilot-chat
-  :straight (:host github :repo "chep/gh-copilot-chat.el" :files ("*.el"))
-  :after (request org markdown-mode))
-
-(use-package emacs-opencode
-  :straight
-  (:type git :host github :repo "johannes-mueller/emacs-opencode" :branch "opencode-v2"))
+(use-package agent-shell
+  :config
+  (setq agent-shell-preferred-agent-config 'opencode)
+  :hook
+  (agent-shell-mode . (lambda ()
+                        (agent-shell-completion-mode -1)
+                        (display-line-numbers-mode 0)))
+  (agent-shell-viewport-mode . (lambda ()
+                                 (agent-shell-completion-mode -1)
+                                 (display-line-numbers-mode 0))))
 
 (load "use-corfu")
 (load "mode-hooks")
