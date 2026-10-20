@@ -686,6 +686,62 @@
                                  (agent-shell-completion-mode -1)
                                  (display-line-numbers-mode 0))))
 
+(use-package mcp-server
+  :after agent-shell
+  :straight (:type git :host github :repo "rhblind/emacs-mcp-server"
+             :files ("*.el" "tools/*.el" "mcp-wrapper.py" "mcp-wrapper.sh"))
+  :config
+  (add-hook 'emacs-startup-hook #'mcp-server-start-unix)
+  (setq agent-shell-mcp-servers
+        (let ((emacs-d (expand-file-name user-emacs-directory)))
+          `(((name . "emacs")
+             (command . ,(concat emacs-d "straight/repos/emacs-mcp-server/mcp-wrapper.sh"))
+             (args . (,(concat emacs-d "emacs-mcp-server.sock"))))))))
+
+
+
+(require 'mcp-server-tools)
+
+(defun johmue/launch-mcp-compile (args)
+  (let ((cmd (alist-get 'command args)))
+    (compile cmd)))
+
+(defun johmue/query-compile-buffer (_)
+  (when-let* ((buf (get-buffer "*compilation*")))
+    (with-current-buffer buf
+      (buffer-string))))
+
+(mcp-server-register-tool
+ (make-mcp-server-tool
+  :name "build"
+  :title "Launch uild/run/test"
+  :description "
+Run build/run/test tools.
+
+The command given as parameter is launched. The current output of the compile run can
+be queried with the tool query-build-output.
+"
+  :input-schema '((type . "object")
+                  (properties . ((command .((type . "string")
+                                            (description . "The shell escaped command line to run as a string")))))
+                  (required . ["command"]))
+  :function #'johmue/launch-mcp-compile))
+
+(mcp-server-register-tool
+ (make-mcp-server-tool
+  :name "query-build-output"
+  :title "Launch uild/run/test"
+  :description "
+Run build/run/test tools.
+
+The command given as parameter is launched. The current output of the compile run can
+be queried with the tool query-build-output.
+"
+  :input-schema '((type . "object"))
+  :function #'johmue/query-compile-buffer))
+
+(setq mcp-server-emacs-tools-enabled '(build query-build-output))
+
 (load "use-corfu")
 (load "mode-hooks")
 (load "johmue-defuns")
