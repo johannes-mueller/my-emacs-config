@@ -317,6 +317,8 @@
 
 (use-package magit
   :commands magit-status
+  :init
+  (setq magit-diff-specify-hunk-foreground nil)
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
   (magit-diff-refine-hunk (quote all))
