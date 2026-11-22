@@ -193,13 +193,7 @@
 (add-hook 'rustic-mode-hook
           (lambda ()
             (setq indent-tabs-mode nil)
-            (eglot-ensure)
-            (setq fill-column 100)
-            (setq-local whitespace-style (cons
-                                          (car whitespace-style)
-                                          (cons 'tabs (cdr whitespace-style))))
-            (whitespace-mode 1)
-            (require 'dap-gdb-lldb)))
+            (setq fill-column 100)))
 
 
 (use-package dtrt-indent)
