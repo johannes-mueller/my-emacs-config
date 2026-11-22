@@ -226,6 +226,7 @@
   (require 'test-cockpit-python)
   (require 'test-cockpit-cask)
   (require 'test-cockpit-eldev)
+  (require 'test-cockpit-mix)
   (setq test-cockpit-projectile-fallback t)
   (test-cockpit-add-additional-switch 'python-toml "--cov --cov-report=json --cov-append")
   ;(test-cockpit-preselect-switch 'python-toml "use-uv")
